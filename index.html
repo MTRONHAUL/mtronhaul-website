@@ -17,18 +17,24 @@
         video { object-fit: cover; filter: brightness(0.5); }
         html { scroll-behavior: smooth; }
         .nav-link { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; transition: all 0.3s; }
+        /* 针对品牌红色的自定义选择器 */
+        .text-brand-red { color: rgb(255, 59, 48); }
+        .bg-brand-red { background-color: rgb(255, 59, 48); }
+        .border-brand-red { border-color: rgb(255, 59, 48); }
     </style>
 </head>
 <body class="bg-white text-slate-900 font-sans antialiased">
 
     <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <div class="text-2xl font-black text-orange-600 tracking-tighter">MTRONHAUL™</div>
-            <div class="hidden md:flex space-x-8 text-center">
-                <a href="#about" class="nav-link text-slate-500 hover:text-orange-600">Our Story</a>
-                <a href="#features" class="nav-link text-slate-500 hover:text-orange-600">Innovation</a>
-                <a href="#specs" class="nav-link text-slate-500 hover:text-orange-600">Tech Specs</a>
-                <a href="#partner" class="nav-link text-orange-600 border-b-2 border-orange-600">Global Partnership</a>
+            <a href="#" class="flex items-center">
+                <img src="logo.svg" alt="MTRONHAUL" class="h-10 w-auto">
+            </a>
+            <div class="hidden md:flex space-x-8">
+                <a href="#about" class="nav-link text-slate-500 hover:text-brand-red">Our Story</a>
+                <a href="#features" class="nav-link text-slate-500 hover:text-brand-red">Innovation</a>
+                <a href="#specs" class="nav-link text-slate-500 hover:text-brand-red">Tech Specs</a>
+                <a href="#partner" class="nav-link text-brand-red border-b-2 border-brand-red">Global Partnership</a>
             </div>
         </div>
     </nav>
@@ -36,8 +42,8 @@
     <section class="relative h-screen flex items-center justify-center bg-slate-900 text-white text-center px-6">
         <div class="relative z-10">
             <h1 class="text-6xl md:text-8xl font-black mb-4 italic tracking-tight uppercase">T-Pro Series</h1>
-            <p class="text-lg md:text-xl font-light tracking-[0.4em] text-orange-400 mb-10 uppercase">Smarter Towing, Safer Adventures</p>
-            <a href="#about" class="bg-white text-slate-900 hover:bg-orange-600 hover:text-white px-12 py-4 rounded-full font-bold transition-all uppercase text-sm tracking-widest inline-block">Discover M-Tron</a>
+            <p class="text-lg md:text-xl font-light tracking-[0.4em] text-brand-red mb-10 uppercase">Smarter Towing, Safer Adventures</p>
+            <a href="#about" class="bg-white text-slate-900 hover:bg-brand-red hover:text-white px-12 py-4 rounded-full font-bold transition-all uppercase text-sm tracking-widest inline-block">Discover M-Tron</a>
         </div>
     </section>
 
@@ -45,9 +51,9 @@
         <div class="container mx-auto px-6">
             <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-16 items-center">
                 <div>
-                    <h2 class="text-orange-600 text-xs font-black uppercase tracking-[0.4em] mb-6">Who We Are</h2>
-                    <h3 class="text-4xl md:text-5xl font-black mb-8 leading-[1.1] text-slate-900">Expertise Meets <span class="text-slate-400 italic font-light">Endless Trails.</span></h3>
-                    <div class="space-y-6 text-slate-600 leading-relaxed text-lg text-justify">
+                    <h2 class="text-brand-red text-xs font-black uppercase tracking-[0.4em] mb-6 text-left">Who We Are</h2>
+                    <h3 class="text-4xl md:text-5xl font-black mb-8 leading-[1.1] text-slate-900 text-left text-left">Expertise Meets <span class="text-slate-400 italic font-light">Endless Trails.</span></h3>
+                    <div class="space-y-6 text-slate-600 leading-relaxed text-lg text-justify text-justify">
                         <p>
                             Founded in August 2021 by a team of senior automotive R&D professionals, Beijing M-Tron Technology creatively integrates electric vehicle, off-road vehicle, and drone control technologies.
                         </p>
@@ -62,7 +68,7 @@
                         <div class="text-[10px] uppercase font-black text-slate-400 tracking-tighter">Founded</div>
                     </div>
                     <div class="bg-slate-900 p-8 rounded-3xl shadow-xl text-white">
-                        <div class="text-4xl font-black text-orange-500 mb-2">48V</div>
+                        <div class="text-4xl font-black text-brand-red mb-2">48V</div>
                         <div class="text-[10px] uppercase font-black text-slate-400 tracking-tighter">System</div>
                     </div>
                     <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-100 col-span-2">
@@ -76,7 +82,7 @@
 
     <section id="features" class="py-32 bg-white text-center">
         <div class="container mx-auto px-6">
-            <h2 class="text-4xl font-black uppercase tracking-tight mb-20">Pioneering Trailer Independence</h2>
+            <h2 class="text-4xl font-black uppercase tracking-tight mb-20 text-center">Pioneering Trailer Independence</h2>
             <div class="grid md:grid-cols-3 gap-8 text-left">
                 <div class="relative overflow-hidden rounded-[2.5rem] bg-slate-800 aspect-[4/5] shadow-xl group">
                     <video autoplay loop muted playsinline preload="auto" class="absolute inset-0 w-full h-full opacity-60">
@@ -87,20 +93,20 @@
                         <p class="text-slate-300 text-xs italic">Precision maneuvering within campsites.</p>
                     </div>
                 </div>
-                <div class="relative overflow-hidden rounded-[2.5rem] bg-slate-800 aspect-[4/5] shadow-xl group">
+                <div class="relative overflow-hidden rounded-[2.5rem] bg-slate-800 aspect-[4/5] shadow-xl group text-white">
                     <video autoplay loop muted playsinline preload="auto" class="absolute inset-0 w-full h-full opacity-60">
                         <source src="assets/terrain.mp4" type="video/mp4">
                     </video>
-                    <div class="relative z-10 p-10 h-full flex flex-col justify-end">
-                        <h4 class="text-2xl font-black text-white uppercase mb-2 text-white">All-Terrain</h4>
+                    <div class="relative z-10 p-10 h-full flex flex-col justify-end text-white text-white">
+                        <h4 class="text-2xl font-black text-white uppercase mb-2">All-Terrain</h4>
                         <p class="text-slate-300 text-xs italic">>450kg force per wheel to conquer any road.</p>
                     </div>
                 </div>
-                <div class="relative overflow-hidden rounded-[2.5rem] bg-slate-800 aspect-[4/5] shadow-xl group">
-                    <video autoplay loop muted playsinline preload="auto" class="absolute inset-0 w-full h-full opacity-60">
+                <div class="relative overflow-hidden rounded-[2.5rem] bg-slate-800 aspect-[4/5] shadow-xl group text-white">
+                    <video autoplay loop muted playsinline preload="auto" class="absolute inset-0 w-full h-full opacity-60 text-white">
                         <source src="assets/stability.mp4" type="video/mp4">
                     </video>
-                    <div class="relative z-10 p-10 h-full flex flex-col justify-end">
+                    <div class="relative z-10 p-10 h-full flex flex-col justify-end text-white">
                         <h4 class="text-2xl font-black text-white uppercase mb-2 text-white">Brake Control</h4>
                         <p class="text-slate-300 text-xs italic">Smart QAI-certified EMB for road safety.</p>
                     </div>
@@ -110,17 +116,17 @@
     </section>
 
     <section id="specs" class="py-32 bg-slate-50">
-        <div class="container mx-auto px-6 text-center">
-            <h2 class="text-3xl font-black mb-16 uppercase italic tracking-widest">T-Pro Technical Specs</h2>
-            <div class="max-w-4xl mx-auto overflow-hidden bg-white rounded-2xl shadow-2xl border border-slate-100">
-                <table class="w-full text-left border-collapse">
-                    <thead class="bg-slate-900 text-white">
+        <div class="container mx-auto px-6 text-center text-center">
+            <h2 class="text-3xl font-black mb-16 uppercase italic tracking-widest text-center text-center">T-Pro Technical Specs</h2>
+            <div class="max-w-4xl mx-auto overflow-hidden bg-white rounded-2xl shadow-2xl border border-slate-100 text-center">
+                <table class="w-full text-left border-collapse text-center">
+                    <thead class="bg-slate-900 text-white text-center">
                         <tr>
                             <th class="p-6 uppercase tracking-widest text-sm text-center">Parameter</th>
-                            <th class="p-6 text-orange-400 font-black uppercase tracking-widest text-sm text-center">Value</th>
+                            <th class="p-6 text-brand-red font-black uppercase tracking-widest text-sm text-center">Value</th>
                         </tr>
                     </thead>
-                    <tbody class="divide-y divide-gray-100 text-center">
+                    <tbody class="divide-y divide-gray-100 text-center text-center">
                         <tr>
                             <td class="p-6 font-bold text-slate-500 uppercase text-xs">Driving Force (Per Wheel)</td>
                             <td class="p-6 font-black text-green-600">> 450 Kg</td>
@@ -131,14 +137,14 @@
                         </tr>
                         <tr>
                             <td class="p-6 font-bold text-slate-500 uppercase text-xs">System Voltage</td>
-                            <td class="p-6 font-black text-orange-600">48V - 72V DC</td>
+                            <td class="p-6 font-black text-brand-red">48V - 72V DC</td>
                         </tr>
                         <tr>
                             <td class="p-6 font-bold text-slate-500 uppercase text-xs">Braking System</td>
-                            <td class="p-6 font-black text-slate-700">Electromagnetic (EMB)</td>
+                            <td class="p-6 font-black text-slate-700 text-center">Electromagnetic (EMB)</td>
                         </tr>
                         <tr>
-                            <td class="p-6 font-bold text-slate-500 uppercase text-xs">Communication</td>
+                            <td class="p-6 font-bold text-slate-500 uppercase text-xs text-center text-center text-center">Communication</td>
                             <td class="p-6 font-black text-slate-700">Wireless Remote / Bluetooth App</td>
                         </tr>
                     </tbody>
@@ -149,7 +155,7 @@
 
     <section id="partner" class="py-32 bg-slate-900 text-white text-center">
         <div class="container mx-auto px-6">
-            <h2 class="text-orange-500 text-xs font-black uppercase tracking-[0.6em] mb-6 text-center">Partnership</h2>
+            <h2 class="text-brand-red text-xs font-black uppercase tracking-[0.6em] mb-6 text-center">Partnership</h2>
             <h3 class="text-4xl md:text-6xl font-black mb-12 uppercase italic leading-tight text-white text-center">Build the Future of <br>Adventure Together</h3>
             <p class="text-slate-400 text-lg mb-12 max-w-4xl mx-auto leading-relaxed text-center">
                 MTRONHAUL is actively seeking global distributors and caravan manufacturers. 
@@ -157,12 +163,12 @@
             </p>
             <div class="grid md:grid-cols-2 gap-8 text-left max-w-4xl mx-auto">
                 <div class="p-8 bg-white/5 border border-white/10 rounded-3xl">
-                    <h4 class="font-black mb-4 uppercase text-orange-500">Business Inquiry</h4>
+                    <h4 class="font-black mb-4 uppercase text-brand-red">Business Inquiry</h4>
                     <p class="text-sm text-slate-300 mb-6 italic font-light">For dealership applications and OEM collaborations.</p>
-                    <a href="mailto:mtronrvs@163.com" class="text-xl font-bold hover:text-orange-500 transition tracking-tight">mtronrvs@163.com</a>
+                    <a href="mailto:mtronrvs@163.com" class="text-xl font-bold hover:text-brand-red transition tracking-tight">mtronrvs@163.com</a>
                 </div>
                 <div class="p-8 bg-white/5 border border-white/10 rounded-3xl">
-                    <h4 class="font-black mb-4 uppercase text-orange-500 text-white">Technical Support</h4>
+                    <h4 class="font-black mb-4 uppercase text-brand-red text-white">Technical Support</h4>
                     <p class="text-sm text-slate-300 mb-6 italic font-light">In-depth communication on chassis layout and power electronics.</p>
                     <p class="text-xl font-bold tracking-tight text-white">0086-18501026260</p>
                 </div>
@@ -173,14 +179,14 @@
     <footer class="py-16 bg-white border-t">
         <div class="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center text-center md:text-left">
             <div class="mb-8 md:mb-0">
-                <div class="text-2xl font-black text-orange-600 mb-2 uppercase tracking-tighter">MTRONHAUL™</div>
+                <div class="text-2xl font-black text-brand-red mb-2 uppercase tracking-tighter">MTRONHAUL™</div>
                 <p class="text-[10px] text-slate-400 uppercase tracking-widest leading-loose">
                     Beijing M-Tron Technology Co., Ltd. <br>
                     Room 452, Building 3, Jingguanbeier St, Shunyi, Beijing, China
                 </p>
             </div>
             <div class="text-right">
-                <p class="text-[10px] font-black uppercase text-slate-900 tracking-widest mb-2">Commercial Confidential</p>
+                <p class="text-[10px] font-black uppercase text-slate-900 tracking-widest mb-2 text-center md:text-right">Commercial Confidential</p>
                 <p class="text-[9px] text-slate-400 italic font-medium">Smarter Towing, Safer Adventures</p>
             </div>
         </div>
