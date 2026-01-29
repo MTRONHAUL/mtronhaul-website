@@ -12,6 +12,7 @@
     
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
     
     <style>
         video { object-fit: cover; filter: brightness(0.5); }
@@ -24,6 +25,15 @@
         .border-brand-red { border-color: rgb(215, 0, 15); }
         .hover\:text-brand-red:hover { color: rgb(215, 0, 15); }
         .hover\:bg-brand-red:hover { background-color: rgb(215, 0, 15); }
+
+        /* 粒子容器样式 */
+        #particles-js {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: transparent;
+            z-index: 0; /* 确保在内容之下 */
+        }
     </style>
 </head>
 <body class="bg-white text-slate-900 font-sans antialiased">
@@ -42,10 +52,12 @@
         </div>
     </nav>
 
-    <section class="relative h-screen flex items-center justify-center bg-slate-900 text-white text-center px-6">
-        <div class="relative z-10">
-            <h1 class="text-6xl md:text-8xl font-black mb-4 italic tracking-tight uppercase">T-Pro Series</h1>
-            <p class="text-lg md:text-xl font-light tracking-[0.4em] text-brand-red mb-10 uppercase">Smarter Towing, Safer Adventures</p>
+    <section class="relative h-screen flex items-center justify-center bg-slate-900 text-white text-center px-6 overflow-hidden">
+        <div id="particles-js" class="absolute inset-0"></div>
+        
+        <div class="relative z-10 flex flex-col items-center">
+            <img src="mtronhaul.svg" alt="MTRONHAUL T-Pro Series - Smarter Towing, Safer Adventures" class="h-32 md:h-48 w-auto mb-12 mx-auto object-contain filter drop-shadow-lg">
+            
             <a href="#about" class="bg-white text-slate-900 hover:bg-brand-red hover:text-white px-12 py-4 rounded-full font-bold transition-all uppercase text-sm tracking-widest inline-block">Discover M-Tron</a>
         </div>
     </section>
@@ -195,5 +207,114 @@
         </div>
     </footer>
 
+    <script>
+        particlesJS('particles-js',
+          {
+            "particles": {
+              "number": {
+                "value": 80,
+                "density": {
+                  "enable": true,
+                  "value_area": 800
+                }
+              },
+              "color": {
+                "value": "#ffffff"
+              },
+              "shape": {
+                "type": "circle",
+                "stroke": {
+                  "width": 0,
+                  "color": "#000000"
+                },
+                "polygon": {
+                  "nb_sides": 5
+                }
+              },
+              "opacity": {
+                "value": 0.2,
+                "random": false,
+                "anim": {
+                  "enable": false,
+                  "speed": 1,
+                  "opacity_min": 0.1,
+                  "sync": false
+                }
+              },
+              "size": {
+                "value": 3,
+                "random": true,
+                "anim": {
+                  "enable": false,
+                  "speed": 40,
+                  "size_min": 0.1,
+                  "sync": false
+                }
+              },
+              "line_linked": {
+                "enable": true,
+                "distance": 150,
+                "color": "#ffffff",
+                "opacity": 0.2,
+                "width": 1
+              },
+              "move": {
+                "enable": true,
+                "speed": 2,
+                "direction": "none",
+                "random": false,
+                "straight": false,
+                "out_mode": "out",
+                "bounce": false,
+                "attract": {
+                  "enable": false,
+                  "rotateX": 600,
+                  "rotateY": 1200
+                }
+              }
+            },
+            "interactivity": {
+              "detect_on": "canvas",
+              "events": {
+                "onhover": {
+                  "enable": true,
+                  "mode": "grab"
+                },
+                "onclick": {
+                  "enable": true,
+                  "mode": "push"
+                },
+                "resize": true
+              },
+              "modes": {
+                "grab": {
+                  "distance": 140,
+                  "line_linked": {
+                    "opacity": 0.5
+                  }
+                },
+                "bubble": {
+                  "distance": 400,
+                  "size": 40,
+                  "duration": 2,
+                  "opacity": 8,
+                  "speed": 3
+                },
+                "repulse": {
+                  "distance": 200,
+                  "duration": 0.4
+                },
+                "push": {
+                  "particles_nb": 4
+                },
+                "remove": {
+                  "particles_nb": 2
+                }
+              }
+            },
+            "retina_detect": true
+          }
+        );
+    </script>
 </body>
 </html>
