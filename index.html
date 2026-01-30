@@ -36,6 +36,15 @@
             animation: heroFadeIn 3s ease-out forwards, kenburns 25s ease-in-out infinite alternate;
         }
 
+        /* 移动端菜单样式 */
+        #mobile-menu {
+            transition: transform 0.3s ease-in-out;
+            transform: translateY(-100%);
+        }
+        #mobile-menu.active {
+            transform: translateY(0);
+        }
+
         #lightbox {
             display: none;
             position: fixed;
@@ -55,17 +64,29 @@
         <img id="lightbox-img" src="" class="max-w-[90%] max-h-[90%] shadow-2xl rounded-lg border-2 border-white/10">
     </div>
 
-    <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b">
+    <nav class="fixed w-full z-[100] bg-white/90 backdrop-blur-md border-b">
         <div class="container mx-auto px-6 py-3 flex justify-between items-center">
             <a href="#hero" class="flex items-center">
                 <img src="logo.svg" alt="MTRONHAUL" class="h-10 w-auto object-contain">
             </a>
+            
             <div class="hidden md:flex space-x-8">
                 <a href="#about" class="nav-link text-slate-500 hover:text-brand-red">Our Story</a>
                 <a href="#features" class="nav-link text-slate-500 hover:text-brand-red">Innovation</a>
                 <a href="#specs" class="nav-link text-slate-500 hover:text-brand-red">Tech Specs</a>
                 <a href="#partner" class="nav-link text-brand-red border-b-2 border-brand-red">Global Partnership</a>
             </div>
+
+            <button onclick="toggleMenu()" class="md:hidden text-slate-900 text-2xl focus:outline-none">
+                <i id="menu-icon" class="fas fa-bars"></i>
+            </button>
+        </div>
+
+        <div id="mobile-menu" class="absolute top-full left-0 w-full bg-white border-b md:hidden flex flex-col items-center py-6 space-y-6 shadow-xl">
+            <a href="#about" onclick="toggleMenu()" class="nav-link text-slate-900">Our Story</a>
+            <a href="#features" onclick="toggleMenu()" class="nav-link text-slate-900">Innovation</a>
+            <a href="#specs" onclick="toggleMenu()" class="nav-link text-slate-900">Tech Specs</a>
+            <a href="#partner" onclick="toggleMenu()" class="nav-link text-brand-red">Global Partnership</a>
         </div>
     </nav>
 
@@ -106,8 +127,7 @@
                 <h2 class="text-brand-red text-xs font-black uppercase tracking-[0.6em] mb-4">The Challenge</h2>
                 <h3 class="text-3xl md:text-4xl font-black uppercase italic">Towing Pain Points</h3>
             </div>
-            
-            <div class="grid md:grid-cols-3 gap-12">
+            <div class="grid md:grid-cols-3 gap-12 text-center">
                 <div class="text-center group">
                     <div class="w-24 h-24 bg-red-50 rounded-full flex items-center justify-center mx-auto mb-6 shadow-sm group-hover:bg-brand-red transition-all duration-500">
                         <i class="fas fa-arrows-alt text-3xl text-brand-red group-hover:text-white"></i>
@@ -137,9 +157,10 @@
                 <h2 class="text-brand-red text-xs font-black uppercase tracking-[0.6em] mb-4">Our Solution</h2>
                 <h3 class="text-3xl md:text-5xl font-black uppercase italic">Pioneering Independence</h3>
             </div>
+            
             <div class="grid md:grid-cols-3 gap-8 text-left">
                 <div class="relative overflow-hidden rounded-[2.5rem] bg-slate-800 aspect-[4/5] shadow-xl group">
-                    <video autoplay loop muted playsinline preload="auto" class="absolute inset-0 w-full h-full opacity-60">
+                    <video autoplay loop muted playsinline webkit-playsinline x5-video-player-type="h5-page" preload="metadata" class="absolute inset-0 w-full h-full opacity-60">
                         <source src="assets/hitching.mp4" type="video/mp4">
                     </video>
                     <div class="relative z-10 p-10 h-full flex flex-col justify-end text-center">
@@ -148,7 +169,7 @@
                     </div>
                 </div>
                 <div class="relative overflow-hidden rounded-[2.5rem] bg-slate-800 aspect-[4/5] shadow-xl group">
-                    <video autoplay loop muted playsinline preload="auto" class="absolute inset-0 w-full h-full opacity-60">
+                    <video autoplay loop muted playsinline webkit-playsinline x5-video-player-type="h5-page" preload="metadata" class="absolute inset-0 w-full h-full opacity-60">
                         <source src="assets/terrain.mp4" type="video/mp4">
                     </video>
                     <div class="relative z-10 p-10 h-full flex flex-col justify-end text-center">
@@ -157,7 +178,7 @@
                     </div>
                 </div>
                 <div class="relative overflow-hidden rounded-[2.5rem] bg-slate-800 aspect-[4/5] shadow-xl group">
-                    <video autoplay loop muted playsinline preload="auto" class="absolute inset-0 w-full h-full opacity-60">
+                    <video autoplay loop muted playsinline webkit-playsinline x5-video-player-type="h5-page" preload="metadata" class="absolute inset-0 w-full h-full opacity-60">
                         <source src="assets/stability.mp4" type="video/mp4">
                     </video>
                     <div class="relative z-10 p-10 h-full flex flex-col justify-end text-center">
@@ -170,9 +191,8 @@
     </section>
 
     <section id="specs" class="py-32 bg-slate-50">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-black mb-16 uppercase italic tracking-widest text-center">T-Pro Technical Specs</h2>
-            
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl font-black mb-16 uppercase italic tracking-widest">T-Pro Technical Specs</h2>
             <div class="max-w-4xl mx-auto overflow-x-auto rounded-2xl shadow-2xl border border-slate-100 bg-white">
                 <table class="w-full text-left border-collapse min-w-[500px]">
                     <thead class="bg-slate-900 text-white">
@@ -195,39 +215,17 @@
                             <td class="p-4 md:p-6 font-black text-brand-red text-sm md:text-base">12V - 48V DC</td>
                         </tr>
                         <tr>
-                            <td class="p-4 md:p-6 font-bold text-slate-500 uppercase text-[10px] md:text-xs">Braking System</td>
+                            <td class="p-4 md:p-6 font-bold text-slate-500 uppercase text-[10px] md:text-xs text-center">Braking System</td>
                             <td class="p-4 md:p-6 font-black text-slate-700 text-sm md:text-base">Electromagnetic (EMB)</td>
-                        </tr>
-                        <tr>
-                            <td class="p-4 md:p-6 font-bold text-slate-500 uppercase text-[10px] md:text-xs">Communication</td>
-                            <td class="p-4 md:p-6 font-black text-slate-700 text-[10px] md:text-xs">Wireless Remote / Bluetooth App</td>
                         </tr>
                     </tbody>
                 </table>
             </div>
-
-            <div class="mt-12 text-center">
-                <a href="specs.html" class="inline-flex items-center gap-3 bg-brand-red text-white px-10 py-4 rounded-full font-black uppercase text-sm tracking-widest hover:bg-slate-900 transition-all shadow-xl hover:-translate-y-1">
+            <div class="mt-12">
+                <a href="specs.html" class="inline-flex items-center gap-3 bg-brand-red text-white px-10 py-4 rounded-full font-black uppercase text-sm tracking-widest hover:bg-slate-900 transition-all shadow-xl">
                     <span>Explore Full Technical Data</span>
                     <i class="fas fa-arrow-right"></i>
                 </a>
-            </div>
-        </div>
-    </section>
-
-    <section id="partner" class="py-32 bg-slate-900 text-white text-center">
-        <div class="container mx-auto px-6">
-            <h2 class="text-brand-red text-xs font-black uppercase tracking-[0.6em] mb-6">Partnership</h2>
-            <h3 class="text-4xl md:text-6xl font-black mb-12 uppercase italic leading-tight text-white">Build the Future of <br>Adventure Together</h3>
-            <div class="grid md:grid-cols-2 gap-8 text-left max-w-4xl mx-auto">
-                <div class="p-8 bg-white/5 border border-white/10 rounded-3xl">
-                    <h4 class="font-black mb-4 uppercase text-brand-red text-center">Business Inquiry</h4>
-                    <a href="mailto:mtronrvs@163.com" class="text-xl font-bold hover:text-brand-red transition tracking-tight text-center block">mtronrvs@163.com</a>
-                </div>
-                <div class="p-8 bg-white/5 border border-white/10 rounded-3xl">
-                    <h4 class="font-black mb-4 uppercase text-brand-red text-white text-center">Technical Support</h4>
-                    <p class="text-xl font-bold tracking-tight text-white text-center">0086-18501026260</p>
-                </div>
             </div>
         </div>
     </section>
@@ -239,18 +237,33 @@
                 <p class="text-[10px] text-slate-400 uppercase tracking-widest leading-loose">Beijing M-Tron Technology Co., Ltd. <br>Room 452, Building 3, Jingguanbeier St, Shunyi, Beijing, China</p>
             </div>
             <div class="text-right">
-                <p class="text-[10px] font-black uppercase text-slate-900 tracking-widest mb-2">Commercial Confidential | v1.4</p>
-                <p class="text-[9px] text-slate-400 italic font-medium text-center">Smarter Towing, Safer Adventures</p>
+                <p class="text-[10px] font-black uppercase text-slate-900 tracking-widest mb-2">Commercial Confidential | v1.5</p>
+                <p class="text-[9px] text-slate-400 italic font-medium">Adventure Beyond</p>
             </div>
         </div>
     </footer>
 
     <script>
+        // 1. 强制回顶
         window.onload = function() {
             if (!window.location.hash || window.location.hash === '#hero') {
                 window.scrollTo(0, 0);
             }
         };
+
+        // 2. 移动端导航切换
+        function toggleMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const icon = document.getElementById('menu-icon');
+            menu.classList.toggle('active');
+            if (menu.classList.contains('active')) {
+                icon.classList.replace('fa-bars', 'fa-times');
+            } else {
+                icon.classList.replace('fa-times', 'fa-bars');
+            }
+        }
+
+        // 3. 灯箱逻辑
         function openLightbox(imgSrc) {
             const lightbox = document.getElementById('lightbox');
             const lightboxImg = document.getElementById('lightbox-img');
@@ -263,6 +276,14 @@
             lightbox.style.display = 'none';
             document.body.style.overflow = 'auto'; 
         }
+
+        // 4. 强制视频播放补丁 (针对微信/Safari 自动播放限制)
+        document.addEventListener('touchstart', function() {
+            const videos = document.querySelectorAll('video');
+            videos.forEach(v => {
+                if (v.paused) v.play();
+            });
+        }, { once: true });
     </script>
 
 </body>
