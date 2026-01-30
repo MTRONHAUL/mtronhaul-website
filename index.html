@@ -11,38 +11,31 @@
     <link rel="manifest" href="site.webmanifest">
     
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     
     <style>
         video { object-fit: cover; filter: brightness(0.5); }
         html { scroll-behavior: smooth; }
         .nav-link { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; transition: all 0.3s; }
         
-        /* 品牌红色核心配置 RGB(215, 0, 15) */
         .text-brand-red { color: rgb(215, 0, 15); }
         .bg-brand-red { background-color: rgb(215, 0, 15); }
         .border-brand-red { border-color: rgb(215, 0, 15); }
         .hover\:text-brand-red:hover { color: rgb(215, 0, 15); }
         .hover\:bg-brand-red:hover { background-color: rgb(215, 0, 15); }
 
-        /* --- 动画系统 --- */
         @keyframes kenburns {
             0% { transform: scale(1); }
             100% { transform: scale(1.1); }
         }
-
         @keyframes heroFadeIn {
             0% { opacity: 0; filter: brightness(0); }
             100% { opacity: 1; filter: brightness(0.4); }
         }
-
         .animate-hero-refined {
-            animation: 
-                heroFadeIn 3s ease-out forwards,
-                kenburns 25s ease-in-out infinite alternate;
+            animation: heroFadeIn 3s ease-out forwards, kenburns 25s ease-in-out infinite alternate;
         }
 
-        /* 灯箱样式 */
         #lightbox {
             display: none;
             position: fixed;
@@ -80,7 +73,6 @@
         <div class="absolute inset-0 z-0 overflow-hidden">
             <img src="hero-bg.webp" alt="MTRONHAUL Adventure" class="w-full h-full object-cover animate-hero-refined transform-gpu">
         </div>
-        
         <div class="relative z-10 flex flex-col items-center">
             <img src="mtronhaul.svg" alt="MTRONHAUL T-Pro Series" class="h-24 md:h-32 w-auto mb-12 mx-auto object-contain filter drop-shadow-lg">
             <a href="#about" class="bg-white text-slate-900 hover:bg-brand-red hover:text-white px-12 py-4 rounded-full font-bold transition-all uppercase text-sm tracking-widest inline-block">Discover T-Pro</a>
@@ -92,17 +84,11 @@
             <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-16 items-center">
                 <div>
                     <h2 class="text-brand-red text-xs font-black uppercase tracking-[0.4em] mb-6">Our Story</h2>
-                    <h3 class="text-4xl md:text-5xl font-black mb-8 leading-[1.1] text-slate-900 text-left">Redefining the <span class="text-slate-400 italic font-light">Journey Beyond</span></h3>
+                    <h3 class="text-4xl md:text-5xl font-black mb-8 leading-[1.1] text-slate-900">Redefining the <span class="text-slate-400 italic font-light">Journey Beyond</span></h3>
                     <div class="space-y-6 text-slate-600 leading-relaxed text-lg text-justify">
-                        <p>
-                            Founded by veterans in automotive R&D and outdoor exploration, M-Tron Technology stands at the intersection of <strong>engineering precision</strong> and the <strong>spirit of adventure</strong>.
-                        </p>
-                        <p>
-                            We specialize in intelligent electrified chassis platforms for <strong>towable RVs and specialty trailers</strong>, delivering system-level solutions from rugged hardware to smart control.
-                        </p>
-                        <p>
-                            Driven by innovation and reliability, our mission is to empower every explorer to <strong>Adventure Beyond</strong>.
-                        </p>
+                        <p>Founded by veterans in automotive R&D and outdoor exploration, M-Tron Technology stands at the intersection of <strong>engineering precision</strong> and the <strong>spirit of adventure</strong>.</p>
+                        <p>We specialize in intelligent electrified chassis platforms for <strong>towable RVs and specialty trailers</strong>, delivering system-level solutions from rugged hardware to smart control.</p>
+                        <p>Driven by innovation and reliability, our mission is to empower every explorer to <strong>Adventure Beyond</strong>.</p>
                     </div>
                 </div>
                 <div class="relative group cursor-zoom-in" onclick="openLightbox('product-story.webp')">
@@ -124,11 +110,11 @@
             <div class="grid md:grid-cols-3 gap-12">
                 <div class="text-center group">
                     <div class="w-24 h-24 bg-red-50 rounded-full flex items-center justify-center mx-auto mb-6 shadow-sm group-hover:bg-brand-red transition-all duration-500">
-                        <i class="fas fa-triangle-exclamation text-3xl text-brand-red group-hover:text-white"></i>
+                        <i class="fas fa-arrows-alt text-3xl text-brand-red group-hover:text-white"></i>
                     </div>
-                    <h4 class="font-black uppercase mb-4 text-sm tracking-widest">Lack of Safety</h4>
+                    <h4 class="font-black uppercase mb-4 text-sm tracking-widest">Maneuvering Anxiety</h4>
                     <p class="text-slate-500 text-sm leading-relaxed px-4">
-                        Swaying on roads, poor balance on off-road terrain, and braking lag on high-speed downhill runs.
+                        Intense reversing challenges and difficulty positioning heavy trailers without a towing vehicle.
                     </p>
                 </div>
                 <div class="text-center group">
@@ -142,11 +128,11 @@
                 </div>
                 <div class="text-center group">
                     <div class="w-24 h-24 bg-red-50 rounded-full flex items-center justify-center mx-auto mb-6 shadow-sm group-hover:bg-brand-red transition-all duration-500">
-                        <i class="fas fa-arrows-to-dot text-3xl text-brand-red group-hover:text-white"></i>
+                        <i class="fas fa-triangle-exclamation text-3xl text-brand-red group-hover:text-white"></i>
                     </div>
-                    <h4 class="font-black uppercase mb-4 text-sm tracking-widest">Maneuvering Anxiety</h4>
+                    <h4 class="font-black uppercase mb-4 text-sm tracking-widest">Insufficient Active Safety</h4>
                     <p class="text-slate-500 text-sm leading-relaxed px-4">
-                        Intense reversing challenges and difficulty positioning heavy trailers without a towing vehicle.
+                        Swaying on roads, poor balance on off-road terrain, and braking lag on high-speed downhill runs.
                     </p>
                 </div>
             </div>
@@ -157,7 +143,6 @@
                 <h2 class="text-brand-red text-xs font-black uppercase tracking-[0.6em] mb-4">Our Solution</h2>
                 <h3 class="text-3xl md:text-5xl font-black uppercase italic">Pioneering Independence</h3>
             </div>
-            
             <div class="grid md:grid-cols-3 gap-8 text-left">
                 <div class="relative overflow-hidden rounded-[2.5rem] bg-slate-800 aspect-[4/5] shadow-xl group">
                     <video autoplay loop muted playsinline preload="auto" class="absolute inset-0 w-full h-full opacity-60">
@@ -192,10 +177,10 @@
 
     <section id="specs" class="py-32 bg-slate-50">
         <div class="container mx-auto px-6 text-center">
-            <h2 class="text-3xl font-black mb-16 uppercase italic tracking-widest text-center">T-Pro Technical Specs</h2>
-            <div class="max-w-4xl mx-auto overflow-hidden bg-white rounded-2xl shadow-2xl border border-slate-100 text-center">
-                <table class="w-full text-left border-collapse text-center">
-                    <thead class="bg-slate-900 text-white text-center">
+            <h2 class="text-3xl font-black mb-16 uppercase italic tracking-widest">T-Pro Technical Specs</h2>
+            <div class="max-w-4xl mx-auto overflow-hidden bg-white rounded-2xl shadow-2xl border border-slate-100">
+                <table class="w-full text-left border-collapse">
+                    <thead class="bg-slate-900 text-white">
                         <tr>
                             <th class="p-6 uppercase tracking-widest text-sm text-center">Parameter</th>
                             <th class="p-6 text-brand-red font-black uppercase tracking-widest text-sm text-center">Value</th>
@@ -204,7 +189,7 @@
                     <tbody class="divide-y divide-gray-100 text-center">
                         <tr>
                             <td class="p-6 font-bold text-slate-500 uppercase text-xs text-center">Driving Torque</td>
-                            <td class="p-6 font-black text-green-600 text-center">1500 Nm</td>
+                            <td class="p-6 font-black text-green-600 text-center">1200 - 1800 Nm</td>
                         </tr>
                         <tr>
                             <td class="p-6 font-bold text-slate-500 uppercase text-xs text-center">Speed Range</td>
@@ -215,12 +200,12 @@
                             <td class="p-6 font-black text-brand-red text-center">12V - 48V DC</td>
                         </tr>
                         <tr>
-                            <td class="p-6 font-bold text-slate-500 uppercase text-xs text-center">Braking System</td>
-                            <td class="p-6 font-black text-slate-700 text-center">Electromagnetic (EMB)</td>
+                            <td class="p-6 font-bold text-slate-500 uppercase text-xs text-center text-center">Braking System</td>
+                            <td class="p-6 font-black text-slate-700 text-center text-center">Electromagnetic (EMB)</td>
                         </tr>
                         <tr>
-                            <td class="p-6 font-bold text-slate-500 uppercase text-xs text-center">Communication</td>
-                            <td class="p-6 font-black text-slate-700 text-xs text-center">Wireless Remote / Bluetooth App</td>
+                            <td class="p-6 font-bold text-slate-500 uppercase text-xs text-center text-center text-center">Communication</td>
+                            <td class="p-6 font-black text-slate-700 text-xs text-center text-center text-center">Wireless Remote / Bluetooth App</td>
                         </tr>
                     </tbody>
                 </table>
@@ -231,28 +216,23 @@
                     <span>Explore Full Technical Data</span>
                     <i class="fas fa-arrow-right"></i>
                 </a>
-                <p class="mt-6 text-slate-400 text-[10px] uppercase tracking-widest">
-                    Detailed schematics, BOM lists, and certification reports available
-                </p>
+                <p class="mt-6 text-slate-400 text-[10px] uppercase tracking-widest">Detailed schematics, BOM lists, and certification reports available</p>
             </div>
         </div>
     </section>
 
     <section id="partner" class="py-32 bg-slate-900 text-white text-center">
         <div class="container mx-auto px-6">
-            <h2 class="text-brand-red text-xs font-black uppercase tracking-[0.6em] mb-6 text-center">Partnership</h2>
-            <h3 class="text-4xl md:text-6xl font-black mb-12 uppercase italic leading-tight text-white text-center">Build the Future of <br>Adventure Together</h3>
-            <p class="text-slate-400 text-lg mb-12 max-w-4xl mx-auto leading-relaxed text-center">
-                MTRONHAUL is actively seeking global distributors and caravan manufacturers. 
-                Get access to professional technical support, customized solutions, and our high-efficiency systems.
-            </p>
-            <div class="grid md:grid-cols-2 gap-8 text-left max-w-4xl mx-auto text-center">
-                <div class="p-8 bg-white/5 border border-white/10 rounded-3xl text-center">
+            <h2 class="text-brand-red text-xs font-black uppercase tracking-[0.6em] mb-6">Partnership</h2>
+            <h3 class="text-4xl md:text-6xl font-black mb-12 uppercase italic leading-tight text-white">Build the Future of <br>Adventure Together</h3>
+            <p class="text-slate-400 text-lg mb-12 max-w-4xl mx-auto leading-relaxed">MTRONHAUL is actively seeking global distributors and caravan manufacturers. Get access to professional technical support, customized solutions, and our high-efficiency systems.</p>
+            <div class="grid md:grid-cols-2 gap-8 text-left max-w-4xl mx-auto">
+                <div class="p-8 bg-white/5 border border-white/10 rounded-3xl">
                     <h4 class="font-black mb-4 uppercase text-brand-red text-center">Business Inquiry</h4>
                     <p class="text-sm text-slate-300 mb-6 italic font-light text-center">For dealership applications and OEM collaborations.</p>
-                    <a href="mailto:mtronrvs@163.com" class="text-xl font-bold hover:text-brand-red transition tracking-tight text-center">mtronrvs@163.com</a>
+                    <a href="mailto:mtronrvs@163.com" class="text-xl font-bold hover:text-brand-red transition tracking-tight text-center block">mtronrvs@163.com</a>
                 </div>
-                <div class="p-8 bg-white/5 border border-white/10 rounded-3xl text-center">
+                <div class="p-8 bg-white/5 border border-white/10 rounded-3xl">
                     <h4 class="font-black mb-4 uppercase text-brand-red text-white text-center">Technical Support</h4>
                     <p class="text-sm text-slate-300 mb-6 italic font-light text-center">In-depth communication on chassis layout and power electronics.</p>
                     <p class="text-xl font-bold tracking-tight text-white text-center">0086-18501026260</p>
@@ -261,18 +241,15 @@
         </div>
     </section>
 
-    <footer class="py-16 bg-white border-t text-center">
+    <footer class="py-16 bg-white border-t">
         <div class="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center text-center md:text-left">
-            <div class="mb-8 md:mb-0 text-center">
-                <div class="text-2xl font-black text-brand-red mb-2 uppercase tracking-tighter text-center">MTRONHAUL®</div>
-                <p class="text-[10px] text-slate-400 uppercase tracking-widest leading-loose text-center">
-                    Beijing M-Tron Technology Co., Ltd. <br>
-                    Room 452, Building 3, Jingguanbeier St, Shunyi, Beijing, China
-                </p>
+            <div class="mb-8 md:mb-0">
+                <div class="text-2xl font-black text-brand-red mb-2 uppercase tracking-tighter">MTRONHAUL®</div>
+                <p class="text-[10px] text-slate-400 uppercase tracking-widest leading-loose">Beijing M-Tron Technology Co., Ltd. <br>Room 452, Building 3, Jingguanbeier St, Shunyi, Beijing, China</p>
             </div>
-            <div class="text-right text-center">
-                <p class="text-[10px] font-black uppercase text-slate-900 tracking-widest mb-2 text-center">Commercial Confidential | v1.2</p>
-                <p class="text-[9px] text-slate-400 italic font-medium text-center">Smarter Towing, Safer Adventures</p>
+            <div class="text-right">
+                <p class="text-[10px] font-black uppercase text-slate-900 tracking-widest mb-2">Commercial Confidential | v1.3</p>
+                <p class="text-[9px] text-slate-400 italic font-medium">Smarter Towing, Safer Adventures</p>
             </div>
         </div>
     </footer>
@@ -283,7 +260,6 @@
                 window.scrollTo(0, 0);
             }
         };
-
         function openLightbox(imgSrc) {
             const lightbox = document.getElementById('lightbox');
             const lightboxImg = document.getElementById('lightbox-img');
@@ -291,7 +267,6 @@
             lightbox.style.display = 'flex';
             document.body.style.overflow = 'hidden'; 
         }
-
         function closeLightbox() {
             const lightbox = document.getElementById('lightbox');
             lightbox.style.display = 'none';
