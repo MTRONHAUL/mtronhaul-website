@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Technical Specifications | MTRONHAUL</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        html { scroll-behavior: smooth; }
+        .text-brand-red { color: rgb(215, 0, 15); }
+        .bg-brand-red { background-color: rgb(215, 0, 15); }
+        .border-brand-red { border-color: rgb(215, 0, 15); }
+        .nav-link { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; transition: all 0.3s; }
+        .spec-card { border-left: 4px solid rgb(215, 0, 15); }
+    </style>
+</head>
+<body class="bg-white text-slate-900 font-sans antialiased">
+
+    <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b">
+        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <a href="index.html">
+                <img src="logo.svg" alt="MTRONHAUL" class="h-10 w-auto object-contain">
+            </a>
+            <div class="hidden md:flex space-x-8">
+                <a href="index.html#about" class="nav-link text-slate-500 hover:text-brand-red">Our Story</a>
+                <a href="index.html#features" class="nav-link text-slate-500 hover:text-brand-red">Innovation</a>
+                <a href="index.html#specs" class="nav-link text-brand-red">Tech Specs</a>
+                <a href="index.html#partner" class="nav-link text-slate-500 hover:text-brand-red">Global Partnership</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="pt-32 pb-16 bg-slate-900 text-white">
+        <div class="container mx-auto px-6">
+            <h1 class="text-4xl md:text-6xl font-black italic uppercase tracking-tight mb-4">Technical Datasheet</h1>
+            <p class="text-brand-red font-bold tracking-widest uppercase">T-Pro Series Intelligent Chassis Platform</p>
+        </div>
+    </header>
+
+    <section class="py-20 border-b">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row gap-12 items-center">
+                <div class="md:w-1/2">
+                    <h2 class="text-2xl font-black mb-6 uppercase italic">01. System Layout</h2>
+                    <p class="text-slate-600 mb-8 leading-relaxed">基于智能电驱桥与多连杆悬挂的系统化布局，集成了电控驻车、锂电储能及无线控制核心模块。</p>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-3"><i class="fas fa-check text-brand-red mt-1"></i> <span>Multi-link suspension for optimal stability</span></li>
+                        <li class="flex items-start gap-3"><i class="fas fa-check text-brand-red mt-1"></i> <span>Integrated Electromagnetic Braking (EMB)</span></li>
+                    </ul>
+                </div>
+                <div class="md:w-1/2 bg-slate-100 rounded-3xl p-8 text-center italic text-slate-400">
+                    [ Insert System Layout Image ]
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-slate-50 border-b">
+        <div class="container mx-auto px-6">
+            <h2 class="text-2xl font-black mb-12 uppercase italic">02. Power & Applicability</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-white p-8 rounded-3xl shadow-sm spec-card">
+                    <h3 class="font-black uppercase mb-4 text-slate-400">Two-Speed Mode</h3>
+                    <div class="space-y-4">
+                        <div class="flex justify-between border-b pb-2">
+                            <span class="font-bold">Low Speed</span>
+                            <span class="text-brand-red font-black">&lt; 2 km/h (1500 Nm)</span>
+                        </div>
+                        <div class="flex justify-between border-b pb-2">
+                            <span class="font-bold">High Speed</span>
+                            <span class="text-brand-red font-black">&lt; 4 km/h (1500 Nm)</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white p-8 rounded-3xl shadow-sm spec-card">
+                    <h3 class="font-black uppercase mb-4 text-slate-400">Applicable RV Types</h3>
+                    <div class="space-y-4">
+                        <div class="flex justify-between border-b pb-2">
+                            <span class="font-bold">Single-Axle</span>
+                            <span class="font-black">750 ~ 2000 kg</span>
+                        </div>
+                        <div class="flex justify-between border-b pb-2">
+                            <span class="font-bold">Dual-Axle</span>
+                            <span class="font-black">2500 ~ 4000 kg</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 border-b">
+        <div class="container mx-auto px-6">
+            <h2 class="text-2xl font-black mb-12 uppercase italic">03. Safety & Certification</h2>
+            <div class="grid md:grid-cols-3 gap-8 text-center">
+                <div class="p-6">
+                    <i class="fas fa-shield-alt text-4xl text-brand-red mb-4"></i>
+                    <h4 class="font-black uppercase mb-2">EMB System</h4>
+                    <p class="text-xs text-slate-500">12×2.25" Brake Size, Manual/Automatic Adjustment</p>
+                </div>
+                <div class="p-6 border-x">
+                    <i class="fas fa-file-contract text-4xl text-brand-red mb-4"></i>
+                    <h4 class="font-black uppercase mb-2">Customs Certification</h4>
+                    <p class="text-xs text-slate-500">Global export clearance & compulsory inspection</p>
+                </div>
+                <div class="p-6">
+                    <i class="fas fa-vial text-4xl text-brand-red mb-4"></i>
+                    <h4 class="font-black uppercase mb-2">Road Validation</h4>
+                    <p class="text-xs text-slate-500">Full vehicle road testing & critical component bench testing</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-slate-900 text-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-2xl font-black mb-12 uppercase italic text-brand-red">04. System Assembly (BOM)</h2>
+            <div class="overflow-x-auto">
+                <table class="w-full text-left text-sm">
+                    <thead class="text-brand-red uppercase border-b border-white/10">
+                        <tr>
+                            <th class="py-4">Item Category</th>
+                            <th class="py-4">Sub-Assembly</th>
+                            <th class="py-4 text-center">Qty</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-white/5">
+                        <tr><td class="py-3 font-bold">Axles</td><td>Axle Tube & Shaft Sub-Assembly</td><td class="text-center">1 Set</td></tr>
+                        <tr><td class="py-3 font-bold">Suspension</td><td>Coil Spring, Links, Shock Absorbers</td><td class="text-center">1 Set</td></tr>
+                        <tr><td class="py-3 font-bold">Braking</td><td>Electromagnetic Brake & Drum</td><td class="text-center">2 Sets</td></tr>
+                        <tr><td class="py-3 font-bold">Power</td><td>Motor & Transmission</td><td class="text-center">1 Set</td></tr>
+                        <tr><td class="py-3 font-bold">Control</td><td>Control Cabin & Braking Controller</td><td class="text-center">1 Set</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-16 bg-white border-t">
+        <div class="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center text-center md:text-left">
+            <div>
+                <div class="text-2xl font-black text-brand-red mb-2 uppercase tracking-tighter">MTRONHAUL™</div>
+                <p class="text-[10px] text-slate-400 uppercase tracking-widest leading-loose">
+                    Beijing M-Tron Technology Co., Ltd. <br>
+                    Room 452, Building 3, Jingguanbeier St, Shunyi, Beijing, China
+                </p>
+            </div>
+            <div class="text-right">
+                <p class="text-[10px] font-black uppercase text-slate-900 tracking-widest mb-2">Commercial Confidential</p>
+                <p class="text-[9px] text-slate-400 italic font-medium">Adventure Beyond - Smarter Towing, Safer Adventures</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
