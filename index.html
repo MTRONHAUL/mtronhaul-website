@@ -3,22 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MTRONHAUL | Adventure Beyond</title>
+    <title>M-Tron Tech</title>
+
     <link rel="icon" href="favicon.ico" sizes="any">
+    <link rel="icon" href="favicon-32x32.png" type="image/png">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="manifest" href="site.webmanifest">
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    
     <style>
         video { object-fit: cover; filter: brightness(0.5); }
         html { scroll-behavior: smooth; }
         .nav-link { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; transition: all 0.3s; }
+        
         .text-brand-red { color: rgb(215, 0, 15); }
         .bg-brand-red { background-color: rgb(215, 0, 15); }
-        @keyframes kenburns { 0% { transform: scale(1); } 100% { transform: scale(1.1); } }
-        @keyframes heroFadeIn { 0% { opacity: 0; filter: brightness(0); } 100% { opacity: 1; filter: brightness(0.4); } }
-        .animate-hero-refined { animation: heroFadeIn 3s ease-out forwards, kenburns 25s ease-in-out infinite alternate; }
+        .border-brand-red { border-color: rgb(215, 0, 15); }
+        .hover\:text-brand-red:hover { color: rgb(215, 0, 15); }
+        .hover\:bg-brand-red:hover { background-color: rgb(215, 0, 15); }
+
+        @keyframes kenburns {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.1); }
+        }
+        @keyframes heroFadeIn {
+            0% { opacity: 0; filter: brightness(0); }
+            100% { opacity: 1; filter: brightness(0.4); }
+        }
+        .animate-hero-refined {
+            animation: heroFadeIn 3s ease-out forwards, kenburns 25s ease-in-out infinite alternate;
+        }
+
         #mobile-menu { transition: transform 0.3s ease-in-out; transform: translateY(-100%); }
         #mobile-menu.active { transform: translateY(0); }
-        #lightbox { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.9); z-index: 100; cursor: zoom-out; justify-content: center; align-items: center; }
+
+        #lightbox {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: 100;
+            cursor: zoom-out;
+            justify-content: center;
+            align-items: center;
+        }
     </style>
 </head>
 <body class="bg-white text-slate-900 font-sans antialiased">
@@ -56,7 +86,7 @@
             <img src="hero-bg.webp" alt="MTRONHAUL Adventure" class="w-full h-full object-cover animate-hero-refined transform-gpu">
         </div>
         <div class="relative z-10 flex flex-col items-center">
-            <h1 class="text-4xl md:text-7xl font-black uppercase italic tracking-tighter mb-12 max-w-5xl mx-auto leading-none drop-shadow-2xl">
+            <h1 class="text-4xl md:text-7xl font-black uppercase italic tracking-tighter mb-12 max-w-5xl mx-auto leading-none drop-shadow-2xl text-center">
                 Intelligent Electric <br>
                 <span class="text-brand-red">Trailer Chassis</span>
             </h1>
@@ -68,8 +98,8 @@
         <div class="container mx-auto px-6">
             <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-16 items-center">
                 <div>
-                    <h2 class="text-brand-red text-xs font-black uppercase tracking-[0.4em] mb-6 text-left">Our Story</h2>
-                    <h3 class="text-4xl md:text-5xl font-black mb-8 leading-[1.1] text-slate-900 text-left">Redefining the <span class="text-slate-400 italic font-light">Journey Beyond</span></h3>
+                    <h2 class="text-brand-red text-xs font-black uppercase tracking-[0.4em] mb-6">Our Story</h2>
+                    <h3 class="text-4xl md:text-5xl font-black mb-8 leading-[1.1] text-slate-900">Redefining the <span class="text-slate-400 italic font-light">Journey Beyond</span></h3>
                     <div class="space-y-6 text-slate-600 leading-relaxed text-lg text-justify">
                         <p>Founded by veterans in automotive R&D and outdoor exploration, M-Tron Technology stands at the intersection of <strong>engineering precision</strong> and the <strong>spirit of adventure</strong>.</p>
                         <p>We specialize in intelligent electrified chassis platforms for <strong>towable RVs and specialty trailers</strong>, delivering system-level solutions from rugged hardware to smart control.</p>
@@ -78,7 +108,7 @@
                 </div>
                 <div class="relative group cursor-zoom-in" onclick="openLightbox('product-story.webp')">
                     <div class="overflow-hidden rounded-[2.5rem] shadow-2xl border border-slate-100 bg-white">
-                        <img src="product-story.webp" alt="MTRONHAUL" class="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105">
+                        <img src="product-story.webp" alt="MTRONHAUL Intelligent Chassis" class="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105">
                     </div>
                 </div>
             </div>
@@ -88,40 +118,40 @@
     <section id="features" class="py-32 bg-white">
         <div class="container mx-auto px-6 mb-32 text-center">
             <div class="max-w-4xl mx-auto mb-16">
-                <h2 class="text-brand-red text-xs font-black uppercase tracking-[0.6em] mb-4 text-center">The Challenge</h2>
-                <h3 class="text-3xl md:text-4xl font-black uppercase italic text-center">Towing Pain Points</h3>
+                <h2 class="text-brand-red text-xs font-black uppercase tracking-[0.6em] mb-4">The Challenge</h2>
+                <h3 class="text-3xl md:text-4xl font-black uppercase italic">Towing Pain Points</h3>
             </div>
             <div class="grid md:grid-cols-3 gap-12">
                 <div class="text-center group">
-                    <div class="w-24 h-24 bg-red-50 rounded-full flex items-center justify-center mx-auto mb-6 shadow-sm group-hover:bg-brand-red transition-all">
+                    <div class="w-24 h-24 bg-red-50 rounded-full flex items-center justify-center mx-auto mb-6 shadow-sm group-hover:bg-brand-red transition-all duration-500">
                         <i class="fas fa-arrows-alt text-3xl text-brand-red group-hover:text-white"></i>
                     </div>
-                    <h4 class="font-black uppercase mb-4 text-sm tracking-widest text-center">Maneuvering Anxiety</h4>
-                    <p class="text-slate-500 text-sm leading-relaxed px-4 text-center">Intense reversing challenges and difficulty positioning heavy trailers without a towing vehicle.</p>
+                    <h4 class="font-black uppercase mb-4 text-sm tracking-widest">Maneuvering Anxiety</h4>
+                    <p class="text-slate-500 text-sm leading-relaxed px-4">Intense reversing challenges and difficulty positioning heavy trailers without a towing vehicle.</p>
                 </div>
                 <div class="text-center group">
-                    <div class="w-24 h-24 bg-red-50 rounded-full flex items-center justify-center mx-auto mb-6 shadow-sm group-hover:bg-brand-red transition-all">
+                    <div class="w-24 h-24 bg-red-50 rounded-full flex items-center justify-center mx-auto mb-6 shadow-sm group-hover:bg-brand-red transition-all duration-500">
                         <i class="fas fa-battery-empty text-3xl text-brand-red group-hover:text-white"></i>
                     </div>
-                    <h4 class="font-black uppercase mb-4 text-sm tracking-widest text-center">Energy Limitation</h4>
-                    <p class="text-slate-500 text-sm leading-relaxed px-4 text-center">Power strain on towing vehicles during hill climbs and limited power supply for off-grid cabin devices.</p>
+                    <h4 class="font-black uppercase mb-4 text-sm tracking-widest">Energy Limitation</h4>
+                    <p class="text-slate-500 text-sm leading-relaxed px-4">Power strain on towing vehicles during hill climbs and limited power supply for off-grid cabin devices.</p>
                 </div>
                 <div class="text-center group">
-                    <div class="w-24 h-24 bg-red-50 rounded-full flex items-center justify-center mx-auto mb-6 shadow-sm group-hover:bg-brand-red transition-all">
+                    <div class="w-24 h-24 bg-red-50 rounded-full flex items-center justify-center mx-auto mb-6 shadow-sm group-hover:bg-brand-red transition-all duration-500">
                         <i class="fas fa-triangle-exclamation text-3xl text-brand-red group-hover:text-white"></i>
                     </div>
-                    <h4 class="font-black uppercase mb-4 text-sm tracking-widest text-center">Insufficient Active Safety</h4>
-                    <p class="text-slate-500 text-sm leading-relaxed px-4 text-center">Swaying on roads, poor balance on off-road terrain, and braking lag on high-speed downhill runs.</p>
+                    <h4 class="font-black uppercase mb-4 text-sm tracking-widest">Insufficient Active Safety</h4>
+                    <p class="text-slate-500 text-sm leading-relaxed px-4">Swaying on roads, poor balance on off-road terrain, and braking lag on high-speed downhill runs.</p>
                 </div>
             </div>
         </div>
 
         <div class="container mx-auto px-6 text-center">
             <div class="max-w-4xl mx-auto mb-16">
-                <h2 class="text-brand-red text-xs font-black uppercase tracking-[0.6em] mb-4 text-center">Our Solution</h2>
-                <h3 class="text-3xl md:text-5xl font-black uppercase italic text-center">Pioneering Independence</h3>
+                <h2 class="text-brand-red text-xs font-black uppercase tracking-[0.6em] mb-4">Our Solution</h2>
+                <h3 class="text-3xl md:text-5xl font-black uppercase italic">Pioneering Independence</h3>
             </div>
-            <div class="grid md:grid-cols-3 gap-8">
+            <div class="grid md:grid-cols-3 gap-8 text-left">
                 <div class="relative overflow-hidden rounded-[2.5rem] bg-slate-800 aspect-[4/5] shadow-xl group">
                     <video autoplay loop muted playsinline webkit-playsinline x5-video-player-type="h5-page" preload="metadata" class="absolute inset-0 w-full h-full opacity-60">
                         <source src="assets/hitching.mp4" type="video/mp4">
@@ -136,7 +166,7 @@
                         <source src="assets/terrain.mp4" type="video/mp4">
                     </video>
                     <div class="relative z-10 p-10 h-full flex flex-col justify-end text-center">
-                        <h4 class="text-2xl font-black text-white uppercase mb-2">U-Turn</h4>
+                        <h4 class="text-2xl font-black text-white uppercase mb-2 text-white">U-Turn</h4>
                         <p class="text-slate-300 text-xs italic">>450kg force per wheel for pivot rotation.</p>
                     </div>
                 </div>
@@ -145,7 +175,7 @@
                         <source src="assets/stability.mp4" type="video/mp4">
                     </video>
                     <div class="relative z-10 p-10 h-full flex flex-col justify-end text-center">
-                        <h4 class="text-2xl font-black text-white uppercase mb-2">Escape Maneuver</h4>
+                        <h4 class="text-2xl font-black text-white uppercase mb-2 text-white">Escape Maneuver</h4>
                         <p class="text-slate-300 text-xs italic">Emergency extrication via smart remote control.</p>
                     </div>
                 </div>
@@ -157,46 +187,62 @@
         <div class="absolute top-10 -right-20 text-[15rem] font-black text-white/[0.03] select-none pointer-events-none uppercase italic">Partner</div>
         <div class="container mx-auto px-6 relative z-10">
             <div class="max-w-4xl mx-auto text-center mb-20">
-                <h2 class="text-brand-red text-xs font-black uppercase tracking-[0.6em] mb-6 text-center">B2B Collaboration</h2>
-                <h3 class="text-4xl md:text-5xl font-black mb-8 italic uppercase leading-tight text-center">Strategic Partnership <br>for Manufacturers</h3>
+                <h2 class="text-brand-red text-xs font-black uppercase tracking-[0.6em] mb-6">B2B Collaboration</h2>
+                <h3 class="text-4xl md:text-5xl font-black mb-8 italic uppercase leading-tight">Strategic Partnership <br>for Manufacturers</h3>
                 <p class="text-slate-400 text-lg leading-relaxed text-center">We empower RV brands with next-generation electrification and safety technologies.</p>
             </div>
             <div class="grid md:grid-cols-3 gap-8">
-                <div class="p-10 bg-white/5 border border-white/10 rounded-[2.5rem] hover:border-brand-red transition-all">
-                    <div class="text-brand-red text-3xl mb-8 text-left"><i class="fas fa-puzzle-piece"></i></div>
-                    <h4 class="text-xl font-black uppercase mb-6 tracking-tight text-left">Universal Adaptability</h4>
-                    <p class="text-slate-400 text-sm leading-relaxed mb-6 text-left text-justify">Compatible with existing chassis layouts. Embedded system integrates seamlessly—just adjust brackets and crossbeams.</p>
+                <div class="p-10 bg-white/5 border border-white/10 rounded-[2.5rem] hover:border-brand-red transition-all duration-500">
+                    <div class="text-brand-red text-3xl mb-8"><i class="fas fa-puzzle-piece"></i></div>
+                    <h4 class="text-xl font-black uppercase mb-6 tracking-tight">Universal Adaptability</h4>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-6">Compatible with existing chassis layouts. Embedded system integrates seamlessly—just adjust brackets and crossbeams.</p>
                 </div>
-                <div class="p-10 bg-white/5 border border-white/10 rounded-[2.5rem] hover:border-brand-red transition-all text-left">
-                    <div class="text-brand-red text-3xl mb-8 text-left"><i class="fas fa-key"></i></div>
-                    <h4 class="text-xl font-black uppercase mb-6 tracking-tight text-left">Turnkey Solution</h4>
-                    <p class="text-slate-400 text-sm leading-relaxed mb-6 text-left text-justify">Complete powertrain, battery, and software stack included. We handle complex engineering; you focus on luxury.</p>
+                <div class="p-10 bg-white/5 border border-white/10 rounded-[2.5rem] hover:border-brand-red transition-all duration-500">
+                    <div class="text-brand-red text-3xl mb-8"><i class="fas fa-key"></i></div>
+                    <h4 class="text-xl font-black uppercase mb-6 tracking-tight">Turnkey Solution</h4>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-6">Complete powertrain, battery, and software stack included. We handle complex engineering; you focus on luxury.</p>
                 </div>
-                <div class="p-10 bg-white/5 border border-white/10 rounded-[2.5rem] hover:border-brand-red transition-all text-left">
-                    <div class="text-brand-red text-3xl mb-8 text-left"><i class="fas fa-rocket"></i></div>
-                    <h4 class="text-xl font-black uppercase mb-6 tracking-tight text-left">Future-Proof Brand</h4>
-                    <p class="text-slate-400 text-sm leading-relaxed mb-6 text-left text-justify">Unique USPs: Electric Propulsion Assist, Self-Propelled Mode, Extended Off-Grid Power, and Active Towing Safety.</p>
+                <div class="p-10 bg-white/5 border border-white/10 rounded-[2.5rem] hover:border-brand-red transition-all duration-500">
+                    <div class="text-brand-red text-3xl mb-8"><i class="fas fa-rocket"></i></div>
+                    <h4 class="text-xl font-black uppercase mb-6 tracking-tight">Future-Proof Brand</h4>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-6">Unique USPs: Electric Propulsion Assist, Self-Propelled Mode, Extended Off-Grid Power, and Active Towing Safety.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <section id="specs" class="py-32 bg-slate-50">
-        <div class="container mx-auto px-6 text-center">
+        <div class="container mx-auto px-6">
             <h2 class="text-3xl font-black mb-16 uppercase italic tracking-widest text-center">T-Pro Technical Specs</h2>
-            <div class="max-w-4xl mx-auto overflow-x-auto rounded-2xl shadow-2xl border border-slate-100 bg-white">
+            <div class="max-w-4xl mx-auto overflow-x-auto rounded-2xl shadow-2xl border border-slate-100 bg-white text-center">
                 <table class="w-full text-left border-collapse min-w-[500px]">
-                    <thead class="bg-slate-900 text-white">
+                    <thead class="bg-slate-900 text-white text-center">
                         <tr>
                             <th class="p-4 md:p-6 uppercase tracking-widest text-xs md:text-sm text-center">Parameter</th>
                             <th class="p-4 md:p-6 text-brand-red font-black uppercase tracking-widest text-xs md:text-sm text-center">Value</th>
                         </tr>
                     </thead>
                     <tbody class="divide-y divide-gray-100 text-center">
-                        <tr><td class="p-4 md:p-6 font-bold text-slate-500 uppercase text-[10px] md:text-xs text-center">Driving Torque</td><td class="p-4 md:p-6 font-black text-green-600 text-sm md:text-base text-center">1200 - 1800 Nm</td></tr>
-                        <tr><td class="p-4 md:p-6 font-bold text-slate-500 uppercase text-[10px] md:text-xs text-center">Speed Range</td><td class="p-4 md:p-6 font-black text-slate-700 text-sm md:text-base text-center">2.0 - 4.0 KM/H</td></tr>
-                        <tr><td class="p-4 md:p-6 font-bold text-slate-500 uppercase text-[10px] md:text-xs text-center">System Voltage</td><td class="p-4 md:p-6 font-black text-brand-red text-sm md:text-base text-center">12V - 48V DC</td></tr>
-                        <tr><td class="p-4 md:p-6 font-bold text-slate-500 uppercase text-[10px] md:text-xs text-center">Braking System</td><td class="p-4 md:p-6 font-black text-slate-700 text-sm md:text-base text-center">Electromagnetic (EMB)</td></tr>
+                        <tr>
+                            <td class="p-4 md:p-6 font-bold text-slate-500 uppercase text-[10px] md:text-xs text-center">Driving Torque</td>
+                            <td class="p-4 md:p-6 font-black text-green-600 text-sm md:text-base text-center">1200 - 1800 Nm</td>
+                        </tr>
+                        <tr>
+                            <td class="p-4 md:p-6 font-bold text-slate-500 uppercase text-[10px] md:text-xs text-center">Speed Range</td>
+                            <td class="p-4 md:p-6 font-black text-slate-700 text-sm md:text-base text-center">2.0 - 4.0 KM/H</td>
+                        </tr>
+                        <tr>
+                            <td class="p-4 md:p-6 font-bold text-slate-500 uppercase text-[10px] md:text-xs text-center">System Voltage</td>
+                            <td class="p-4 md:p-6 font-black text-brand-red text-sm md:text-base text-center">12V - 48V DC</td>
+                        </tr>
+                        <tr>
+                            <td class="p-4 md:p-6 font-bold text-slate-500 uppercase text-[10px] md:text-xs text-center">Braking System</td>
+                            <td class="p-4 md:p-6 font-black text-slate-700 text-sm md:text-base text-center">Electromagnetic (EMB)</td>
+                        </tr>
+                        <tr>
+                            <td class="p-4 md:p-6 font-bold text-slate-500 uppercase text-[10px] md:text-xs text-center">Communication</td>
+                            <td class="p-4 md:p-6 font-black text-slate-700 text-[10px] md:text-xs text-center">Wireless Remote / Bluetooth App</td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
@@ -214,21 +260,21 @@
             <h2 class="text-brand-red text-xs font-black uppercase tracking-[0.6em] mb-6 text-center">Partnership</h2>
             <h3 class="text-4xl md:text-6xl font-black mb-12 uppercase italic leading-tight text-white text-center">Build the Future Together</h3>
             <div class="grid md:grid-cols-2 gap-8 text-center max-w-4xl mx-auto">
-                <div class="p-8 bg-white/5 border border-white/10 rounded-3xl">
+                <div class="p-8 bg-white/5 border border-white/10 rounded-3xl text-center">
                     <h4 class="font-black mb-4 uppercase text-brand-red text-center">Business Inquiry</h4>
                     <a href="mailto:sales@mtronhaul.com" class="text-xl font-bold hover:text-brand-red transition block text-center">sales@mtronhaul.com</a>
                 </div>
                 <div class="p-8 bg-white/5 border border-white/10 rounded-3xl text-center">
-                    <h4 class="font-black mb-4 uppercase text-brand-red text-white text-center">Technical Support</h4>
-                    <a href="mailto:support@mtronhaul.com" class="text-xl font-bold hover:text-brand-red transition block text-center uppercase">support@mtronhaul.com</a>
+                    <h4 class="font-black mb-4 uppercase text-brand-red text-white text-center text-center">Technical Support</h4>
+                    <a href="mailto:support@mtronhaul.com" class="text-xl font-bold hover:text-brand-red transition block text-center">support@mtronhaul.com</a>
                 </div>
             </div>
         </div>
     </section>
 
-<footer class="py-20 bg-white border-t">
+    <footer class="py-20 bg-white border-t">
         <div class="container mx-auto px-6 flex justify-center">
-            <img src="footer-brand.svg" alt="MTRONHAUL" class="h-12 md:h-16 w-auto object-contain transition-transform duration-500 hover:scale-110">
+            <img src="footer-brand.svg" alt="MTRONHAUL®" class="h-12 md:h-16 w-auto object-contain transition-transform duration-500 hover:scale-110">
         </div>
     </footer>
 
