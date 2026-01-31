@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Technical Specifications | MTRONHAUL</title>
+    <title>M-Tron Tech | Specifications</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <style>
@@ -12,34 +12,33 @@
         .bg-brand-red { background-color: rgb(215, 0, 15); }
         .border-brand-red { border-color: rgb(215, 0, 15); }
         .nav-link { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; transition: all 0.3s; }
-        .spec-card { border-left: 4px solid rgb(215, 0, 15); }
+        .spec-card { border-left: 4px solid rgb(215, 0, 15); position: relative; }
         
-        /* 移动端菜单切换动画 */
         #mobile-menu { transition: transform 0.3s ease-in-out; transform: translateY(-100%); }
         #mobile-menu.active { transform: translateY(0); }
+
+        .unit-toggle-btn { transition: all 0.3s; cursor: pointer; }
+        .unit-toggle-btn.active { background-color: rgb(215, 0, 15); color: white; border-color: rgb(215, 0, 15); }
     </style>
 </head>
-<body class="bg-white text-slate-900 font-sans antialiased">
+<body class="bg-white text-slate-900 font-sans antialiased text-left">
 
     <nav class="fixed w-full z-[100] bg-white/90 backdrop-blur-md border-b">
         <div class="container mx-auto px-6 py-3 flex justify-between items-center">
             <a href="index.html">
                 <img src="logo.svg" alt="MTRONHAUL" class="h-10 w-auto object-contain">
             </a>
-            
             <div class="hidden md:flex space-x-8">
                 <a href="index.html#about" class="nav-link text-slate-500 hover:text-brand-red">Our Story</a>
                 <a href="index.html#features" class="nav-link text-slate-500 hover:text-brand-red">Innovation</a>
                 <a href="index.html#specs" class="nav-link text-brand-red">Tech Specs</a>
                 <a href="index.html#partner" class="nav-link text-slate-500 hover:text-brand-red">Global Partnership</a>
             </div>
-
-            <button onclick="toggleMenu()" class="md:hidden text-slate-900 text-2xl focus:outline-none">
+            <button onclick="toggleMenu()" class="md:hidden text-slate-900 text-2xl">
                 <i id="menu-icon" class="fas fa-bars"></i>
             </button>
         </div>
-
-        <div id="mobile-menu" class="absolute top-full left-0 w-full bg-white border-b md:hidden flex flex-col items-center py-6 space-y-6 shadow-xl">
+        <div id="mobile-menu" class="absolute top-full left-0 w-full bg-white border-b md:hidden flex flex-col items-center py-6 space-y-6 shadow-xl text-center">
             <a href="index.html#about" onclick="toggleMenu()" class="nav-link text-slate-900">Our Story</a>
             <a href="index.html#features" onclick="toggleMenu()" class="nav-link text-slate-900">Innovation</a>
             <a href="index.html#specs" onclick="toggleMenu()" class="nav-link text-slate-900">Tech Specs</a>
@@ -49,7 +48,7 @@
 
     <header class="pt-32 pb-16 bg-slate-900 text-white">
         <div class="container mx-auto px-6">
-            <h1 class="text-4xl md:text-6xl font-black italic uppercase tracking-tight mb-4">Technical Datasheet</h1>
+            <h1 class="text-4xl md:text-6xl font-black italic uppercase tracking-tight mb-4 text-white">Technical Datasheet</h1>
             <p class="text-brand-red font-bold tracking-widest uppercase">T-Pro Series Intelligent Chassis Platform</p>
         </div>
     </header>
@@ -59,22 +58,16 @@
             <div class="flex flex-col md:flex-row gap-12 items-center">
                 <div class="md:w-1/2">
                     <h2 class="text-2xl font-black mb-6 uppercase italic text-brand-red">01. System Layout</h2>
-                    <p class="text-slate-600 mb-8 leading-relaxed">
+                    <p class="text-slate-600 mb-8 leading-relaxed text-justify">
                         A systematic architecture featuring an intelligent electric drive axle and multi-link suspension, integrating electronic parking, lithium energy storage, and core wireless control modules.
                     </p>
                     <ul class="space-y-4 font-medium">
-                        <li class="flex items-start gap-3">
-                            <i class="fas fa-check text-brand-red mt-1"></i> 
-                            <span>Multi-link suspension optimized for rugged stability</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <i class="fas fa-check text-brand-red mt-1"></i> 
-                            <span>Integrated Electromagnetic Braking (EMB) System</span>
-                        </li>
+                        <li class="flex items-start gap-3"><i class="fas fa-check text-brand-red mt-1"></i> <span>Multi-link suspension optimized for rugged stability</span></li>
+                        <li class="flex items-start gap-3"><i class="fas fa-check text-brand-red mt-1"></i> <span>Integrated Electromagnetic Braking (EMB) System</span></li>
                     </ul>
                 </div>
                 <div class="md:w-1/2">
-                    <img src="layout.webp" alt="MTRONHAUL® System Layout" class="w-full h-auto object-contain rounded-2xl shadow-2xl border border-slate-100">
+                    <img src="layout.webp" alt="System Layout" class="w-full h-auto object-contain rounded-2xl shadow-2xl border border-slate-100">
                 </div>
             </div>
         </div>
@@ -82,22 +75,38 @@
 
     <section class="py-20 bg-slate-50 border-b">
         <div class="container mx-auto px-6">
-            <h2 class="text-2xl font-black mb-12 uppercase italic text-brand-red">02. Power & Applicability</h2>
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 gap-6">
+                <h2 class="text-2xl font-black uppercase italic text-brand-red">02. Power & Applicability</h2>
+                
+                <div class="flex bg-white border border-slate-200 rounded-full p-1 shadow-md">
+                    <button onclick="updateAllUnits('metric')" id="btn-kg" class="unit-toggle-btn active px-6 py-2 rounded-full text-[10px] font-black uppercase tracking-widest border border-transparent">Metric (Kg/Nm)</button>
+                    <button onclick="updateAllUnits('imperial')" id="btn-lbs" class="unit-toggle-btn px-6 py-2 rounded-full text-[10px] font-black uppercase tracking-widest border border-transparent">Imperial (Lbs/Lb-ft)</button>
+                </div>
+            </div>
+
             <div class="flex flex-col md:flex-row gap-12 items-center mb-12">
                 <div class="md:w-1/2">
-                    <img src="types.webp" alt="MTRONHAUL® Applicable RV Types" class="w-full h-auto object-contain rounded-2xl shadow-xl">
+                    <img src="types.webp" alt="Applicable Types" class="w-full h-auto object-contain rounded-2xl shadow-xl">
                 </div>
                 <div class="md:w-1/2 grid grid-cols-1 gap-6">
                     <div class="bg-white p-8 rounded-3xl shadow-sm spec-card">
-                        <h3 class="font-black uppercase mb-4 text-slate-400 text-sm tracking-widest">Performance: Two-Speed Mode</h3>
+                        <h3 class="font-black uppercase mb-4 text-slate-400 text-sm tracking-widest">Two-Speed Mode</h3>
                         <div class="space-y-4">
                             <div class="flex justify-between border-b pb-2">
                                 <span class="font-bold">Low Speed</span>
-                                <span class="text-brand-red font-black">&lt; 2 km/h | 1200 - 1800 Nm</span>
+                                <span class="text-brand-red font-black">
+                                    &lt; 2 km/h | 
+                                    <span class="torque-val" data-metric="1200">1,200</span> - <span class="torque-val" data-metric="1800">1,800</span> 
+                                    <span class="torque-unit">Nm</span>
+                                </span>
                             </div>
                             <div class="flex justify-between border-b pb-2">
                                 <span class="font-bold">High Speed</span>
-                                <span class="text-brand-red font-black">&lt; 4 km/h | 1200 - 1800 Nm</span>
+                                <span class="text-brand-red font-black">
+                                    &lt; 4 km/h | 
+                                    <span class="torque-val" data-metric="1200">1,200</span> - <span class="torque-val" data-metric="1800">1,800</span> 
+                                    <span class="torque-unit">Nm</span>
+                                </span>
                             </div>
                         </div>
                     </div>
@@ -106,11 +115,17 @@
                         <div class="space-y-4">
                             <div class="flex justify-between border-b pb-2">
                                 <span class="font-bold">Single-Axle RV</span>
-                                <span class="font-black">750 ~ 2,000 kg GVWR</span>
+                                <span class="font-black">
+                                    <span class="weight-val" data-metric="750">750</span> ~ <span class="weight-val" data-metric="2000">2,000</span> 
+                                    <span class="weight-label">kg</span> GVWR
+                                </span>
                             </div>
                             <div class="flex justify-between border-b pb-2">
                                 <span class="font-bold">Dual-Axle RV</span>
-                                <span class="font-black">2,500 ~ 4,000 kg GVWR</span>
+                                <span class="font-black">
+                                    <span class="weight-val" data-metric="2500">2,500</span> ~ <span class="weight-val" data-metric="4000">4,000</span> 
+                                    <span class="weight-label">kg</span> GVWR
+                                </span>
                             </div>
                         </div>
                     </div>
@@ -131,12 +146,12 @@
                 <div class="p-8 bg-white rounded-3xl border border-slate-100 shadow-sm">
                     <i class="fas fa-file-contract text-4xl text-brand-red mb-4"></i>
                     <h4 class="font-black uppercase mb-2">Global Compliance</h4>
-                    <p class="text-xs text-slate-500 leading-relaxed">Components have obtained export customs clearance and compulsory international inspection certifications.</p>
+                    <p class="text-xs text-slate-500 leading-relaxed">Components have obtained export customs clearance and international inspection certifications.</p>
                 </div>
                 <div class="p-8 bg-white rounded-3xl border border-slate-100 shadow-sm">
                     <i class="fas fa-vial text-4xl text-brand-red mb-4"></i>
                     <h4 class="font-black uppercase mb-2">Rigorous Testing</h4>
-                    <p class="text-xs text-slate-500 leading-relaxed">Validated through extensive bench (rig) testing and full vehicle road testing for maximum reliability.</p>
+                    <p class="text-xs text-slate-500 leading-relaxed">Validated through extensive bench testing and full vehicle road testing for maximum reliability.</p>
                 </div>
             </div>
         </div>
@@ -157,7 +172,7 @@
                     <tbody class="divide-y divide-white/5">
                         <tr><td class="py-4 font-bold">Axles</td><td>Axle Tube & Shaft Sub-Assembly</td><td class="text-center">1 Set</td></tr>
                         <tr><td class="py-4 font-bold">Suspension</td><td>Coil Springs, Longitudinal/Lateral Links, Shock Absorbers</td><td class="text-center">1 Set</td></tr>
-                        <tr><td class="py-4 font-bold">Braking</td><td>Electromagnetic Brakes & Drums</td><td class="text-center">2 Sets</td></tr>
+                        <tr><td class="py-4 font-bold">Braking</td><td>Electromagnetic Brakes & Pitch Circle Brake Drums</td><td class="text-center">2 Sets</td></tr>
                         <tr><td class="py-4 font-bold">Power Unit</td><td>Drive Motor & Specialized Transmission System</td><td class="text-center">1 Set</td></tr>
                         <tr><td class="py-4 font-bold">Control</td><td>Control Cabin, Braking Controller & Alarm Device</td><td class="text-center">1 Set</td></tr>
                     </tbody>
@@ -177,10 +192,55 @@
             const menu = document.getElementById('mobile-menu');
             const icon = document.getElementById('menu-icon');
             menu.classList.toggle('active');
-            if (menu.classList.contains('active')) {
-                icon.classList.replace('fa-bars', 'fa-times');
+            if (menu.classList.contains('active')) { icon.classList.replace('fa-bars', 'fa-times'); } 
+            else { icon.classList.replace('fa-times', 'fa-bars'); }
+        }
+
+        // 全局单位更新逻辑
+        function updateAllUnits(system) {
+            const kgToLbs = 2.20462;
+            const nmToLbFt = 0.73756;
+            
+            const weightVals = document.querySelectorAll('.weight-val');
+            const weightLabels = document.querySelectorAll('.weight-label');
+            const torqueVals = document.querySelectorAll('.torque-val');
+            const torqueUnits = document.querySelectorAll('.torque-unit');
+            
+            const btnKg = document.getElementById('btn-kg');
+            const btnLbs = document.getElementById('btn-lbs');
+
+            if (system === 'metric') {
+                btnKg.classList.add('active');
+                btnLbs.classList.remove('active');
+                
+                // 恢复重量
+                weightVals.forEach(v => {
+                    v.textContent = Number(v.getAttribute('data-metric')).toLocaleString();
+                });
+                weightLabels.forEach(l => l.textContent = 'kg');
+                
+                // 恢复扭矩
+                torqueVals.forEach(v => {
+                    v.textContent = Number(v.getAttribute('data-metric')).toLocaleString();
+                });
+                torqueUnits.forEach(u => u.textContent = 'Nm');
             } else {
-                icon.classList.replace('fa-times', 'fa-bars');
+                btnLbs.classList.add('active');
+                btnKg.classList.remove('active');
+                
+                // 换算重量
+                weightVals.forEach(v => {
+                    const m = v.getAttribute('data-metric');
+                    v.textContent = Math.round(m * kgToLbs).toLocaleString();
+                });
+                weightLabels.forEach(l => l.textContent = 'lbs');
+                
+                // 换算扭矩
+                torqueVals.forEach(v => {
+                    const m = v.getAttribute('data-metric');
+                    v.textContent = Math.round(m * nmToLbFt).toLocaleString();
+                });
+                torqueUnits.forEach(u => u.textContent = 'lb-ft');
             }
         }
     </script>
