@@ -12,7 +12,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>M-Tron Tech</title>
-
     <link rel="icon" href="favicon.ico" sizes="any">
     
     <script src="https://cdn.tailwindcss.com"></script>
@@ -24,18 +23,14 @@
         .nav-link { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; transition: all 0.3s; }
         .text-brand-red { color: rgb(215, 0, 15); }
         .bg-brand-red { background-color: rgb(215, 0, 15); }
-        .border-brand-red { border-color: rgb(215, 0, 15); }
-        .hover\:text-brand-red:hover { color: rgb(215, 0, 15); }
-        .hover\:bg-brand-red:hover { background-color: rgb(215, 0, 15); }
-
+        .animate-hero-refined { animation: heroFadeIn 3s ease-out forwards, kenburns 25s ease-in-out infinite alternate; }
         @keyframes kenburns { 0% { transform: scale(1); } 100% { transform: scale(1.1); } }
         @keyframes heroFadeIn { 0% { opacity: 0; filter: brightness(0); } 100% { opacity: 1; filter: brightness(0.4); } }
-        .animate-hero-refined { animation: heroFadeIn 3s ease-out forwards, kenburns 25s ease-in-out infinite alternate; }
-
+        
         #mobile-menu { transition: transform 0.3s ease-in-out; transform: translateY(-100%); }
         #mobile-menu.active { transform: translateY(0); }
-
         #lightbox { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.9); z-index: 200; cursor: zoom-out; justify-content: center; align-items: center; }
+        .form-input:focus { border-color: rgb(215, 0, 15); background: rgba(255,255,255,0.1); }
     </style>
 </head>
 <body class="bg-white text-slate-900 font-sans antialiased">
@@ -47,35 +42,28 @@
 
     <nav class="fixed w-full z-[100] bg-white/90 backdrop-blur-md border-b">
         <div class="container mx-auto px-6 py-3 flex justify-between items-center">
-            <a href="#hero" class="flex items-center">
-                <img src="logo.svg" alt="MTRONHAUL" class="h-10 w-auto object-contain">
-            </a>
+            <a href="#hero"><img src="logo.svg" alt="MTRONHAUL" class="h-10 w-auto object-contain"></a>
             <div class="hidden md:flex space-x-8">
                 <a href="#about" class="nav-link text-slate-500 hover:text-brand-red">Our Story</a>
                 <a href="#features" class="nav-link text-slate-500 hover:text-brand-red">Innovation</a>
                 <a href="#specs" class="nav-link text-slate-500 hover:text-brand-red">Tech Specs</a>
                 <a href="#partner" class="nav-link text-brand-red border-b-2 border-brand-red">Global Partnership</a>
             </div>
-            <button onclick="toggleMenu()" class="md:hidden text-slate-900 text-2xl focus:outline-none">
-                <i id="menu-icon" class="fas fa-bars"></i>
-            </button>
+            <button onclick="toggleMenu()" class="md:hidden text-slate-900 text-2xl focus:outline-none"><i id="menu-icon" class="fas fa-bars"></i></button>
         </div>
         <div id="mobile-menu" class="absolute top-full left-0 w-full bg-white border-b md:hidden flex flex-col items-center py-6 space-y-6 shadow-xl">
-            <a href="#about" onclick="toggleMenu()" class="nav-link text-slate-900">Our Story</a>
-            <a href="#features" onclick="toggleMenu()" class="nav-link text-slate-900">Innovation</a>
-            <a href="#specs" onclick="toggleMenu()" class="nav-link text-slate-900">Tech Specs</a>
+            <a href="#about" onclick="toggleMenu()" class="nav-link">Our Story</a>
+            <a href="#features" onclick="toggleMenu()" class="nav-link">Innovation</a>
+            <a href="#specs" onclick="toggleMenu()" class="nav-link">Tech Specs</a>
             <a href="#partner" onclick="toggleMenu()" class="nav-link text-brand-red">Global Partnership</a>
         </div>
     </nav>
 
     <section id="hero" class="relative h-screen flex items-center justify-center text-white text-center px-6 overflow-hidden bg-black">
-        <div class="absolute inset-0 z-0 overflow-hidden">
-            <img src="hero-bg.webp" alt="MTRONHAUL Adventure" class="w-full h-full object-cover animate-hero-refined transform-gpu">
-        </div>
+        <div class="absolute inset-0 z-0"><img src="hero-bg.webp" alt="M-Tron Tech" class="w-full h-full object-cover animate-hero-refined transform-gpu"></div>
         <div class="relative z-10 flex flex-col items-center">
-            <h1 class="text-4xl md:text-7xl font-black uppercase italic tracking-tighter mb-12 max-w-5xl mx-auto leading-none drop-shadow-2xl">
-                Intelligent Electric <br>
-                <span class="text-brand-red">Trailer Chassis</span>
+            <h1 class="text-4xl md:text-7xl font-black uppercase italic tracking-tighter mb-12 max-w-5xl leading-none drop-shadow-2xl">
+                Intelligent Electric <br><span class="text-brand-red">Trailer Chassis</span>
             </h1>
             <a href="#features" class="bg-white text-slate-900 hover:bg-brand-red hover:text-white px-12 py-4 rounded-full font-bold transition-all uppercase text-sm tracking-widest inline-block">Discover T-Pro</a>
         </div>
@@ -86,16 +74,16 @@
             <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-16 items-center">
                 <div class="text-left">
                     <h2 class="text-brand-red text-xs font-black uppercase tracking-[0.4em] mb-6">Our Story</h2>
-                    <h3 class="text-4xl md:text-5xl font-black mb-8 leading-[1.1] text-slate-900">Redefining the <span class="text-slate-400 italic font-light">Journey Beyond</span></h3>
+                    <h3 class="text-4xl md:text-5xl font-black mb-8 leading-[1.1]">Redefining the <span class="text-slate-400 italic font-light">Journey Beyond</span></h3>
                     <div class="space-y-6 text-slate-600 leading-relaxed text-lg text-justify">
-                        <p>Founded by veterans in automotive R&D and outdoor exploration, M-Tron Technology stands at the intersection of <strong>engineering precision</strong> and the <strong>spirit of adventure</strong>.</p>
-                        <p>We specialize in intelligent electrified chassis platforms for <strong>towable RVs and specialty trailers</strong>, delivering system-level solutions from rugged hardware to smart control.</p>
+                        <p>Founded by veterans in automotive R&D and outdoor exploration, M-Tron Technology stands at the intersection of precision engineering and the spirit of adventure.</p>
+                        <p>We specialize in intelligent electrified chassis platforms for towable RVs and specialty trailers, delivering system-level solutions.</p>
                         <p>Driven by innovation and reliability, our mission is to empower every explorer to <strong>Adventure Beyond</strong>.</p>
                     </div>
                 </div>
                 <div class="relative group cursor-zoom-in" onclick="openLightbox('product-story.webp')">
                     <div class="overflow-hidden rounded-[2.5rem] shadow-2xl border border-slate-100 bg-white">
-                        <img src="product-story.webp" alt="MTRONHAUL" class="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105">
+                        <img src="product-story.webp" alt="M-Tron Tech" class="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105">
                     </div>
                 </div>
             </div>
@@ -110,25 +98,19 @@
             </div>
             <div class="grid md:grid-cols-3 gap-12">
                 <div class="text-center group">
-                    <div class="w-24 h-24 bg-red-50 rounded-full flex items-center justify-center mx-auto mb-6 shadow-sm group-hover:bg-brand-red transition-all duration-500">
-                        <i class="fas fa-arrows-alt text-3xl text-brand-red group-hover:text-white"></i>
-                    </div>
+                    <div class="w-24 h-24 bg-red-50 rounded-full flex items-center justify-center mx-auto mb-6 shadow-sm group-hover:bg-brand-red transition-all duration-500"><i class="fas fa-arrows-alt text-3xl text-brand-red group-hover:text-white"></i></div>
                     <h4 class="font-black uppercase mb-4 text-sm tracking-widest">Maneuvering Anxiety</h4>
-                    <p class="text-slate-500 text-sm leading-relaxed px-4">Intense reversing challenges and difficulty positioning heavy trailers without a towing vehicle.</p>
+                    <p class="text-slate-500 text-sm leading-relaxed px-4">Intense reversing challenges and difficulty positioning heavy trailers.</p>
                 </div>
                 <div class="text-center group">
-                    <div class="w-24 h-24 bg-red-50 rounded-full flex items-center justify-center mx-auto mb-6 shadow-sm group-hover:bg-brand-red transition-all duration-500">
-                        <i class="fas fa-battery-empty text-3xl text-brand-red group-hover:text-white"></i>
-                    </div>
+                    <div class="w-24 h-24 bg-red-50 rounded-full flex items-center justify-center mx-auto mb-6 shadow-sm group-hover:bg-brand-red transition-all duration-500"><i class="fas fa-battery-empty text-3xl text-brand-red group-hover:text-white"></i></div>
                     <h4 class="font-black uppercase mb-4 text-sm tracking-widest">Energy Limitation</h4>
-                    <p class="text-slate-500 text-sm leading-relaxed px-4">Power strain on towing vehicles during hill climbs and limited power supply for off-grid cabin devices.</p>
+                    <p class="text-slate-500 text-sm leading-relaxed px-4">Power strain on towing vehicles and limited off-grid power supply.</p>
                 </div>
                 <div class="text-center group">
-                    <div class="w-24 h-24 bg-red-50 rounded-full flex items-center justify-center mx-auto mb-6 shadow-sm group-hover:bg-brand-red transition-all duration-500">
-                        <i class="fas fa-triangle-exclamation text-3xl text-brand-red group-hover:text-white"></i>
-                    </div>
+                    <div class="w-24 h-24 bg-red-50 rounded-full flex items-center justify-center mx-auto mb-6 shadow-sm group-hover:bg-brand-red transition-all duration-500"><i class="fas fa-triangle-exclamation text-3xl text-brand-red group-hover:text-white"></i></div>
                     <h4 class="font-black uppercase mb-4 text-sm tracking-widest">Insufficient Active Safety</h4>
-                    <p class="text-slate-500 text-sm leading-relaxed px-4">Swaying on roads, poor balance on off-road terrain, and braking lag on high-speed downhill runs.</p>
+                    <p class="text-slate-500 text-sm leading-relaxed px-4">Swaying on roads and braking lag on high-speed downhill runs.</p>
                 </div>
             </div>
         </div>
@@ -138,39 +120,33 @@
                 <h2 class="text-brand-red text-xs font-black uppercase tracking-[0.6em] mb-4">Our Solution</h2>
                 <h3 class="text-3xl md:text-5xl font-black uppercase italic">Pioneering Independence</h3>
             </div>
-            <div class="grid md:grid-cols-3 gap-8 text-left">
-                <div class="relative overflow-hidden rounded-[2.5rem] bg-slate-800 aspect-[4/5] shadow-xl group">
-                    <video autoplay loop muted playsinline webkit-playsinline x5-video-player-type="h5-page" preload="metadata" class="absolute inset-0 w-full h-full opacity-60">
-                        <source src="assets/hitching.mp4" type="video/mp4">
-                    </video>
-                    <div class="relative z-10 p-10 h-full flex flex-col justify-end text-center text-white">
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="relative overflow-hidden rounded-[2.5rem] bg-slate-800 aspect-[4/5] shadow-xl group text-white">
+                    <video autoplay loop muted playsinline webkit-playsinline x5-video-player-type="h5-page" preload="metadata" class="absolute inset-0 w-full h-full opacity-60"><source src="assets/hitching.mp4" type="video/mp4"></video>
+                    <div class="relative z-10 p-10 h-full flex flex-col justify-end text-center">
                         <h4 class="text-2xl font-black uppercase mb-2">RV Hitching</h4>
                         <p class="text-slate-300 text-xs italic">Precision maneuvering within campsites.</p>
                     </div>
                 </div>
-                <div class="relative overflow-hidden rounded-[2.5rem] bg-slate-800 aspect-[4/5] shadow-xl group">
-                    <video autoplay loop muted playsinline webkit-playsinline x5-video-player-type="h5-page" preload="metadata" class="absolute inset-0 w-full h-full opacity-60">
-                        <source src="assets/terrain.mp4" type="video/mp4">
-                    </video>
-                    <div class="relative z-10 p-10 h-full flex flex-col justify-end text-center text-white">
+                <div class="relative overflow-hidden rounded-[2.5rem] bg-slate-800 aspect-[4/5] shadow-xl group text-white">
+                    <video autoplay loop muted playsinline webkit-playsinline x5-video-player-type="h5-page" preload="metadata" class="absolute inset-0 w-full h-full opacity-60"><source src="assets/terrain.mp4" type="video/mp4"></video>
+                    <div class="relative z-10 p-10 h-full flex flex-col justify-end text-center">
                         <h4 class="text-2xl font-black uppercase mb-2">U-Turn</h4>
                         <p class="text-slate-300 text-xs italic">>450kg force per wheel for pivot rotation.</p>
                     </div>
                 </div>
-                <div class="relative overflow-hidden rounded-[2.5rem] bg-slate-800 aspect-[4/5] shadow-xl group">
-                    <video autoplay loop muted playsinline webkit-playsinline x5-video-player-type="h5-page" preload="metadata" class="absolute inset-0 w-full h-full opacity-60">
-                        <source src="assets/stability.mp4" type="video/mp4">
-                    </video>
-                    <div class="relative z-10 p-10 h-full flex flex-col justify-end text-center text-white">
+                <div class="relative overflow-hidden rounded-[2.5rem] bg-slate-800 aspect-[4/5] shadow-xl group text-white">
+                    <video autoplay loop muted playsinline webkit-playsinline x5-video-player-type="h5-page" preload="metadata" class="absolute inset-0 w-full h-full opacity-60"><source src="assets/stability.mp4" type="video/mp4"></video>
+                    <div class="relative z-10 p-10 h-full flex flex-col justify-end text-center">
                         <h4 class="text-2xl font-black uppercase mb-2">Escape Maneuver</h4>
-                        <p class="text-slate-300 text-xs italic">Emergency extrication via smart remote control.</p>
+                        <p class="text-slate-300 text-xs italic">Emergency extrication via remote control.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="py-32 bg-slate-900 text-white overflow-hidden relative">
+    <section class="py-32 bg-slate-900 text-white relative overflow-hidden">
         <div class="absolute top-10 -right-20 text-[15rem] font-black text-white/[0.03] select-none pointer-events-none uppercase italic">Partner</div>
         <div class="container mx-auto px-6 relative z-10 text-center">
             <div class="max-w-4xl mx-auto mb-20">
@@ -182,88 +158,88 @@
                 <div class="p-10 bg-white/5 border border-white/10 rounded-[2.5rem] hover:border-brand-red transition-all duration-500">
                     <div class="text-brand-red text-3xl mb-8"><i class="fas fa-puzzle-piece"></i></div>
                     <h4 class="text-xl font-black uppercase mb-6 tracking-tight">Universal Adaptability</h4>
-                    <p class="text-slate-400 text-sm leading-relaxed mb-6">Compatible with existing chassis layouts. Embedded system integrates seamlessly—just adjust brackets and crossbeams.</p>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-6">Compatible with existing chassis. Embedded system integrates seamlessly.</p>
                 </div>
                 <div class="p-10 bg-white/5 border border-white/10 rounded-[2.5rem] hover:border-brand-red transition-all duration-500">
                     <div class="text-brand-red text-3xl mb-8"><i class="fas fa-key"></i></div>
                     <h4 class="text-xl font-black uppercase mb-6 tracking-tight">Turnkey Solution</h4>
-                    <p class="text-slate-400 text-sm leading-relaxed mb-6">Complete powertrain, battery, and software stack included. We handle complex engineering; you focus on luxury.</p>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-6">Complete powertrain and battery included. You focus on luxury.</p>
                 </div>
                 <div class="p-10 bg-white/5 border border-white/10 rounded-[2.5rem] hover:border-brand-red transition-all duration-500">
                     <div class="text-brand-red text-3xl mb-8"><i class="fas fa-rocket"></i></div>
                     <h4 class="text-xl font-black uppercase mb-6 tracking-tight">Future-Proof Brand</h4>
-                    <p class="text-slate-400 text-sm leading-relaxed mb-6">Unique USPs: Electric Propulsion Assist, Self-Propelled Mode, Extended Off-Grid Power, and Active Towing Safety.</p>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-6">Unique USPs: Electric Propulsion Assist and Active Towing Safety.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <section id="specs" class="py-32 bg-slate-50 text-center">
-        <div class="container mx-auto px-6 text-center">
+        <div class="container mx-auto px-6">
             <h2 class="text-3xl font-black mb-16 uppercase italic tracking-widest">T-Pro Technical Specs</h2>
             <div class="max-w-4xl mx-auto overflow-x-auto rounded-2xl shadow-2xl border border-slate-100 bg-white">
-                <table class="w-full text-left border-collapse min-w-[500px] text-center">
-                    <thead class="bg-slate-900 text-white">
-                        <tr>
-                            <th class="p-4 md:p-6 uppercase tracking-widest text-xs md:text-sm text-center">Parameter</th>
-                            <th class="p-4 md:p-6 text-brand-red font-black uppercase tracking-widest text-xs md:text-sm text-center">Value</th>
-                        </tr>
-                    </thead>
+                <table class="w-full border-collapse min-w-[500px] text-center text-sm">
+                    <thead class="bg-slate-900 text-white"><tr>
+                        <th class="p-6 uppercase tracking-widest text-center">Parameter</th>
+                        <th class="p-6 text-brand-red font-black uppercase tracking-widest text-center">Value</th>
+                    </tr></thead>
                     <tbody class="divide-y divide-gray-100 text-center">
-                        <tr>
-                            <td class="p-4 md:p-6 font-bold text-slate-500 uppercase text-[10px] md:text-xs">Driving Torque</td>
-                            <td class="p-4 md:p-6 font-black text-green-600 text-sm md:text-base">1200 - 1800 Nm</td>
-                        </tr>
-                        <tr>
-                            <td class="p-4 md:p-6 font-bold text-slate-500 uppercase text-[10px] md:text-xs">Speed Range</td>
-                            <td class="p-4 md:p-6 font-black text-slate-700 text-sm md:text-base">2.0 - 4.0 KM/H</td>
-                        </tr>
-                        <tr>
-                            <td class="p-4 md:p-6 font-bold text-slate-500 uppercase text-[10px] md:text-xs">System Voltage</td>
-                            <td class="p-4 md:p-6 font-black text-brand-red text-sm md:text-base">12V - 48V DC</td>
-                        </tr>
-                        <tr>
-                            <td class="p-4 md:p-6 font-bold text-slate-500 uppercase text-[10px] md:text-xs text-center">Braking System</td>
-                            <td class="p-4 md:p-6 font-black text-slate-700 text-sm md:text-base">Electromagnetic (EMB)</td>
-                        </tr>
-                        <tr>
-                            <td class="p-4 md:p-6 font-bold text-slate-500 uppercase text-[10px] md:text-xs text-center">Communication</td>
-                            <td class="p-4 md:p-6 font-black text-slate-700 text-[10px] md:text-xs text-center">Wireless Remote / Bluetooth App</td>
-                        </tr>
+                        <tr><td class="p-6 font-bold text-slate-500 uppercase">Driving Torque</td><td class="p-6 font-black text-green-600">1200 - 1800 Nm</td></tr>
+                        <tr><td class="p-6 font-bold text-slate-500 uppercase">Speed Range</td><td class="p-6 font-black text-slate-700">2.0 - 4.0 KM/H</td></tr>
+                        <tr><td class="p-6 font-bold text-slate-500 uppercase">System Voltage</td><td class="p-6 font-black text-brand-red">12V - 48V DC</td></tr>
+                        <tr><td class="p-6 font-bold text-slate-500 uppercase">Braking System</td><td class="p-6 font-black text-slate-700">Electromagnetic (EMB)</td></tr>
                     </tbody>
                 </table>
             </div>
-            <div class="mt-12">
-                <a href="specs.html" class="inline-flex items-center gap-3 bg-brand-red text-white px-10 py-4 rounded-full font-black uppercase text-sm tracking-widest hover:bg-slate-900 transition-all shadow-xl">
-                    <span>Explore Full Technical Data</span>
-                    <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
+            <div class="mt-12"><a href="specs.html" class="inline-flex items-center gap-3 bg-brand-red text-white px-10 py-4 rounded-full font-black uppercase text-sm tracking-widest hover:bg-slate-900 transition-all shadow-xl"><span>Explore Full Technical Data</span><i class="fas fa-arrow-right"></i></a></div>
         </div>
     </section>
 
-    <section id="partner" class="py-32 bg-slate-900 text-white text-center">
+    <section id="partner" class="py-32 bg-slate-900 text-white">
         <div class="container mx-auto px-6">
-            <h2 class="text-brand-red text-xs font-black uppercase tracking-[0.6em] mb-6">Partnership</h2>
-            <h3 class="text-4xl md:text-6xl font-black mb-12 uppercase italic leading-tight text-white">Build the Future Together</h3>
-            <div class="grid md:grid-cols-2 gap-8 text-center max-w-4xl mx-auto">
-                <div class="p-8 bg-white/5 border border-white/10 rounded-3xl">
-                    <h4 class="font-black mb-4 uppercase text-brand-red">Business Inquiry</h4>
-                    <a href="mailto:sales@mtronhaul.com" class="text-xl font-bold hover:text-brand-red transition block">sales@mtronhaul.com</a>
+            <div class="max-w-4xl mx-auto text-center mb-16">
+                <h2 class="text-brand-red text-xs font-black uppercase tracking-[0.6em] mb-6">Partnership</h2>
+                <h3 class="text-4xl md:text-6xl font-black mb-12 uppercase italic leading-tight">Build the Future Together</h3>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
+                <div class="space-y-8">
+                    <div class="p-8 bg-white/5 border border-white/10 rounded-3xl text-center">
+                        <h4 class="font-black mb-4 uppercase text-brand-red text-sm tracking-widest">Business Inquiry</h4>
+                        <a href="mailto:sales@mtronhaul.com" class="text-xl font-bold hover:text-brand-red transition block">sales@mtronhaul.com</a>
+                    </div>
+                    <div class="p-8 bg-white/5 border border-white/10 rounded-3xl text-center">
+                        <h4 class="font-black mb-4 uppercase text-brand-red text-sm tracking-widest text-white">Technical Support</h4>
+                        <a href="mailto:support@mtronhaul.com" class="text-xl font-bold hover:text-brand-red transition block">support@mtronhaul.com</a>
+                    </div>
                 </div>
-                <div class="p-8 bg-white/5 border border-white/10 rounded-3xl">
-                    <h4 class="font-black mb-4 uppercase text-brand-red text-white">Technical Support</h4>
-                    <a href="mailto:support@mtronhaul.com" class="text-xl font-bold hover:text-brand-red transition block">support@mtronhaul.com</a>
+
+                <div class="bg-white/5 border border-white/10 rounded-[2.5rem] p-8 md:p-10 shadow-2xl">
+                    <h4 class="text-2xl font-black uppercase italic mb-8">Quick Inquiry</h4>
+                    <form action="https://submit-form.com/M6WQxT5rn" method="POST" class="space-y-4 text-center">
+                        <div class="grid grid-cols-2 gap-4">
+                            <input type="text" name="name" placeholder="Full Name" required class="form-input bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white outline-none transition text-sm">
+                            <input type="email" name="email" placeholder="Work Email" required class="form-input bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white outline-none transition text-sm">
+                        </div>
+                        <div class="grid grid-cols-2 gap-4">
+                            <input type="text" name="company" placeholder="Company" required class="form-input bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white outline-none transition text-sm">
+                            <input type="text" name="region" placeholder="Region" class="form-input bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white outline-none transition text-sm">
+                        </div>
+                        <select name="type" required class="form-input bg-slate-800 border border-white/10 rounded-xl px-4 py-3 text-slate-400 outline-none transition text-sm w-full appearance-none">
+                            <option value="" disabled selected>Inquiry Type</option>
+                            <option value="OEM">OEM Collaboration</option>
+                            <option value="Distribution">Distribution</option>
+                            <option value="Technical">Technical Support</option>
+                        </select>
+                        <textarea name="message" placeholder="Project Details" required class="form-input bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white outline-none transition text-sm w-full h-24"></textarea>
+                        <button type="submit" class="w-full bg-brand-red text-white py-4 rounded-full font-black uppercase text-xs tracking-[0.2em] hover:bg-white hover:text-brand-red transition-all shadow-xl">Send Inquiry</button>
+                    </form>
                 </div>
             </div>
         </div>
     </section>
 
-    <footer class="py-20 bg-white border-t">
-        <div class="container mx-auto px-6 flex justify-center">
-            <img src="footer-brand.svg" alt="MTRONHAUL®" class="h-12 md:h-16 w-auto object-contain transition-transform duration-500 hover:scale-110">
-        </div>
-    </footer>
+    <footer class="py-20 bg-white border-t"><div class="container mx-auto px-6 flex justify-center"><img src="footer-brand.svg" alt="MTRONHAUL®" class="h-12 md:h-16 w-auto object-contain transition-all hover:scale-110"></div></footer>
 
     <script>
         window.onload = function() { if (!window.location.hash || window.location.hash === '#hero') { window.scrollTo(0, 0); } };
