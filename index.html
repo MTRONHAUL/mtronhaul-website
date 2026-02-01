@@ -13,7 +13,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>M-Tron Tech</title>
     <link rel="icon" href="favicon.ico" sizes="any">
-    
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     
@@ -23,23 +22,39 @@
         .nav-link { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; transition: all 0.3s; }
         .text-brand-red { color: rgb(215, 0, 15); }
         .bg-brand-red { background-color: rgb(215, 0, 15); }
-        .border-brand-red { border-color: rgb(215, 0, 15); }
         
-        @keyframes kenburns { 0% { transform: scale(1); } 100% { transform: scale(1.1); } }
         @keyframes heroFadeIn { 0% { opacity: 0; filter: brightness(0); } 100% { opacity: 1; filter: brightness(0.4); } }
         .animate-hero-refined { animation: heroFadeIn 3s ease-out forwards, kenburns 25s ease-in-out infinite alternate; }
+        @keyframes kenburns { 0% { transform: scale(1); } 100% { transform: scale(1.1); } }
 
         #mobile-menu { transition: transform 0.3s ease-in-out; transform: translateY(-100%); }
         #mobile-menu.active { transform: translateY(0); }
-        #lightbox { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.9); z-index: 200; cursor: zoom-out; justify-content: center; align-items: center; }
+        
+        /* 成功提示遮罩层样式 */
+        #success-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(15, 23, 42, 0.95);
+            z-index: 300;
+            justify-content: center;
+            align-items: center;
+            backdrop-filter: blur(10px);
+        }
+
         .form-input:focus { border-color: rgb(215, 0, 15); background: rgba(255,255,255,0.1); }
     </style>
 </head>
 <body class="bg-white text-slate-900 font-sans antialiased text-left">
 
-    <div id="lightbox" onclick="closeLightbox()">
-        <button class="absolute top-10 right-10 text-white text-4xl hover:text-brand-red transition">&times;</button>
-        <img id="lightbox-img" src="" class="max-w-[90%] max-h-[90%] shadow-2xl rounded-lg border-2 border-white/10">
+    <div id="success-overlay">
+        <div class="text-center p-12 bg-white/5 rounded-[3rem] border border-white/10 shadow-2xl">
+            <div class="w-20 h-20 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-6">
+                <i class="fas fa-check text-3xl text-white"></i>
+            </div>
+            <h3 class="text-3xl font-black uppercase italic text-white mb-4">Inquiry Sent!</h3>
+            <p class="text-slate-400">Thank you for reaching out. <br>Redirecting you back to home in 3 seconds...</p>
+        </div>
     </div>
 
     <nav class="fixed w-full z-[100] bg-white/90 backdrop-blur-md border-b">
@@ -51,13 +66,7 @@
                 <a href="#specs" class="nav-link text-slate-500 hover:text-brand-red">Tech Specs</a>
                 <a href="#partner" class="nav-link text-brand-red border-b-2 border-brand-red">Global Partnership</a>
             </div>
-            <button onclick="toggleMenu()" class="md:hidden text-slate-900 text-2xl focus:outline-none"><i id="menu-icon" class="fas fa-bars"></i></button>
-        </div>
-        <div id="mobile-menu" class="absolute top-full left-0 w-full bg-white border-b md:hidden flex flex-col items-center py-6 space-y-6 shadow-xl">
-            <a href="#about" onclick="toggleMenu()" class="nav-link">Our Story</a>
-            <a href="#features" onclick="toggleMenu()" class="nav-link">Innovation</a>
-            <a href="#specs" onclick="toggleMenu()" class="nav-link">Tech Specs</a>
-            <a href="#partner" onclick="toggleMenu()" class="nav-link text-brand-red">Global Partnership</a>
+            <button onclick="toggleMenu()" class="md:hidden text-slate-900 text-2xl"><i class="fas fa-bars"></i></button>
         </div>
     </nav>
 
@@ -72,139 +81,26 @@
     </section>
 
     <section id="about" class="py-32 bg-slate-50 text-left">
-        <div class="container mx-auto px-6">
+        <div class="container mx-auto px-6 text-left">
             <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-16 items-center">
                 <div class="text-left">
                     <h2 class="text-brand-red text-xs font-black uppercase tracking-[0.4em] mb-6">Our Story</h2>
-                    <h3 class="text-4xl md:text-5xl font-black mb-8 leading-[1.1]">Redefining the <span class="text-slate-400 italic font-light text-left">Journey Beyond</span></h3>
-                    <div class="space-y-6 text-slate-600 leading-relaxed text-lg text-justify text-left">
-                        <p>Founded by veterans in automotive R&D and outdoor exploration, M-Tron Technology stands at the intersection of precision engineering and the spirit of adventure.</p>
-                        <p>We specialize in intelligent electrified chassis platforms for towable RVs and specialty trailers, delivering system-level solutions from rugged hardware to smart control.</p>
-                        <p>Driven by innovation and reliability, our mission is to empower every explorer to <strong>Adventure Beyond</strong>.</p>
-                    </div>
+                    <h3 class="text-4xl md:text-5xl font-black mb-8 leading-[1.1]">Redefining the <span class="text-slate-400 italic font-light">Journey Beyond</span></h3>
+                    <p class="text-slate-600 mb-8 leading-relaxed text-justify">Founded by veterans in automotive R&D, M-Tron Tech deliver system-level solutions for electrified RV chassis. Our mission is to empower every explorer to <strong>Adventure Beyond</strong>.</p>
                 </div>
-                <div class="relative group cursor-zoom-in" onclick="openLightbox('product-story.webp')">
-                    <div class="overflow-hidden rounded-[2.5rem] shadow-2xl border border-slate-100 bg-white">
-                        <img src="product-story.webp" alt="M-Tron Tech Story" class="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105">
-                    </div>
-                </div>
+                <img src="product-story.webp" alt="M-Tron Tech" class="rounded-[2.5rem] shadow-2xl">
             </div>
-        </div>
-    </section>
-
-    <section id="features" class="py-32 bg-white text-center">
-        <div class="container mx-auto px-6 mb-32">
-            <div class="max-w-4xl mx-auto mb-16">
-                <h2 class="text-brand-red text-xs font-black uppercase tracking-[0.6em] mb-4">The Challenge</h2>
-                <h3 class="text-3xl md:text-4xl font-black uppercase italic">Towing Pain Points</h3>
-            </div>
-            <div class="grid md:grid-cols-3 gap-12">
-                <div class="text-center group">
-                    <div class="w-24 h-24 bg-red-50 rounded-full flex items-center justify-center mx-auto mb-6 shadow-sm group-hover:bg-brand-red transition-all duration-500"><i class="fas fa-arrows-alt text-3xl text-brand-red group-hover:text-white"></i></div>
-                    <h4 class="font-black uppercase mb-4 text-sm tracking-widest">Maneuvering Anxiety</h4>
-                    <p class="text-slate-500 text-sm leading-relaxed px-4">Intense reversing challenges and difficulty positioning heavy trailers.</p>
-                </div>
-                <div class="text-center group">
-                    <div class="w-24 h-24 bg-red-50 rounded-full flex items-center justify-center mx-auto mb-6 shadow-sm group-hover:bg-brand-red transition-all duration-500"><i class="fas fa-battery-empty text-3xl text-brand-red group-hover:text-white"></i></div>
-                    <h4 class="font-black uppercase mb-4 text-sm tracking-widest">Energy Limitation</h4>
-                    <p class="text-slate-500 text-sm leading-relaxed px-4">Power strain on towing vehicles and limited off-grid power supply.</p>
-                </div>
-                <div class="text-center group">
-                    <div class="w-24 h-24 bg-red-50 rounded-full flex items-center justify-center mx-auto mb-6 shadow-sm group-hover:bg-brand-red transition-all duration-500"><i class="fas fa-triangle-exclamation text-3xl text-brand-red group-hover:text-white"></i></div>
-                    <h4 class="font-black uppercase mb-4 text-sm tracking-widest">Insufficient Active Safety</h4>
-                    <p class="text-slate-500 text-sm leading-relaxed px-4">Swaying on roads and braking lag on high-speed downhill runs.</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="container mx-auto px-6">
-            <div class="max-w-4xl mx-auto mb-16">
-                <h2 class="text-brand-red text-xs font-black uppercase tracking-[0.6em] mb-4">Our Solution</h2>
-                <h3 class="text-3xl md:text-5xl font-black uppercase italic">Pioneering Independence</h3>
-            </div>
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="relative overflow-hidden rounded-[2.5rem] bg-slate-800 aspect-[4/5] shadow-xl group text-white">
-                    <video autoplay loop muted playsinline webkit-playsinline x5-video-player-type="h5-page" preload="metadata" class="absolute inset-0 w-full h-full opacity-60"><source src="assets/hitching.mp4" type="video/mp4"></video>
-                    <div class="relative z-10 p-10 h-full flex flex-col justify-end text-center">
-                        <h4 class="text-2xl font-black uppercase mb-2">RV Hitching</h4>
-                        <p class="text-slate-300 text-xs italic">Precision maneuvering within campsites.</p>
-                    </div>
-                </div>
-                <div class="relative overflow-hidden rounded-[2.5rem] bg-slate-800 aspect-[4/5] shadow-xl group text-white">
-                    <video autoplay loop muted playsinline webkit-playsinline x5-video-player-type="h5-page" preload="metadata" class="absolute inset-0 w-full h-full opacity-60"><source src="assets/terrain.mp4" type="video/mp4"></video>
-                    <div class="relative z-10 p-10 h-full flex flex-col justify-end text-center">
-                        <h4 class="text-2xl font-black uppercase mb-2">U-Turn</h4>
-                        <p class="text-slate-300 text-xs italic">>450kg force per wheel for pivot rotation.</p>
-                    </div>
-                </div>
-                <div class="relative overflow-hidden rounded-[2.5rem] bg-slate-800 aspect-[4/5] shadow-xl group text-white">
-                    <video autoplay loop muted playsinline webkit-playsinline x5-video-player-type="h5-page" preload="metadata" class="absolute inset-0 w-full h-full opacity-60"><source src="assets/stability.mp4" type="video/mp4"></video>
-                    <div class="relative z-10 p-10 h-full flex flex-col justify-end text-center">
-                        <h4 class="text-2xl font-black uppercase mb-2">Escape Maneuver</h4>
-                        <p class="text-slate-300 text-xs italic">Emergency extrication via remote control.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="py-32 bg-slate-900 text-white relative overflow-hidden">
-        <div class="absolute top-10 -right-20 text-[15rem] font-black text-white/[0.03] select-none pointer-events-none uppercase italic">Partner</div>
-        <div class="container mx-auto px-6 relative z-10 text-center">
-            <div class="max-w-4xl mx-auto mb-20 text-center">
-                <h2 class="text-brand-red text-xs font-black uppercase tracking-[0.6em] mb-6 text-center">B2B Collaboration</h2>
-                <h3 class="text-4xl md:text-5xl font-black mb-8 italic uppercase leading-tight text-center">Strategic Partnership <br>for Manufacturers</h3>
-                <p class="text-slate-400 text-lg leading-relaxed text-center">We empower RV brands with next-generation electrification and safety technologies.</p>
-            </div>
-            <div class="grid md:grid-cols-3 gap-8 text-left">
-                <div class="p-10 bg-white/5 border border-white/10 rounded-[2.5rem] hover:border-brand-red transition-all duration-500">
-                    <div class="text-brand-red text-3xl mb-8"><i class="fas fa-puzzle-piece"></i></div>
-                    <h4 class="text-xl font-black uppercase mb-6 tracking-tight">Universal Adaptability</h4>
-                    <p class="text-slate-400 text-sm leading-relaxed mb-6">Compatible with existing chassis. Embedded system integrates seamlessly.</p>
-                </div>
-                <div class="p-10 bg-white/5 border border-white/10 rounded-[2.5rem] hover:border-brand-red transition-all duration-500">
-                    <div class="text-brand-red text-3xl mb-8"><i class="fas fa-key"></i></div>
-                    <h4 class="text-xl font-black uppercase mb-6 tracking-tight">Turnkey Solution</h4>
-                    <p class="text-slate-400 text-sm leading-relaxed mb-6">Complete powertrain and battery included. You focus on luxury.</p>
-                </div>
-                <div class="p-10 bg-white/5 border border-white/10 rounded-[2.5rem] hover:border-brand-red transition-all duration-500">
-                    <div class="text-brand-red text-3xl mb-8"><i class="fas fa-rocket"></i></div>
-                    <h4 class="text-xl font-black uppercase mb-6 tracking-tight">Future-Proof Brand</h4>
-                    <p class="text-slate-400 text-sm leading-relaxed mb-6">Unique USPs: Electric Propulsion Assist and Active Towing Safety.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="specs" class="py-32 bg-slate-50 text-center">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-black mb-16 uppercase italic tracking-widest">T-Pro Technical Specs</h2>
-            <div class="max-w-4xl mx-auto overflow-x-auto rounded-2xl shadow-2xl border border-slate-100 bg-white">
-                <table class="w-full border-collapse min-w-[500px] text-center text-sm">
-                    <thead class="bg-slate-900 text-white"><tr class="text-center">
-                        <th class="p-6 uppercase tracking-widest text-center">Parameter</th>
-                        <th class="p-6 text-brand-red font-black uppercase tracking-widest text-center">Value</th>
-                    </tr></thead>
-                    <tbody class="divide-y divide-gray-100 text-center text-center">
-                        <tr><td class="p-6 font-bold text-slate-500 uppercase">Driving Torque</td><td class="p-6 font-black text-green-600">1200 - 1800 Nm</td></tr>
-                        <tr><td class="p-6 font-bold text-slate-500 uppercase">Speed Range</td><td class="p-6 font-black text-slate-700">2.0 - 4.0 KM/H</td></tr>
-                        <tr><td class="p-6 font-bold text-slate-500 uppercase">System Voltage</td><td class="p-6 font-black text-brand-red">12V - 48V DC</td></tr>
-                        <tr><td class="p-6 font-bold text-slate-500 uppercase">Braking System</td><td class="p-6 font-black text-slate-700">Electromagnetic (EMB)</td></tr>
-                    </tbody>
-                </table>
-            </div>
-            <div class="mt-12 text-center"><a href="specs.html" class="inline-flex items-center gap-3 bg-brand-red text-white px-10 py-4 rounded-full font-black uppercase text-sm tracking-widest hover:bg-slate-900 transition-all shadow-xl"><span>Explore Full Technical Data</span><i class="fas fa-arrow-right"></i></a></div>
         </div>
     </section>
 
     <section id="partner" class="py-32 bg-slate-900 text-white">
         <div class="container mx-auto px-6">
             <div class="max-w-4xl mx-auto text-center mb-16">
-                <h2 class="text-brand-red text-xs font-black uppercase tracking-[0.6em] mb-6 text-center">Partnership</h2>
-                <h3 class="text-4xl md:text-6xl font-black mb-12 uppercase italic leading-tight text-center">Build the Future Together</h3>
+                <h2 class="text-brand-red text-xs font-black uppercase tracking-[0.6em] mb-6">Partnership</h2>
+                <h3 class="text-4xl md:text-6xl font-black mb-12 uppercase italic leading-tight">Build the Future Together</h3>
             </div>
             
-            <div class="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto items-start">
+            <div class="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
                 <div class="space-y-8">
                     <div class="p-8 bg-white/5 border border-white/10 rounded-3xl text-center">
                         <h4 class="font-black mb-4 uppercase text-brand-red text-sm tracking-widest">Business Inquiry</h4>
@@ -217,20 +113,17 @@
                 </div>
 
                 <div class="bg-white/5 border border-white/10 rounded-[2.5rem] p-8 md:p-10 shadow-2xl">
-                    <h4 class="text-2xl font-black uppercase italic mb-8 text-left md:text-center text-center">Quick Inquiry</h4>
+                    <h4 class="text-2xl font-black uppercase italic mb-8">Quick Inquiry</h4>
                     
-                    <form action="https://submit-form.com/M6WQxT5rn" method="POST" class="space-y-4 text-center">
-                        
-                        <input type="hidden" name="_redirect" value="https://mtronhaul.com" />
-                        <input type="checkbox" name="_honeypot" style="display:none" tabindex="-1" autocomplete="off" />
-
+                    <form id="inquiry-form" class="space-y-4 text-center">
+                        <input type="hidden" name="_honeypot" style="display:none" tabindex="-1" autocomplete="off" />
                         <div class="grid grid-cols-2 gap-4">
                             <input type="text" name="name" placeholder="Full Name" required class="form-input bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white outline-none transition text-sm">
                             <input type="email" name="email" placeholder="Work Email" required class="form-input bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white outline-none transition text-sm">
                         </div>
                         <div class="grid grid-cols-2 gap-4">
                             <input type="text" name="company" placeholder="Company" required class="form-input bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white outline-none transition text-sm">
-                            <input type="text" name="region" placeholder="Region (e.g. USA)" class="form-input bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white outline-none transition text-sm">
+                            <input type="text" name="region" placeholder="Region" class="form-input bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white outline-none transition text-sm">
                         </div>
                         <select name="type" required class="form-input bg-slate-800 border border-white/10 rounded-xl px-4 py-3 text-slate-400 outline-none transition text-sm w-full appearance-none">
                             <option value="" disabled selected>Inquiry Type</option>
@@ -240,7 +133,7 @@
                         </select>
                         <textarea name="message" placeholder="Project Details" required class="form-input bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white outline-none transition text-sm w-full h-24"></textarea>
                         
-                        <button type="submit" class="w-full bg-brand-red text-white py-4 rounded-full font-black uppercase text-xs tracking-[0.2em] hover:bg-white hover:text-brand-red transition-all shadow-xl">
+                        <button type="submit" id="submit-btn" class="w-full bg-brand-red text-white py-4 rounded-full font-black uppercase text-xs tracking-[0.2em] hover:bg-white hover:text-brand-red transition-all shadow-xl">
                             Send Inquiry
                         </button>
                     </form>
@@ -251,42 +144,60 @@
 
     <footer class="py-20 bg-white border-t text-center">
         <div class="container mx-auto px-6 flex justify-center text-center">
-            <img src="footer-brand.svg" alt="M-Tron Tech®" class="h-12 md:h-16 w-auto object-contain transition-all hover:scale-110 text-center">
+            <img src="footer-brand.svg" alt="MTRONHAUL®" class="h-12 md:h-16 w-auto object-contain transition-all hover:scale-110">
         </div>
     </footer>
 
     <script>
-        // 1. 强制滚动回顶
-        window.onload = function() { if (!window.location.hash || window.location.hash === '#hero') { window.scrollTo(0, 0); } };
-
-        // 2. 移动端导航
         function toggleMenu() {
             const menu = document.getElementById('mobile-menu');
-            const icon = document.getElementById('menu-icon');
             menu.classList.toggle('active');
-            if (menu.classList.contains('active')) { icon.classList.replace('fa-bars', 'fa-times'); } 
-            else { icon.classList.replace('fa-times', 'fa-bars'); }
         }
 
-        // 3. 产品故事灯箱
-        function openLightbox(imgSrc) {
-            const lightbox = document.getElementById('lightbox');
-            const lightboxImg = document.getElementById('lightbox-img');
-            lightboxImg.src = imgSrc;
-            lightbox.style.display = 'flex';
-            document.body.style.overflow = 'hidden'; 
-        }
-        function closeLightbox() {
-            const lightbox = document.getElementById('lightbox');
-            lightbox.style.display = 'none';
-            document.body.style.overflow = 'auto'; 
-        }
+        // 异步表单提交逻辑
+        const form = document.getElementById('inquiry-form');
+        const overlay = document.getElementById('success-overlay');
+        const submitBtn = document.getElementById('submit-btn');
 
-        // 4. 视频移动端自动播放补丁
-        document.addEventListener('touchstart', function() {
-            const videos = document.querySelectorAll('video');
-            videos.forEach(v => { if (v.paused) v.play(); });
-        }, { once: true });
+        form.addEventListener('submit', function(e) {
+            e.preventDefault(); // 阻止浏览器默认跳转
+            
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Sending...';
+
+            const formData = new FormData(form);
+            const data = Object.fromEntries(formData.entries());
+
+            // 这里的 ID 请保持您的 Formspark ID: M6WQxT5rn
+            fetch("https://submit-form.com/M6WQxT5rn", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    Accept: "application/json",
+                },
+                body: JSON.stringify(data),
+            })
+            .then(function(response) {
+                if (response.ok) {
+                    // 1. 显示成功遮罩层
+                    overlay.style.display = 'flex';
+                    // 2. 3秒后跳转
+                    setTimeout(function() {
+                        window.location.href = "https://mtronhaul.com";
+                    }, 3000);
+                } else {
+                    alert("Submission failed. Please try again or contact us via email.");
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'Send Inquiry';
+                }
+            })
+            .catch(function(error) {
+                console.error("Error:", error);
+                alert("An error occurred. Please check your connection.");
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Send Inquiry';
+            });
+        });
     </script>
 </body>
 </html>
