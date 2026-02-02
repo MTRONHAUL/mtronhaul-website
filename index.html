@@ -57,11 +57,11 @@
             box-shadow: 0 20px 40px -5px rgba(0, 0, 0, 0.2);
         }
 
-        /* 修复放大时圆角溢出问题的核心代码 */
-        .fix-safari-radius {
-            -webkit-mask-image: -webkit-radial-gradient(white, black);
-            mask-image: radial-gradient(white, black);
-            transform: translateZ(0); /* 强制 GPU 渲染 */
+        /* 🚀 核心修复：使用 clip-path 进行物理级裁剪 */
+        /* 这种方式比 border-radius 更底层，在 Windows Chrome 上不会出现直角溢出 */
+        .clip-rounded {
+            clip-path: inset(0 round 2rem); 
+            -webkit-clip-path: inset(0 round 2rem);
         }
 
         @keyframes heroFadeIn { 0% { opacity: 0; filter: brightness(0); } 100% { opacity: 1; filter: brightness(0.4); } }
@@ -72,6 +72,7 @@
         #mobile-menu.active { transform: translateY(0); }
         
         #success-overlay { display: none; position: fixed; inset: 0; background: rgba(15, 23, 42, 0.95); z-index: 300; justify-content: center; align-items: center; backdrop-filter: blur(15px); }
+        
         #lightbox { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.95); z-index: 200; cursor: zoom-out; justify-content: center; align-items: center; }
         
         .form-input:focus { border-color: rgb(215, 0, 15); background: rgba(255,255,255,0.08); box-shadow: 0 0 0 4px rgba(215, 0, 15, 0.1); }
@@ -92,13 +93,13 @@
             <div class="w-20 h-20 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg shadow-green-500/30">
                 <i class="fas fa-check text-3xl text-white"></i>
             </div>
-            <h3 class="text-4xl font-bold uppercase italic mb-4">Inquiry Sent</h3>
+            <h3 class="text-4xl font-bold uppercase italic mb-4 tracking-tight">Inquiry Sent</h3>
             <p class="text-slate-300 font-light">Redirecting to home in 3 seconds...</p>
         </div>
     </div>
 
     <div id="lightbox" onclick="closeLightbox()">
-        <div class="relative max-w-[90%] max-h-[90%] rounded-[2rem] overflow-hidden shadow-2xl border border-white/10 fix-safari-radius">
+        <div class="relative max-w-[90%] max-h-[90%] clip-rounded shadow-2xl border border-white/10">
             <img id="lightbox-img" src="" class="block w-full h-full object-contain">
         </div>
     </div>
@@ -156,8 +157,8 @@
                 </div>
                 
                 <div class="relative group cursor-zoom-in hover-lift" onclick="openLightbox('product-story.webp')">
-                    <div class="fix-safari-radius overflow-hidden rounded-[2rem] shadow-2xl bg-white border border-slate-100 transform-gpu rotate-0">
-                        <img src="product-story.webp" alt="Story" class="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105 rounded-[2rem]">
+                    <div class="clip-rounded shadow-2xl bg-white border border-slate-100">
+                        <img src="product-story.webp" alt="Story" class="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105">
                     </div>
                 </div>
             </div>
@@ -191,22 +192,22 @@
             <h2 class="text-brand-red text-sm font-bold uppercase tracking-[0.6em] mb-4">Our Solution</h2>
             <h3 class="text-4xl md:text-6xl font-bold uppercase italic mb-16 text-slate-900">Pioneering Independence</h3>
             <div class="grid md:grid-cols-3 gap-8">
-                <div class="relative overflow-hidden rounded-[2.5rem] bg-slate-900 aspect-[3/4] shadow-2xl text-white hover-lift group border border-slate-800 transform-gpu fix-safari-radius">
-                    <video autoplay loop muted playsinline webkit-playsinline class="absolute inset-0 w-full h-full opacity-60 group-hover:opacity-80 transition-opacity duration-500 rounded-[2.5rem]"><source src="assets/hitching.mp4" type="video/mp4"></video>
+                <div class="relative clip-rounded bg-slate-900 aspect-[3/4] shadow-2xl text-white hover-lift group border border-slate-800">
+                    <video autoplay loop muted playsinline webkit-playsinline class="absolute inset-0 w-full h-full opacity-60 group-hover:opacity-80 transition-opacity duration-500"><source src="assets/hitching.mp4" type="video/mp4"></video>
                     <div class="relative z-10 p-10 h-full flex flex-col justify-end text-center bg-gradient-to-t from-black/80 to-transparent">
                         <h4 class="text-3xl font-bold uppercase mb-2 italic">RV Hitching</h4>
                         <p class="text-slate-300 text-xs tracking-wider font-light">Precision maneuvering.</p>
                     </div>
                 </div>
-                <div class="relative overflow-hidden rounded-[2.5rem] bg-slate-900 aspect-[3/4] shadow-2xl text-white hover-lift group border border-slate-800 transform-gpu fix-safari-radius">
-                    <video autoplay loop muted playsinline webkit-playsinline class="absolute inset-0 w-full h-full opacity-60 group-hover:opacity-80 transition-opacity duration-500 rounded-[2.5rem]"><source src="assets/terrain.mp4" type="video/mp4"></video>
+                <div class="relative clip-rounded bg-slate-900 aspect-[3/4] shadow-2xl text-white hover-lift group border border-slate-800">
+                    <video autoplay loop muted playsinline webkit-playsinline class="absolute inset-0 w-full h-full opacity-60 group-hover:opacity-80 transition-opacity duration-500"><source src="assets/terrain.mp4" type="video/mp4"></video>
                     <div class="relative z-10 p-10 h-full flex flex-col justify-end text-center bg-gradient-to-t from-black/80 to-transparent">
                         <h4 class="text-3xl font-bold uppercase mb-2 italic">U-Turn</h4>
                         <p class="text-slate-300 text-xs tracking-wider font-light">>450kg torque/wheel pivot.</p>
                     </div>
                 </div>
-                <div class="relative overflow-hidden rounded-[2.5rem] bg-slate-900 aspect-[3/4] shadow-2xl text-white hover-lift group border border-slate-800 transform-gpu fix-safari-radius">
-                    <video autoplay loop muted playsinline webkit-playsinline class="absolute inset-0 w-full h-full opacity-60 group-hover:opacity-80 transition-opacity duration-500 rounded-[2.5rem]"><source src="assets/stability.mp4" type="video/mp4"></video>
+                <div class="relative clip-rounded bg-slate-900 aspect-[3/4] shadow-2xl text-white hover-lift group border border-slate-800">
+                    <video autoplay loop muted playsinline webkit-playsinline class="absolute inset-0 w-full h-full opacity-60 group-hover:opacity-80 transition-opacity duration-500"><source src="assets/stability.mp4" type="video/mp4"></video>
                     <div class="relative z-10 p-10 h-full flex flex-col justify-end text-center bg-gradient-to-t from-black/80 to-transparent">
                         <h4 class="text-3xl font-bold uppercase mb-2 italic">Escape</h4>
                         <p class="text-slate-300 text-xs tracking-wider font-light">Emergency extrication.</p>
