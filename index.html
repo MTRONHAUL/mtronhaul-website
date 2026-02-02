@@ -43,7 +43,6 @@
         .text-brand-red { color: rgb(215, 0, 15); }
         .bg-brand-red { background-color: rgb(215, 0, 15); }
         
-        /* 科技网格仅用于 B2B 区域，Hero 区域移除网格以突出图片 */
         .bg-tech-grid {
             background-color: #0f172a;
             background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
@@ -58,15 +57,15 @@
             box-shadow: 0 20px 40px -5px rgba(0, 0, 0, 0.2);
         }
 
-        /* 尝试修复直角问题的兼容性写法 */
+        /* 裁剪路径，修复 Windows Chrome 直角问题 */
         .clip-rounded {
-            border-radius: 2rem;
-            overflow: hidden;
-            transform: translateZ(0); /* 强制开启 GPU 加速，有时能解决渲染 BUG */
+            clip-path: inset(0 round 2rem); 
+            -webkit-clip-path: inset(0 round 2rem);
         }
 
-        @keyframes heroFadeIn { 0% { opacity: 0; filter: brightness(0); } 100% { opacity: 1; filter: brightness(0.4); } }
+        @keyframes heroFadeIn { 0% { opacity: 0; filter: brightness(0); } 100% { opacity: 1; filter: brightness(0.7); } }
         @keyframes kenburns { 0% { transform: scale(1); } 100% { transform: scale(1.1); } }
+        /* 调整动画，结束时保持 brightness(0.7) 确保文字可见 */
         .animate-hero-refined { animation: heroFadeIn 3s ease-out forwards, kenburns 25s ease-in-out infinite alternate; }
 
         #mobile-menu { transition: transform 0.3s ease-in-out; transform: translateY(-100%); }
@@ -130,16 +129,14 @@
 
     <section id="hero" class="relative h-screen flex items-center justify-center text-white text-center px-6 overflow-hidden bg-black">
         <div class="absolute inset-0 z-0 overflow-hidden">
-            <img src="hero-bg.webp" alt="M-Tron Tech" class="w-full h-full object-cover animate-hero-refined transform-gpu opacity-60">
+            <img src="hero-bg.webp" alt="M-Tron Tech" class="w-full h-full object-cover animate-hero-refined transform-gpu">
         </div>
         
-        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent z-0"></div>
-        
-        <div class="relative z-10 flex flex-col items-center">
-            <h1 class="text-5xl md:text-8xl font-bold uppercase italic tracking-tighter mb-8 max-w-6xl mx-auto leading-none drop-shadow-2xl">
+        <div class="relative z-10 flex flex-col items-center drop-shadow-2xl">
+            <h1 class="text-5xl md:text-8xl font-bold uppercase italic tracking-tighter mb-8 max-w-6xl mx-auto leading-none drop-shadow-2xl text-shadow-lg">
                 Intelligent Electric <br><span class="text-brand-red">Trailer Chassis</span>
             </h1>
-            <p class="text-slate-300 text-lg md:text-xl font-light mb-12 max-w-2xl tracking-wide">The future of RV towing safety and autonomy.</p>
+            <p class="text-slate-100 text-lg md:text-xl font-light mb-12 max-w-2xl tracking-wide drop-shadow-xl">The future of RV towing safety and autonomy.</p>
             <a href="#features" class="btn-text btn-primary-hover bg-white text-slate-900 border-2 border-white px-12 py-5 rounded-full font-bold transition-all uppercase text-sm tracking-[0.2em] shadow-xl hover:shadow-red-600/40 transform hover:-translate-y-1">
                 Discover T-Pro
             </a>
