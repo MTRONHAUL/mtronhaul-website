@@ -13,7 +13,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>M-Tron Tech | Specifications</title>
     <link rel="icon" href="favicon.ico" sizes="any">
-    
+
+    <meta name="description" content="Detailed technical specifications for M-Tron Tech T-Pro Series. 1800Nm torque, 4500kg payload capacity, and integrated EMB braking system.">
+    <meta name="keywords" content="RV Chassis Specs, Electric Trailer Torque, EMB Brakes, Caravan Suspension, M-Tron Tech Datasheet">
+    <meta name="author" content="M-Tron Technology">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://mtronhaul.com/specs.html">
+    <meta property="og:title" content="M-Tron Tech | T-Pro Technical Datasheet">
+    <meta property="og:description" content="Explore the engineering behind the T-Pro Series: 1800Nm torque, 4500kg GVWR.">
+    <meta property="og:image" content="product-story.webp">
+
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     
@@ -25,18 +35,11 @@
 
         /* 导航链接样式 */
         .nav-link { 
-            font-size: 0.75rem; 
-            font-weight: 700; 
-            text-transform: uppercase; 
-            letter-spacing: 0.1em; 
-            transition: all 0.3s ease; 
-            color: #64748b; 
+            font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; 
+            transition: all 0.3s ease; color: #64748b; position: relative; padding-bottom: 4px;
         }
         .nav-link:hover { color: rgb(215, 0, 15) !important; }
-        .nav-link.active { 
-            color: rgb(215, 0, 15) !important; 
-            border-bottom: 2px solid rgb(215, 0, 15);
-        }
+        .nav-link.active { color: rgb(215, 0, 15) !important; border-bottom: 2px solid rgb(215, 0, 15); }
 
         .spec-card { border-left: 4px solid rgb(215, 0, 15); position: relative; }
         
@@ -58,6 +61,15 @@
         .unit-toggle-btn { transition: all 0.3s; cursor: pointer; }
         .unit-toggle-btn.active { background-color: rgb(215, 0, 15); color: white; border-color: rgb(215, 0, 15); }
         .form-input:focus { border-color: rgb(215, 0, 15); background: rgba(255,255,255,0.1); }
+
+        /* 返回顶部按钮样式 */
+        #back-to-top {
+            opacity: 0; visibility: hidden; transition: all 0.4s ease;
+            transform: translateY(20px);
+        }
+        #back-to-top.show {
+            opacity: 1; visibility: visible; transform: translateY(0);
+        }
     </style>
 </head>
 <body class="bg-white text-slate-900 font-sans antialiased text-left">
@@ -72,20 +84,20 @@
         </div>
     </div>
 
+    <button id="back-to-top" onclick="scrollToTop()" class="fixed bottom-8 right-8 z-50 w-12 h-12 bg-brand-red text-white rounded-full shadow-2xl flex items-center justify-center hover:bg-slate-900 transition-colors duration-300">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
     <nav class="fixed w-full z-[100] bg-white/90 backdrop-blur-md border-b">
         <div class="container mx-auto px-6 py-3 flex justify-between items-center">
-            <a href="index.html">
-                <img src="logo.svg" alt="MTRONHAUL" class="h-10 w-auto object-contain">
-            </a>
+            <a href="index.html"><img src="logo.svg" alt="MTRONHAUL" class="h-10 w-auto object-contain"></a>
             <div class="hidden md:flex space-x-8">
                 <a href="index.html#about" class="nav-link">Our Story</a>
                 <a href="index.html#features" class="nav-link">Innovation</a>
                 <a href="index.html#specs" class="nav-link active">Tech Specs</a>
                 <a href="index.html#partner" class="nav-link">Global Partnership</a>
             </div>
-            <button onclick="toggleMenu()" class="md:hidden text-slate-900 text-2xl focus:outline-none">
-                <i id="menu-icon" class="fas fa-bars"></i>
-            </button>
+            <button onclick="toggleMenu()" class="md:hidden text-slate-900 text-2xl focus:outline-none"><i id="menu-icon" class="fas fa-bars"></i></button>
         </div>
         <div id="mobile-menu" class="absolute top-full left-0 w-full bg-white border-b md:hidden flex flex-col items-center py-6 space-y-6 shadow-xl text-center">
             <a href="index.html#about" onclick="toggleMenu()" class="nav-link">Our Story</a>
@@ -96,7 +108,7 @@
     </nav>
 
     <header class="pt-32 pb-16 bg-slate-900 text-white text-left">
-        <div class="container mx-auto px-6 text-left">
+        <div class="container mx-auto px-6">
             <h1 class="text-4xl md:text-6xl font-black italic uppercase tracking-tight mb-4 text-white">Technical Datasheet</h1>
             <p class="text-brand-red font-bold tracking-widest uppercase text-left">T-Pro Series Intelligent Chassis Platform</p>
         </div>
@@ -104,7 +116,7 @@
 
     <section class="py-20 border-b text-left">
         <div class="container mx-auto px-6">
-            <div class="flex flex-col md:flex-row gap-12 items-center">
+            <div class="flex flex-col md:flex-row gap-12 items-center text-left">
                 <div class="md:w-1/2 text-left">
                     <h2 class="text-2xl font-black mb-6 uppercase italic text-brand-red text-left">01. System Layout</h2>
                     <p class="text-slate-600 mb-8 leading-relaxed text-justify">
@@ -220,9 +232,22 @@
         </div>
     </section>
 
-    <footer class="py-20 bg-white border-t text-center">
-        <div class="container mx-auto px-6 flex justify-center">
-            <img src="footer-brand.svg" alt="M-Tron Tech®" class="h-12 md:h-16 w-auto object-contain transition-transform duration-500 hover:scale-110">
+    <footer class="py-12 bg-white border-t text-center">
+        <div class="container mx-auto px-6">
+            <img src="footer-brand.svg" alt="M-Tron Tech" class="h-12 w-auto object-contain mx-auto mb-8 hover:scale-110 transition-transform">
+            
+            <div class="flex justify-center space-x-8 mb-8">
+                <a href="https://linkedin.com/company/m-tron-tech" target="_blank" class="text-slate-400 hover:text-brand-red transition"><i class="fab fa-linkedin text-2xl"></i></a>
+                <a href="mailto:sales@mtronhaul.com" class="text-slate-400 hover:text-brand-red transition"><i class="fas fa-envelope text-2xl"></i></a>
+            </div>
+
+            <div class="text-xs text-slate-400 font-medium">
+                &copy; 2026 M-Tron Technology. All rights reserved. <br class="md:hidden">
+                <span class="hidden md:inline mx-2">|</span>
+                <a href="#" class="hover:text-slate-600">Privacy Policy</a>
+                <span class="mx-2">|</span>
+                <a href="#" class="hover:text-slate-600">Terms of Service</a>
+            </div>
         </div>
     </footer>
 
@@ -255,7 +280,15 @@
             }
         }
 
-        // 异步表单提交逻辑 (Formspark ID: M6WQxT5rn)
+        // 🚀 Back to Top Logic
+        const backToTopBtn = document.getElementById('back-to-top');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) backToTopBtn.classList.add('show');
+            else backToTopBtn.classList.remove('show');
+        });
+        function scrollToTop() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
+
+        // 异步表单提交逻辑
         const form = document.getElementById('inquiry-form');
         const overlay = document.getElementById('success-overlay');
         const submitBtn = document.getElementById('submit-btn');
