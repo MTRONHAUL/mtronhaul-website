@@ -43,6 +43,7 @@
         .text-brand-red { color: rgb(215, 0, 15); }
         .bg-brand-red { background-color: rgb(215, 0, 15); }
         
+        /* 科技网格仅用于 B2B 区域，Hero 区域移除网格以突出图片 */
         .bg-tech-grid {
             background-color: #0f172a;
             background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
@@ -57,11 +58,11 @@
             box-shadow: 0 20px 40px -5px rgba(0, 0, 0, 0.2);
         }
 
-        /* 🚀 核心修复：使用 clip-path 进行物理级裁剪 */
-        /* 这种方式比 border-radius 更底层，在 Windows Chrome 上不会出现直角溢出 */
+        /* 尝试修复直角问题的兼容性写法 */
         .clip-rounded {
-            clip-path: inset(0 round 2rem); 
-            -webkit-clip-path: inset(0 round 2rem);
+            border-radius: 2rem;
+            overflow: hidden;
+            transform: translateZ(0); /* 强制开启 GPU 加速，有时能解决渲染 BUG */
         }
 
         @keyframes heroFadeIn { 0% { opacity: 0; filter: brightness(0); } 100% { opacity: 1; filter: brightness(0.4); } }
@@ -127,11 +128,13 @@
         </div>
     </nav>
 
-    <section id="hero" class="relative h-screen flex items-center justify-center text-white text-center px-6 overflow-hidden bg-tech-grid">
-        <div class="absolute inset-0 z-0 overflow-hidden mix-blend-overlay opacity-50">
-            <img src="hero-bg.webp" alt="M-Tron Tech" class="w-full h-full object-cover animate-hero-refined transform-gpu">
+    <section id="hero" class="relative h-screen flex items-center justify-center text-white text-center px-6 overflow-hidden bg-black">
+        <div class="absolute inset-0 z-0 overflow-hidden">
+            <img src="hero-bg.webp" alt="M-Tron Tech" class="w-full h-full object-cover animate-hero-refined transform-gpu opacity-60">
         </div>
-        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent z-0"></div>
+        
+        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent z-0"></div>
+        
         <div class="relative z-10 flex flex-col items-center">
             <h1 class="text-5xl md:text-8xl font-bold uppercase italic tracking-tighter mb-8 max-w-6xl mx-auto leading-none drop-shadow-2xl">
                 Intelligent Electric <br><span class="text-brand-red">Trailer Chassis</span>
