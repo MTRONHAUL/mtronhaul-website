@@ -14,10 +14,8 @@
     <title>M-Tron Tech | Intelligent Electric Trailer Chassis</title>
     <link rel="icon" href="favicon.ico" sizes="any">
 
-    <meta name="description" content="M-Tron Tech T-Pro Series: The next-gen intelligent electric chassis platform. 1800Nm torque, active safety, and self-propulsion technology.">
-    <meta name="keywords" content="RV Chassis, Electric Trailer, Towing Safety, M-Tron Tech, EMB Braking">
+    <meta name="description" content="M-Tron Tech T-Pro Series: Intelligent electric chassis with 1800Nm torque and active safety.">
     <meta property="og:title" content="M-Tron Tech | Redefining the Journey Beyond">
-    <meta property="og:description" content="Discover the T-Pro Series: Intelligent electrified chassis with active safety systems.">
     <meta property="og:image" content="product-story.webp">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -28,7 +26,6 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     
     <style>
-        /* Fonts */
         :root { --font-heading: 'Oswald', sans-serif; --font-body: 'Inter', sans-serif; }
         body { font-family: var(--font-body); }
         h1, h2, h3, h4, h5, h6, .nav-link, .btn-text { font-family: var(--font-heading); }
@@ -36,7 +33,6 @@
         video { object-fit: cover; filter: brightness(0.5); }
         html { scroll-behavior: smooth; }
         
-        /* Nav Links */
         .nav-link { 
             font-size: 0.85rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.1em; 
             transition: all 0.3s ease; color: #64748b; position: relative; padding-bottom: 4px;
@@ -47,20 +43,25 @@
         .text-brand-red { color: rgb(215, 0, 15); }
         .bg-brand-red { background-color: rgb(215, 0, 15); }
         
-        /* Tech Grid Background */
         .bg-tech-grid {
             background-color: #0f172a;
             background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
             background-size: 30px 30px;
         }
 
-        /* Hover Lift Effect */
         .hover-lift {
             transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.4s ease;
         }
         .hover-lift:hover {
             transform: translateY(-8px);
             box-shadow: 0 20px 40px -5px rgba(0, 0, 0, 0.2);
+        }
+
+        /* 修复放大时圆角溢出问题的核心代码 */
+        .fix-safari-radius {
+            -webkit-mask-image: -webkit-radial-gradient(white, black);
+            mask-image: radial-gradient(white, black);
+            transform: translateZ(0); /* 强制 GPU 渲染 */
         }
 
         @keyframes heroFadeIn { 0% { opacity: 0; filter: brightness(0); } 100% { opacity: 1; filter: brightness(0.4); } }
@@ -71,16 +72,12 @@
         #mobile-menu.active { transform: translateY(0); }
         
         #success-overlay { display: none; position: fixed; inset: 0; background: rgba(15, 23, 42, 0.95); z-index: 300; justify-content: center; align-items: center; backdrop-filter: blur(15px); }
-        
-        /* Lightbox 样式 */
         #lightbox { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.95); z-index: 200; cursor: zoom-out; justify-content: center; align-items: center; }
         
         .form-input:focus { border-color: rgb(215, 0, 15); background: rgba(255,255,255,0.08); box-shadow: 0 0 0 4px rgba(215, 0, 15, 0.1); }
-
         #back-to-top { opacity: 0; visibility: hidden; transition: all 0.4s ease; transform: translateY(20px); }
         #back-to-top.show { opacity: 1; visibility: visible; transform: translateY(0); }
         
-        /* Hero 按钮 Hover 修复 */
         .btn-primary-hover:hover {
             background-color: rgb(215, 0, 15) !important;
             color: #ffffff !important;
@@ -95,13 +92,15 @@
             <div class="w-20 h-20 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg shadow-green-500/30">
                 <i class="fas fa-check text-3xl text-white"></i>
             </div>
-            <h3 class="text-4xl font-bold uppercase italic mb-4 tracking-tight">Inquiry Sent</h3>
+            <h3 class="text-4xl font-bold uppercase italic mb-4">Inquiry Sent</h3>
             <p class="text-slate-300 font-light">Redirecting to home in 3 seconds...</p>
         </div>
     </div>
 
     <div id="lightbox" onclick="closeLightbox()">
-        <img id="lightbox-img" src="" class="max-w-[90%] max-h-[90%] shadow-2xl rounded-[2rem] border border-white/10">
+        <div class="relative max-w-[90%] max-h-[90%] rounded-[2rem] overflow-hidden shadow-2xl border border-white/10 fix-safari-radius">
+            <img id="lightbox-img" src="" class="block w-full h-full object-contain">
+        </div>
     </div>
 
     <button id="back-to-top" onclick="scrollToTop()" class="fixed bottom-8 right-8 z-50 w-12 h-12 bg-brand-red text-white rounded-full shadow-lg shadow-red-600/30 flex items-center justify-center hover:bg-slate-900 transition-colors duration-300">
@@ -128,11 +127,10 @@
     </nav>
 
     <section id="hero" class="relative h-screen flex items-center justify-center text-white text-center px-6 overflow-hidden bg-tech-grid">
-        <div class="absolute inset-0 z-0 overflow-hidden text-center mix-blend-overlay opacity-50">
+        <div class="absolute inset-0 z-0 overflow-hidden mix-blend-overlay opacity-50">
             <img src="hero-bg.webp" alt="M-Tron Tech" class="w-full h-full object-cover animate-hero-refined transform-gpu">
         </div>
         <div class="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent z-0"></div>
-        
         <div class="relative z-10 flex flex-col items-center">
             <h1 class="text-5xl md:text-8xl font-bold uppercase italic tracking-tighter mb-8 max-w-6xl mx-auto leading-none drop-shadow-2xl">
                 Intelligent Electric <br><span class="text-brand-red">Trailer Chassis</span>
@@ -156,9 +154,10 @@
                         <p>Driven by innovation and reliability, our mission is to empower every explorer to <strong>Adventure Beyond</strong>.</p>
                     </div>
                 </div>
+                
                 <div class="relative group cursor-zoom-in hover-lift" onclick="openLightbox('product-story.webp')">
-                    <div class="overflow-hidden rounded-[2rem] shadow-2xl bg-white border border-slate-100">
-                        <img src="product-story.webp" alt="Story" class="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105">
+                    <div class="fix-safari-radius overflow-hidden rounded-[2rem] shadow-2xl bg-white border border-slate-100 transform-gpu rotate-0">
+                        <img src="product-story.webp" alt="Story" class="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105 rounded-[2rem]">
                     </div>
                 </div>
             </div>
@@ -192,22 +191,22 @@
             <h2 class="text-brand-red text-sm font-bold uppercase tracking-[0.6em] mb-4">Our Solution</h2>
             <h3 class="text-4xl md:text-6xl font-bold uppercase italic mb-16 text-slate-900">Pioneering Independence</h3>
             <div class="grid md:grid-cols-3 gap-8">
-                <div class="relative overflow-hidden rounded-[2.5rem] bg-slate-900 aspect-[3/4] shadow-2xl text-white hover-lift group border border-slate-800">
-                    <video autoplay loop muted playsinline webkit-playsinline class="absolute inset-0 w-full h-full opacity-60 group-hover:opacity-80 transition-opacity duration-500"><source src="assets/hitching.mp4" type="video/mp4"></video>
+                <div class="relative overflow-hidden rounded-[2.5rem] bg-slate-900 aspect-[3/4] shadow-2xl text-white hover-lift group border border-slate-800 transform-gpu fix-safari-radius">
+                    <video autoplay loop muted playsinline webkit-playsinline class="absolute inset-0 w-full h-full opacity-60 group-hover:opacity-80 transition-opacity duration-500 rounded-[2.5rem]"><source src="assets/hitching.mp4" type="video/mp4"></video>
                     <div class="relative z-10 p-10 h-full flex flex-col justify-end text-center bg-gradient-to-t from-black/80 to-transparent">
                         <h4 class="text-3xl font-bold uppercase mb-2 italic">RV Hitching</h4>
                         <p class="text-slate-300 text-xs tracking-wider font-light">Precision maneuvering.</p>
                     </div>
                 </div>
-                <div class="relative overflow-hidden rounded-[2.5rem] bg-slate-900 aspect-[3/4] shadow-2xl text-white hover-lift group border border-slate-800">
-                    <video autoplay loop muted playsinline webkit-playsinline class="absolute inset-0 w-full h-full opacity-60 group-hover:opacity-80 transition-opacity duration-500"><source src="assets/terrain.mp4" type="video/mp4"></video>
+                <div class="relative overflow-hidden rounded-[2.5rem] bg-slate-900 aspect-[3/4] shadow-2xl text-white hover-lift group border border-slate-800 transform-gpu fix-safari-radius">
+                    <video autoplay loop muted playsinline webkit-playsinline class="absolute inset-0 w-full h-full opacity-60 group-hover:opacity-80 transition-opacity duration-500 rounded-[2.5rem]"><source src="assets/terrain.mp4" type="video/mp4"></video>
                     <div class="relative z-10 p-10 h-full flex flex-col justify-end text-center bg-gradient-to-t from-black/80 to-transparent">
                         <h4 class="text-3xl font-bold uppercase mb-2 italic">U-Turn</h4>
                         <p class="text-slate-300 text-xs tracking-wider font-light">>450kg torque/wheel pivot.</p>
                     </div>
                 </div>
-                <div class="relative overflow-hidden rounded-[2.5rem] bg-slate-900 aspect-[3/4] shadow-2xl text-white hover-lift group border border-slate-800">
-                    <video autoplay loop muted playsinline webkit-playsinline class="absolute inset-0 w-full h-full opacity-60 group-hover:opacity-80 transition-opacity duration-500"><source src="assets/stability.mp4" type="video/mp4"></video>
+                <div class="relative overflow-hidden rounded-[2.5rem] bg-slate-900 aspect-[3/4] shadow-2xl text-white hover-lift group border border-slate-800 transform-gpu fix-safari-radius">
+                    <video autoplay loop muted playsinline webkit-playsinline class="absolute inset-0 w-full h-full opacity-60 group-hover:opacity-80 transition-opacity duration-500 rounded-[2.5rem]"><source src="assets/stability.mp4" type="video/mp4"></video>
                     <div class="relative z-10 p-10 h-full flex flex-col justify-end text-center bg-gradient-to-t from-black/80 to-transparent">
                         <h4 class="text-3xl font-bold uppercase mb-2 italic">Escape</h4>
                         <p class="text-slate-300 text-xs tracking-wider font-light">Emergency extrication.</p>
@@ -342,7 +341,6 @@
             let current = "";
             sections.forEach(sec => { if (pageYOffset >= (sec.offsetTop - 300)) current = sec.getAttribute('id'); });
             navLinks.forEach(link => { link.classList.remove('active'); if (link.getAttribute('data-section') === current) link.classList.add('active'); });
-            // Back to Top
             const btt = document.getElementById('back-to-top');
             if (window.scrollY > 400) btt.classList.add('show'); else btt.classList.remove('show');
         });
@@ -360,7 +358,7 @@
             fetch("https://submit-form.com/M6WQxT5rn", {
                 method: "POST", headers: { "Content-Type": "application/json", Accept: "application/json" }, body: JSON.stringify(data),
             }).then(res => {
-                if (res.ok) { overlay.style.display = 'flex'; setTimeout(() => { window.location.href = "index.html"; }, 3000); } 
+                if (res.ok) { overlay.style.display = 'flex'; setTimeout(() => { window.location.href = "https://mtronhaul.com"; }, 3000); } 
                 else { alert("Error."); btn.disabled = false; btn.textContent = 'Send Inquiry'; }
             }).catch(() => { btn.disabled = false; btn.textContent = 'Send Inquiry'; });
         });
