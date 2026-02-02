@@ -23,14 +23,14 @@
         .bg-brand-red { background-color: rgb(215, 0, 15); }
         .border-brand-red { border-color: rgb(215, 0, 15); }
 
-        /* 导航链接样式：同步 index.html 的悬停与激活效果 */
+        /* 导航链接样式 */
         .nav-link { 
             font-size: 0.75rem; 
             font-weight: 700; 
             text-transform: uppercase; 
             letter-spacing: 0.1em; 
             transition: all 0.3s ease; 
-            color: #64748b; /* Slate-500 */
+            color: #64748b; 
         }
         .nav-link:hover { color: rgb(215, 0, 15) !important; }
         .nav-link.active { 
@@ -63,11 +63,11 @@
 <body class="bg-white text-slate-900 font-sans antialiased text-left">
 
     <div id="success-overlay">
-        <div class="text-center p-12 bg-white/5 rounded-[3rem] border border-white/10 shadow-2xl">
+        <div class="text-center p-12 bg-white/5 rounded-[3rem] border border-white/10 shadow-2xl text-white">
             <div class="w-20 h-20 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-6">
                 <i class="fas fa-check text-3xl text-white"></i>
             </div>
-            <h3 class="text-3xl font-black uppercase italic text-white mb-4">Inquiry Sent!</h3>
+            <h3 class="text-3xl font-black uppercase italic mb-4">Inquiry Sent!</h3>
             <p class="text-slate-400">Thank you for your interest. <br>Redirecting to home in 3 seconds...</p>
         </div>
     </div>
@@ -96,7 +96,7 @@
     </nav>
 
     <header class="pt-32 pb-16 bg-slate-900 text-white text-left">
-        <div class="container mx-auto px-6">
+        <div class="container mx-auto px-6 text-left">
             <h1 class="text-4xl md:text-6xl font-black italic uppercase tracking-tight mb-4 text-white">Technical Datasheet</h1>
             <p class="text-brand-red font-bold tracking-widest uppercase text-left">T-Pro Series Intelligent Chassis Platform</p>
         </div>
@@ -104,7 +104,7 @@
 
     <section class="py-20 border-b text-left">
         <div class="container mx-auto px-6">
-            <div class="flex flex-col md:flex-row gap-12 items-center text-left">
+            <div class="flex flex-col md:flex-row gap-12 items-center">
                 <div class="md:w-1/2 text-left">
                     <h2 class="text-2xl font-black mb-6 uppercase italic text-brand-red text-left">01. System Layout</h2>
                     <p class="text-slate-600 mb-8 leading-relaxed text-justify">
@@ -123,26 +123,26 @@
     </section>
 
     <section class="py-20 bg-slate-50 border-b text-left">
-        <div class="container mx-auto px-6 text-left">
-            <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 gap-6 text-left">
-                <h2 class="text-2xl font-black uppercase italic text-brand-red text-left">02. Power & Applicability</h2>
-                <div class="flex bg-white border border-slate-200 rounded-full p-1 shadow-md text-left">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 gap-6">
+                <h2 class="text-2xl font-black uppercase italic text-brand-red">02. Power & Applicability</h2>
+                <div class="flex bg-white border border-slate-200 rounded-full p-1 shadow-md">
                     <button onclick="updateAllUnits('metric')" id="btn-kg" class="unit-toggle-btn active px-6 py-2 rounded-full text-[10px] font-black uppercase tracking-widest">Metric (Kg/Nm)</button>
                     <button onclick="updateAllUnits('imperial')" id="btn-lbs" class="unit-toggle-btn px-6 py-2 rounded-full text-[10px] font-black uppercase tracking-widest">Imperial (Lbs/Lb-ft)</button>
                 </div>
             </div>
 
-            <div class="grid md:grid-cols-2 gap-12 items-center mb-12 text-left">
+            <div class="grid md:grid-cols-2 gap-12 items-center mb-12">
                 <img src="types.webp" alt="Types" class="w-full h-auto object-contain rounded-2xl shadow-xl">
                 <div class="grid grid-cols-1 gap-6 text-left">
                     <div class="bg-white p-8 rounded-3xl shadow-sm spec-card text-left">
-                        <h3 class="font-black uppercase mb-4 text-slate-400 text-sm tracking-widest text-left">Driving Torque</h3>
+                        <h3 class="font-black uppercase mb-4 text-slate-400 text-sm tracking-widest">Driving Torque</h3>
                         <span class="text-brand-red font-black text-2xl">
                             <span class="torque-val" data-metric="1200">1,200</span> - <span class="torque-val" data-metric="1800">1,800</span> 
                             <span class="torque-unit">Nm</span>
                         </span>
                     </div>
-                    <div class="bg-white p-8 rounded-3xl shadow-sm spec-card text-left text-left">
+                    <div class="bg-white p-8 rounded-3xl shadow-sm spec-card text-left">
                         <h3 class="font-black uppercase mb-4 text-slate-400 text-sm tracking-widest">Applicable Load (GVWR)</h3>
                         <span class="font-black text-2xl text-slate-700">
                             Up to <span class="weight-val" data-metric="4500">4,500</span> <span class="weight-label">kg</span>
@@ -153,19 +153,19 @@
         </div>
     </section>
 
-    <section class="py-24 bg-slate-900 text-white border-b border-white/5 text-left text-left">
-        <div class="container mx-auto px-6 text-left">
+    <section class="py-24 bg-slate-900 text-white border-b border-white/5 text-left">
+        <div class="container mx-auto px-6">
             <h2 class="text-2xl font-black mb-12 uppercase italic text-brand-red">04. System Assembly (BOM)</h2>
             <div class="overflow-x-auto">
-                <table class="w-full text-left text-sm text-left">
-                    <thead class="text-brand-red uppercase border-b border-white/10 text-left">
+                <table class="w-full text-left text-sm">
+                    <thead class="text-brand-red uppercase border-b border-white/10">
                         <tr>
                             <th class="py-4">Category</th>
                             <th class="py-4">Components</th>
                             <th class="py-4 text-center">Qty</th>
                         </tr>
                     </thead>
-                    <tbody class="divide-y divide-white/5 text-left">
+                    <tbody class="divide-y divide-white/5">
                         <tr><td class="py-4 font-bold">Axles</td><td>Axle Sub-Assembly</td><td class="text-center">1 Set</td></tr>
                         <tr><td class="py-4 font-bold">Suspension</td><td>Link & Shock Absorbers</td><td class="text-center">1 Set</td></tr>
                         <tr><td class="py-4 font-bold">Braking</td><td>EMB Brakes & Drums</td><td class="text-center">2 Set</td></tr>
@@ -182,25 +182,35 @@
     <section id="partner" class="py-32 bg-slate-50 border-t text-left">
         <div class="container mx-auto px-6">
             <h2 class="text-brand-red text-xs font-black uppercase tracking-[0.6em] mb-6 text-center">Inquiry</h2>
-            <h3 class="text-3xl md:text-5xl font-black mb-12 uppercase italic leading-tight text-center text-slate-900 text-center">Contact Technical Support</h3>
+            <h3 class="text-3xl md:text-5xl font-black mb-12 uppercase italic leading-tight text-center text-slate-900">Request Technical Support</h3>
             
-            <div class="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto items-start text-left">
+            <div class="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto items-start">
                 <div class="space-y-6">
                     <div class="p-8 bg-white border border-slate-200 rounded-3xl shadow-sm text-center">
                         <h4 class="font-black mb-2 uppercase text-brand-red text-xs tracking-widest">Business Email</h4>
-                        <a href="mailto:support@mtronhaul.com" class="text-lg font-bold hover:text-brand-red transition">support@mtronhaul.com</a>
+                        <a href="mailto:sales@mtronhaul.com" class="text-lg font-bold hover:text-brand-red transition">sales@mtronhaul.com</a>
                     </div>
                 </div>
 
-                <div class="bg-slate-900 rounded-[2.5rem] p-8 md:p-10 shadow-2xl text-center text-center">
-                    <form id="inquiry-form" class="space-y-4">
+                <div class="bg-slate-900 rounded-[2.5rem] p-8 md:p-10 shadow-2xl text-center">
+                    <form id="inquiry-form" class="space-y-4 text-center">
                         <input type="hidden" name="_honeypot" style="display:none" tabindex="-1" autocomplete="off" />
                         <div class="grid grid-cols-2 gap-4">
                             <input type="text" name="name" placeholder="Name" required class="form-input bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white text-sm outline-none transition">
                             <input type="email" name="email" placeholder="Email" required class="form-input bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white text-sm outline-none transition">
                         </div>
                         <input type="text" name="company" placeholder="Company" required class="form-input bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white text-sm w-full outline-none transition">
-                        <textarea name="message" placeholder="Technical Requirements" required class="form-input bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white text-sm w-full h-24 outline-none transition"></textarea>
+                        
+                        <select name="message_type" required class="form-input bg-slate-800 border border-white/10 rounded-xl px-4 py-3 text-slate-400 outline-none transition text-sm w-full appearance-none">
+                            <option value="" disabled selected>Select Inquiry Category *</option>
+                            <option value="Sales Inquiry">Sales Inquiry</option>
+                            <option value="Technical Support">Technical Support</option>
+                            <option value="Product Specs">Product Specs</option>
+                            <option value="Other">Other</option>
+                        </select>
+
+                        <textarea name="details" placeholder="Project Details" required class="form-input bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white text-sm w-full h-24 outline-none transition"></textarea>
+                        
                         <button type="submit" id="submit-btn" class="w-full bg-brand-red text-white py-4 rounded-full font-black uppercase text-xs tracking-[0.2em] hover:bg-white hover:text-brand-red transition-all shadow-xl">
                             Send Inquiry
                         </button>
@@ -210,7 +220,7 @@
         </div>
     </section>
 
-    <footer class="py-20 bg-white border-t text-center text-center">
+    <footer class="py-20 bg-white border-t text-center">
         <div class="container mx-auto px-6 flex justify-center">
             <img src="footer-brand.svg" alt="M-Tron Tech®" class="h-12 md:h-16 w-auto object-contain transition-transform duration-500 hover:scale-110">
         </div>
