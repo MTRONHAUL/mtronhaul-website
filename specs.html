@@ -22,7 +22,22 @@
         .text-brand-red { color: rgb(215, 0, 15); }
         .bg-brand-red { background-color: rgb(215, 0, 15); }
         .border-brand-red { border-color: rgb(215, 0, 15); }
-        .nav-link { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; transition: color 0.3s ease; }
+
+        /* 导航链接样式：同步 index.html 的悬停与激活效果 */
+        .nav-link { 
+            font-size: 0.75rem; 
+            font-weight: 700; 
+            text-transform: uppercase; 
+            letter-spacing: 0.1em; 
+            transition: all 0.3s ease; 
+            color: #64748b; /* Slate-500 */
+        }
+        .nav-link:hover { color: rgb(215, 0, 15) !important; }
+        .nav-link.active { 
+            color: rgb(215, 0, 15) !important; 
+            border-bottom: 2px solid rgb(215, 0, 15);
+        }
+
         .spec-card { border-left: 4px solid rgb(215, 0, 15); position: relative; }
         
         #mobile-menu { transition: transform 0.3s ease-in-out; transform: translateY(-100%); }
@@ -58,30 +73,30 @@
     </div>
 
     <nav class="fixed w-full z-[100] bg-white/90 backdrop-blur-md border-b">
-        <div class="container mx-auto px-6 py-3 flex justify-between items-center text-left">
-            <a href="index.html" class="text-left">
+        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <a href="index.html">
                 <img src="logo.svg" alt="MTRONHAUL" class="h-10 w-auto object-contain">
             </a>
-            <div class="hidden md:flex space-x-8 text-left">
-                <a href="index.html#about" class="nav-link text-slate-500 hover:text-brand-red">Our Story</a>
-                <a href="index.html#features" class="nav-link text-slate-500 hover:text-brand-red">Innovation</a>
-                <a href="index.html#specs" class="nav-link text-brand-red">Tech Specs</a>
-                <a href="index.html#partner" class="nav-link text-slate-500 hover:text-brand-red text-left">Global Partnership</a>
+            <div class="hidden md:flex space-x-8">
+                <a href="index.html#about" class="nav-link">Our Story</a>
+                <a href="index.html#features" class="nav-link">Innovation</a>
+                <a href="index.html#specs" class="nav-link active">Tech Specs</a>
+                <a href="index.html#partner" class="nav-link">Global Partnership</a>
             </div>
-            <button onclick="toggleMenu()" class="md:hidden text-slate-900 text-2xl text-left focus:outline-none">
+            <button onclick="toggleMenu()" class="md:hidden text-slate-900 text-2xl focus:outline-none">
                 <i id="menu-icon" class="fas fa-bars"></i>
             </button>
         </div>
         <div id="mobile-menu" class="absolute top-full left-0 w-full bg-white border-b md:hidden flex flex-col items-center py-6 space-y-6 shadow-xl text-center">
-            <a href="index.html#about" onclick="toggleMenu()" class="nav-link text-slate-900 hover:text-brand-red">Our Story</a>
-            <a href="index.html#features" onclick="toggleMenu()" class="nav-link text-slate-900 hover:text-brand-red">Innovation</a>
-            <a href="index.html#specs" onclick="toggleMenu()" class="nav-link text-slate-900 hover:text-brand-red text-left">Tech Specs</a>
-            <a href="index.html#partner" onclick="toggleMenu()" class="nav-link text-brand-red">Global Partnership</a>
+            <a href="index.html#about" onclick="toggleMenu()" class="nav-link">Our Story</a>
+            <a href="index.html#features" onclick="toggleMenu()" class="nav-link">Innovation</a>
+            <a href="index.html#specs" onclick="toggleMenu()" class="nav-link active">Tech Specs</a>
+            <a href="index.html#partner" onclick="toggleMenu()" class="nav-link">Global Partnership</a>
         </div>
     </nav>
 
     <header class="pt-32 pb-16 bg-slate-900 text-white text-left">
-        <div class="container mx-auto px-6 text-left">
+        <div class="container mx-auto px-6">
             <h1 class="text-4xl md:text-6xl font-black italic uppercase tracking-tight mb-4 text-white">Technical Datasheet</h1>
             <p class="text-brand-red font-bold tracking-widest uppercase text-left">T-Pro Series Intelligent Chassis Platform</p>
         </div>
@@ -96,7 +111,7 @@
                         A systematic architecture featuring an intelligent electric drive axle and multi-link suspension, integrating electronic parking, lithium energy storage, and core wireless control modules.
                     </p>
                     <ul class="space-y-4 font-medium text-left">
-                        <li class="flex items-start gap-3"><i class="fas fa-check text-brand-red mt-1"></i> <span>Multi-link suspension optimized for stability</span></li>
+                        <li class="flex items-start gap-3"><i class="fas fa-check text-brand-red mt-1"></i> <span>Multi-link suspension optimized for rugged stability</span></li>
                         <li class="flex items-start gap-3"><i class="fas fa-check text-brand-red mt-1"></i> <span>Integrated Electromagnetic Braking (EMB) System</span></li>
                     </ul>
                 </div>
@@ -108,12 +123,12 @@
     </section>
 
     <section class="py-20 bg-slate-50 border-b text-left">
-        <div class="container mx-auto px-6">
+        <div class="container mx-auto px-6 text-left">
             <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 gap-6 text-left">
                 <h2 class="text-2xl font-black uppercase italic text-brand-red text-left">02. Power & Applicability</h2>
-                <div class="flex bg-white border border-slate-200 rounded-full p-1 shadow-md">
-                    <button onclick="updateAllUnits('metric')" id="btn-kg" class="unit-toggle-btn active px-6 py-2 rounded-full text-[10px] font-black uppercase tracking-widest text-left">Metric (Kg/Nm)</button>
-                    <button onclick="updateAllUnits('imperial')" id="btn-lbs" class="unit-toggle-btn px-6 py-2 rounded-full text-[10px] font-black uppercase tracking-widest text-left">Imperial (Lbs/Lb-ft)</button>
+                <div class="flex bg-white border border-slate-200 rounded-full p-1 shadow-md text-left">
+                    <button onclick="updateAllUnits('metric')" id="btn-kg" class="unit-toggle-btn active px-6 py-2 rounded-full text-[10px] font-black uppercase tracking-widest">Metric (Kg/Nm)</button>
+                    <button onclick="updateAllUnits('imperial')" id="btn-lbs" class="unit-toggle-btn px-6 py-2 rounded-full text-[10px] font-black uppercase tracking-widest">Imperial (Lbs/Lb-ft)</button>
                 </div>
             </div>
 
@@ -127,10 +142,10 @@
                             <span class="torque-unit">Nm</span>
                         </span>
                     </div>
-                    <div class="bg-white p-8 rounded-3xl shadow-sm spec-card text-left">
-                        <h3 class="font-black uppercase mb-4 text-slate-400 text-sm tracking-widest text-left">Applicable Load (GVWR)</h3>
+                    <div class="bg-white p-8 rounded-3xl shadow-sm spec-card text-left text-left">
+                        <h3 class="font-black uppercase mb-4 text-slate-400 text-sm tracking-widest">Applicable Load (GVWR)</h3>
                         <span class="font-black text-2xl text-slate-700">
-                            Up to <span class="weight-val" data-metric="4000">4,000</span> <span class="weight-label">kg</span>
+                            Up to <span class="weight-val" data-metric="4500">4,500</span> <span class="weight-label">kg</span>
                         </span>
                     </div>
                 </div>
@@ -138,19 +153,19 @@
         </div>
     </section>
 
-    <section class="py-24 bg-slate-900 text-white border-b border-white/5 text-left">
-        <div class="container mx-auto px-6">
-            <h2 class="text-2xl font-black mb-12 uppercase italic text-brand-red text-left text-left">04. System Assembly (BOM)</h2>
-            <div class="overflow-x-auto text-left">
-                <table class="w-full text-left text-sm">
-                    <thead class="text-brand-red uppercase border-b border-white/10">
+    <section class="py-24 bg-slate-900 text-white border-b border-white/5 text-left text-left">
+        <div class="container mx-auto px-6 text-left">
+            <h2 class="text-2xl font-black mb-12 uppercase italic text-brand-red">04. System Assembly (BOM)</h2>
+            <div class="overflow-x-auto">
+                <table class="w-full text-left text-sm text-left">
+                    <thead class="text-brand-red uppercase border-b border-white/10 text-left">
                         <tr>
                             <th class="py-4">Category</th>
                             <th class="py-4">Components</th>
                             <th class="py-4 text-center">Qty</th>
                         </tr>
                     </thead>
-                    <tbody class="divide-y divide-white/5">
+                    <tbody class="divide-y divide-white/5 text-left">
                         <tr><td class="py-4 font-bold">Axles</td><td>Axle Sub-Assembly</td><td class="text-center">1 Set</td></tr>
                         <tr><td class="py-4 font-bold">Suspension</td><td>Link & Shock Absorbers</td><td class="text-center">1 Set</td></tr>
                         <tr><td class="py-4 font-bold">Braking</td><td>EMB Brakes & Drums</td><td class="text-center">2 Set</td></tr>
@@ -165,20 +180,20 @@
     </section>
 
     <section id="partner" class="py-32 bg-slate-50 border-t text-left">
-        <div class="container mx-auto px-6 text-left">
+        <div class="container mx-auto px-6">
             <h2 class="text-brand-red text-xs font-black uppercase tracking-[0.6em] mb-6 text-center">Inquiry</h2>
             <h3 class="text-3xl md:text-5xl font-black mb-12 uppercase italic leading-tight text-center text-slate-900 text-center">Contact Technical Support</h3>
             
             <div class="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto items-start text-left">
-                <div class="space-y-6 text-left">
+                <div class="space-y-6">
                     <div class="p-8 bg-white border border-slate-200 rounded-3xl shadow-sm text-center">
-                        <h4 class="font-black mb-2 uppercase text-brand-red text-xs tracking-widest text-center text-center">Business Email</h4>
-                        <a href="mailto:sales@mtronhaul.com" class="text-lg font-bold hover:text-brand-red transition text-center text-center">sales@mtronhaul.com</a>
+                        <h4 class="font-black mb-2 uppercase text-brand-red text-xs tracking-widest">Business Email</h4>
+                        <a href="mailto:support@mtronhaul.com" class="text-lg font-bold hover:text-brand-red transition">support@mtronhaul.com</a>
                     </div>
                 </div>
 
-                <div class="bg-slate-900 rounded-[2.5rem] p-8 md:p-10 shadow-2xl text-center">
-                    <form id="inquiry-form" class="space-y-4 text-center">
+                <div class="bg-slate-900 rounded-[2.5rem] p-8 md:p-10 shadow-2xl text-center text-center">
+                    <form id="inquiry-form" class="space-y-4">
                         <input type="hidden" name="_honeypot" style="display:none" tabindex="-1" autocomplete="off" />
                         <div class="grid grid-cols-2 gap-4">
                             <input type="text" name="name" placeholder="Name" required class="form-input bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white text-sm outline-none transition">
@@ -195,8 +210,8 @@
         </div>
     </section>
 
-    <footer class="py-20 bg-white border-t text-center">
-        <div class="container mx-auto px-6 flex justify-center text-center">
+    <footer class="py-20 bg-white border-t text-center text-center">
+        <div class="container mx-auto px-6 flex justify-center">
             <img src="footer-brand.svg" alt="M-Tron Tech®" class="h-12 md:h-16 w-auto object-contain transition-transform duration-500 hover:scale-110">
         </div>
     </footer>
