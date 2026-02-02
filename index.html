@@ -28,7 +28,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     
     <style>
-        /* 字体定义 */
+        /* Fonts */
         :root { --font-heading: 'Oswald', sans-serif; --font-body: 'Inter', sans-serif; }
         body { font-family: var(--font-body); }
         h1, h2, h3, h4, h5, h6, .nav-link, .btn-text { font-family: var(--font-heading); }
@@ -36,7 +36,7 @@
         video { object-fit: cover; filter: brightness(0.5); }
         html { scroll-behavior: smooth; }
         
-        /* 导航链接 */
+        /* Nav Links */
         .nav-link { 
             font-size: 0.85rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.1em; 
             transition: all 0.3s ease; color: #64748b; position: relative; padding-bottom: 4px;
@@ -47,14 +47,14 @@
         .text-brand-red { color: rgb(215, 0, 15); }
         .bg-brand-red { background-color: rgb(215, 0, 15); }
         
-        /* 2. 科技网格背景 (Tech Grid) */
+        /* Tech Grid Background */
         .bg-tech-grid {
-            background-color: #0f172a; /* Slate-900 */
+            background-color: #0f172a;
             background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
             background-size: 30px 30px;
         }
 
-        /* 3. 悬浮动效 (Hover Lift) */
+        /* Hover Lift Effect */
         .hover-lift {
             transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.4s ease;
         }
@@ -63,7 +63,6 @@
             box-shadow: 0 20px 40px -5px rgba(0, 0, 0, 0.2);
         }
 
-        /* 动画 */
         @keyframes heroFadeIn { 0% { opacity: 0; filter: brightness(0); } 100% { opacity: 1; filter: brightness(0.4); } }
         @keyframes kenburns { 0% { transform: scale(1); } 100% { transform: scale(1.1); } }
         .animate-hero-refined { animation: heroFadeIn 3s ease-out forwards, kenburns 25s ease-in-out infinite alternate; }
@@ -74,11 +73,17 @@
         #success-overlay { display: none; position: fixed; inset: 0; background: rgba(15, 23, 42, 0.95); z-index: 300; justify-content: center; align-items: center; backdrop-filter: blur(15px); }
         #lightbox { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.95); z-index: 200; cursor: zoom-out; justify-content: center; align-items: center; }
         
-        /* 表单聚焦高亮 */
         .form-input:focus { border-color: rgb(215, 0, 15); background: rgba(255,255,255,0.08); box-shadow: 0 0 0 4px rgba(215, 0, 15, 0.1); }
 
         #back-to-top { opacity: 0; visibility: hidden; transition: all 0.4s ease; transform: translateY(20px); }
         #back-to-top.show { opacity: 1; visibility: visible; transform: translateY(0); }
+        
+        /* 🔧 修复 Hero 按钮的 Hover 颜色类 */
+        .btn-primary-hover:hover {
+            background-color: rgb(215, 0, 15) !important;
+            color: #ffffff !important;
+            border-color: rgb(215, 0, 15) !important;
+        }
     </style>
 </head>
 <body class="bg-white text-slate-900 antialiased">
@@ -129,7 +134,10 @@
                 Intelligent Electric <br><span class="text-brand-red">Trailer Chassis</span>
             </h1>
             <p class="text-slate-300 text-lg md:text-xl font-light mb-12 max-w-2xl tracking-wide">The future of RV towing safety and autonomy.</p>
-            <a href="#features" class="btn-text bg-white text-slate-900 hover:bg-brand-red hover:text-white px-12 py-5 rounded-full font-bold transition-all uppercase text-sm tracking-[0.2em] shadow-xl hover:shadow-red-600/40 transform hover:-translate-y-1">Discover T-Pro</a>
+            
+            <a href="#features" class="btn-text btn-primary-hover bg-white text-slate-900 border-2 border-white px-12 py-5 rounded-full font-bold transition-all uppercase text-sm tracking-[0.2em] shadow-xl hover:shadow-red-600/40 transform hover:-translate-y-1">
+                Discover T-Pro
+            </a>
         </div>
     </section>
 
@@ -208,7 +216,6 @@
 
     <section class="py-32 bg-tech-grid text-white relative overflow-hidden text-left">
         <div class="absolute inset-0 bg-gradient-to-b from-slate-900 to-transparent pointer-events-none"></div>
-        
         <div class="absolute top-10 -right-20 text-[15rem] font-black text-white/[0.02] pointer-events-none uppercase italic font-heading select-none">Partner</div>
         
         <div class="container mx-auto px-6 relative z-10 text-center">
@@ -271,11 +278,11 @@
             <div class="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto items-start">
                 <div class="space-y-8">
                     <div class="p-10 bg-white/5 border border-white/10 rounded-[2.5rem] hover:border-brand-red transition-all hover-lift backdrop-blur-sm">
-                        <h4 class="font-bold mb-4 uppercase text-brand-red text-xs tracking-[0.2em]">Business Inquiry</h4>
+                        <h4 class="font-bold mb-4 uppercase text-white text-sm tracking-[0.2em]">Business Inquiry</h4>
                         <a href="mailto:sales@mtronhaul.com" class="text-2xl font-bold hover:text-brand-red transition font-heading tracking-wide">sales@mtronhaul.com</a>
                     </div>
                     <div class="p-10 bg-white/5 border border-white/10 rounded-[2.5rem] hover:border-brand-red transition-all hover-lift backdrop-blur-sm">
-                        <h4 class="font-bold mb-4 uppercase text-brand-red text-xs tracking-[0.2em] text-white">Technical Support</h4>
+                        <h4 class="font-bold mb-4 uppercase text-white text-sm tracking-[0.2em]">Technical Support</h4>
                         <a href="mailto:support@mtronhaul.com" class="text-2xl font-bold hover:text-brand-red transition font-heading tracking-wide">support@mtronhaul.com</a>
                     </div>
                 </div>
@@ -344,7 +351,7 @@
         const btn = document.getElementById('submit-btn');
         form.addEventListener('submit', function(e) {
             e.preventDefault();
-            btn.disabled = true; btn.textContent = 'TRANSMITTING...'; // 更科技感的文案
+            btn.disabled = true; btn.textContent = 'TRANSMITTING...';
             const formData = new FormData(form);
             const data = Object.fromEntries(formData.entries());
             fetch("https://submit-form.com/M6WQxT5rn", {
