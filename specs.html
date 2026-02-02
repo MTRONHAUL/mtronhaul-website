@@ -12,14 +12,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>M-Tron Tech | Specifications</title>
+    <link rel="icon" href="favicon.ico" sizes="any">
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    
     <style>
         html { scroll-behavior: smooth; }
         .text-brand-red { color: rgb(215, 0, 15); }
         .bg-brand-red { background-color: rgb(215, 0, 15); }
         .border-brand-red { border-color: rgb(215, 0, 15); }
-        .nav-link { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; transition: all 0.3s; }
+        .nav-link { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; transition: color 0.3s ease; }
         .spec-card { border-left: 4px solid rgb(215, 0, 15); position: relative; }
         
         #mobile-menu { transition: transform 0.3s ease-in-out; transform: translateY(-100%); }
@@ -55,122 +58,137 @@
     </div>
 
     <nav class="fixed w-full z-[100] bg-white/90 backdrop-blur-md border-b">
-        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
-            <a href="index.html"><img src="logo.svg" alt="MTRONHAUL" class="h-10 w-auto object-contain"></a>
-            <div class="hidden md:flex space-x-8">
+        <div class="container mx-auto px-6 py-3 flex justify-between items-center text-left">
+            <a href="index.html" class="text-left">
+                <img src="logo.svg" alt="MTRONHAUL" class="h-10 w-auto object-contain">
+            </a>
+            <div class="hidden md:flex space-x-8 text-left">
                 <a href="index.html#about" class="nav-link text-slate-500 hover:text-brand-red">Our Story</a>
                 <a href="index.html#features" class="nav-link text-slate-500 hover:text-brand-red">Innovation</a>
                 <a href="index.html#specs" class="nav-link text-brand-red">Tech Specs</a>
-                <a href="index.html#partner" class="nav-link text-slate-500 hover:text-brand-red">Global Partnership</a>
+                <a href="index.html#partner" class="nav-link text-slate-500 hover:text-brand-red text-left">Global Partnership</a>
             </div>
-            <button onclick="toggleMenu()" class="md:hidden text-slate-900 text-2xl"><i class="fas fa-bars"></i></button>
+            <button onclick="toggleMenu()" class="md:hidden text-slate-900 text-2xl text-left focus:outline-none">
+                <i id="menu-icon" class="fas fa-bars"></i>
+            </button>
         </div>
-        <div id="mobile-menu" class="absolute top-full left-0 w-full bg-white border-b md:hidden flex flex-col items-center py-6 space-y-6 shadow-xl">
-            <a href="index.html#about" onclick="toggleMenu()" class="nav-link">Our Story</a>
-            <a href="index.html#features" onclick="toggleMenu()" class="nav-link">Innovation</a>
-            <a href="index.html#specs" onclick="toggleMenu()" class="nav-link">Tech Specs</a>
+        <div id="mobile-menu" class="absolute top-full left-0 w-full bg-white border-b md:hidden flex flex-col items-center py-6 space-y-6 shadow-xl text-center">
+            <a href="index.html#about" onclick="toggleMenu()" class="nav-link text-slate-900 hover:text-brand-red">Our Story</a>
+            <a href="index.html#features" onclick="toggleMenu()" class="nav-link text-slate-900 hover:text-brand-red">Innovation</a>
+            <a href="index.html#specs" onclick="toggleMenu()" class="nav-link text-slate-900 hover:text-brand-red text-left">Tech Specs</a>
             <a href="index.html#partner" onclick="toggleMenu()" class="nav-link text-brand-red">Global Partnership</a>
         </div>
     </nav>
 
-    <header class="pt-32 pb-16 bg-slate-900 text-white">
-        <div class="container mx-auto px-6">
-            <h1 class="text-4xl md:text-6xl font-black italic uppercase tracking-tight mb-4">Technical Datasheet</h1>
-            <p class="text-brand-red font-bold tracking-widest uppercase">T-Pro Series Intelligent Chassis Platform</p>
+    <header class="pt-32 pb-16 bg-slate-900 text-white text-left">
+        <div class="container mx-auto px-6 text-left">
+            <h1 class="text-4xl md:text-6xl font-black italic uppercase tracking-tight mb-4 text-white">Technical Datasheet</h1>
+            <p class="text-brand-red font-bold tracking-widest uppercase text-left">T-Pro Series Intelligent Chassis Platform</p>
         </div>
     </header>
 
-    <section class="py-20 border-b">
+    <section class="py-20 border-b text-left">
         <div class="container mx-auto px-6">
-            <div class="flex flex-col md:flex-row gap-12 items-center">
-                <div class="md:w-1/2">
-                    <h2 class="text-2xl font-black mb-6 uppercase italic text-brand-red">01. System Layout</h2>
-                    <p class="text-slate-600 mb-8 leading-relaxed text-justify">A systematic architecture featuring an intelligent electric drive axle and multi-link suspension, integrating electronic parking and smart control.</p>
+            <div class="flex flex-col md:flex-row gap-12 items-center text-left">
+                <div class="md:w-1/2 text-left">
+                    <h2 class="text-2xl font-black mb-6 uppercase italic text-brand-red text-left">01. System Layout</h2>
+                    <p class="text-slate-600 mb-8 leading-relaxed text-justify">
+                        A systematic architecture featuring an intelligent electric drive axle and multi-link suspension, integrating electronic parking, lithium energy storage, and core wireless control modules.
+                    </p>
+                    <ul class="space-y-4 font-medium text-left">
+                        <li class="flex items-start gap-3"><i class="fas fa-check text-brand-red mt-1"></i> <span>Multi-link suspension optimized for stability</span></li>
+                        <li class="flex items-start gap-3"><i class="fas fa-check text-brand-red mt-1"></i> <span>Integrated Electromagnetic Braking (EMB) System</span></li>
+                    </ul>
                 </div>
-                <div class="md:w-1/2"><img src="layout.webp" alt="Layout" class="rounded-2xl shadow-2xl border"></div>
+                <div class="md:w-1/2">
+                    <img src="layout.webp" alt="Layout" class="w-full h-auto object-contain rounded-2xl shadow-2xl border border-slate-100">
+                </div>
             </div>
         </div>
     </section>
 
-    <section class="py-20 bg-slate-50 border-b">
+    <section class="py-20 bg-slate-50 border-b text-left">
         <div class="container mx-auto px-6">
-            <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 gap-6">
-                <h2 class="text-2xl font-black uppercase italic text-brand-red">02. Power & Applicability</h2>
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 gap-6 text-left">
+                <h2 class="text-2xl font-black uppercase italic text-brand-red text-left">02. Power & Applicability</h2>
                 <div class="flex bg-white border border-slate-200 rounded-full p-1 shadow-md">
-                    <button onclick="updateAllUnits('metric')" id="btn-kg" class="unit-toggle-btn active px-6 py-2 rounded-full text-[10px] font-black uppercase tracking-widest">Metric</button>
-                    <button onclick="updateAllUnits('imperial')" id="btn-lbs" class="unit-toggle-btn px-6 py-2 rounded-full text-[10px] font-black uppercase tracking-widest">Imperial</button>
+                    <button onclick="updateAllUnits('metric')" id="btn-kg" class="unit-toggle-btn active px-6 py-2 rounded-full text-[10px] font-black uppercase tracking-widest text-left">Metric (Kg/Nm)</button>
+                    <button onclick="updateAllUnits('imperial')" id="btn-lbs" class="unit-toggle-btn px-6 py-2 rounded-full text-[10px] font-black uppercase tracking-widest text-left">Imperial (Lbs/Lb-ft)</button>
                 </div>
             </div>
-            <div class="grid md:grid-cols-2 gap-12 items-center">
-                <img src="types.webp" alt="Types" class="rounded-2xl shadow-xl">
-                <div class="space-y-6">
+
+            <div class="grid md:grid-cols-2 gap-12 items-center mb-12 text-left">
+                <img src="types.webp" alt="Types" class="w-full h-auto object-contain rounded-2xl shadow-xl">
+                <div class="grid grid-cols-1 gap-6 text-left">
                     <div class="bg-white p-8 rounded-3xl shadow-sm spec-card text-left">
                         <h3 class="font-black uppercase mb-4 text-slate-400 text-sm tracking-widest text-left">Driving Torque</h3>
-                        <span class="text-brand-red font-black text-2xl"><span class="torque-val" data-metric="1200">1,200</span> - <span class="torque-val" data-metric="1800">1,800</span> <span class="torque-unit">Nm</span></span>
+                        <span class="text-brand-red font-black text-2xl">
+                            <span class="torque-val" data-metric="1200">1,200</span> - <span class="torque-val" data-metric="1800">1,800</span> 
+                            <span class="torque-unit">Nm</span>
+                        </span>
                     </div>
                     <div class="bg-white p-8 rounded-3xl shadow-sm spec-card text-left">
-                        <h3 class="font-black uppercase mb-4 text-slate-400 text-sm tracking-widest text-left">Max GVWR</h3>
-                        <span class="font-black text-2xl text-slate-700">Up to <span class="weight-val" data-metric="4000">4,000</span> <span class="weight-label">kg</span></span>
+                        <h3 class="font-black uppercase mb-4 text-slate-400 text-sm tracking-widest text-left">Applicable Load (GVWR)</h3>
+                        <span class="font-black text-2xl text-slate-700">
+                            Up to <span class="weight-val" data-metric="4000">4,000</span> <span class="weight-label">kg</span>
+                        </span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="py-24 bg-slate-900 text-white">
+    <section class="py-24 bg-slate-900 text-white border-b border-white/5 text-left">
         <div class="container mx-auto px-6">
-            <h2 class="text-2xl font-black mb-12 uppercase italic text-brand-red">04. System Assembly (BOM)</h2>
-            <div class="overflow-x-auto">
+            <h2 class="text-2xl font-black mb-12 uppercase italic text-brand-red text-left text-left">04. System Assembly (BOM)</h2>
+            <div class="overflow-x-auto text-left">
                 <table class="w-full text-left text-sm">
                     <thead class="text-brand-red uppercase border-b border-white/10">
-                        <tr><th class="py-4">Category</th><th class="py-4">Components</th><th class="py-4 text-center">Qty</th></tr>
+                        <tr>
+                            <th class="py-4">Category</th>
+                            <th class="py-4">Components</th>
+                            <th class="py-4 text-center">Qty</th>
+                        </tr>
                     </thead>
                     <tbody class="divide-y divide-white/5">
                         <tr><td class="py-4 font-bold">Axles</td><td>Axle Sub-Assembly</td><td class="text-center">1 Set</td></tr>
-                        <tr><td class="py-4 font-bold">Suspension</td><td>Links & Shock Absorbers</td><td class="text-center">1 Set</td></tr>
-                        <tr><td class="py-4 font-bold">Braking</td><td>EMB Brakes & Drums</td><td class="text-center">2 Sets</td></tr>
-                        <tr><td class="py-4 font-bold">Power</td><td>Motor & Transmission</td><td class="text-center">1 Set</td></tr>
-                        <tr><td class="py-4 font-bold">Control</td><td>Control Cabin & Controller</td><td class="text-center">1 Set</td></tr>
+                        <tr><td class="py-4 font-bold">Suspension</td><td>Link & Shock Absorbers</td><td class="text-center">1 Set</td></tr>
+                        <tr><td class="py-4 font-bold">Braking</td><td>EMB Brakes & Drums</td><td class="text-center">2 Set</td></tr>
+                        <tr><td class="py-4 font-bold">Power</td><td>Electric Drive unit</td><td class="text-center">1 Set</td></tr>
+                        <tr><td class="py-4 font-bold">Battery</td><td>Traction Battery pack</td><td class="text-center">1 Set</td></tr>
+                        <tr><td class="py-4 font-bold">Jacks</td><td>Electric Steering Jack (wire control)</td><td class="text-center">1 Set</td></tr>
+                        <tr><td class="py-4 font-bold">Controls</td><td>Control, Unite Remote Controller</td><td class="text-center">1 Set</td></tr>
                     </tbody>
                 </table>
             </div>
         </div>
     </section>
 
-    <section id="partner" class="py-32 bg-slate-50 border-t">
-        <div class="container mx-auto px-6">
-            <div class="max-w-4xl mx-auto text-center mb-16">
-                <h2 class="text-brand-red text-xs font-black uppercase tracking-[0.6em] mb-6">Inquiry</h2>
-                <h3 class="text-3xl md:text-5xl font-black mb-12 uppercase italic leading-tight text-slate-900">Request Technical Support</h3>
-            </div>
+    <section id="partner" class="py-32 bg-slate-50 border-t text-left">
+        <div class="container mx-auto px-6 text-left">
+            <h2 class="text-brand-red text-xs font-black uppercase tracking-[0.6em] mb-6 text-center">Inquiry</h2>
+            <h3 class="text-3xl md:text-5xl font-black mb-12 uppercase italic leading-tight text-center text-slate-900 text-center">Contact Technical Support</h3>
             
-            <div class="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto items-start">
-                <div class="space-y-6">
-                    <div class="p-8 bg-white border border-slate-200 rounded-3xl shadow-sm">
-                        <h4 class="font-black mb-2 uppercase text-brand-red text-xs tracking-widest">Business Email</h4>
-                        <a href="mailto:sales@mtronhaul.com" class="text-lg font-bold hover:text-brand-red transition">sales@mtronhaul.com</a>
-                    </div>
-                    <div class="p-8 bg-white border border-slate-200 rounded-3xl shadow-sm">
-                        <h4 class="font-black mb-2 uppercase text-brand-red text-xs tracking-widest">Tech Support</h4>
-                        <a href="mailto:support@mtronhaul.com" class="text-lg font-bold hover:text-brand-red transition">support@mtronhaul.com</a>
+            <div class="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto items-start text-left">
+                <div class="space-y-6 text-left">
+                    <div class="p-8 bg-white border border-slate-200 rounded-3xl shadow-sm text-center">
+                        <h4 class="font-black mb-2 uppercase text-brand-red text-xs tracking-widest text-center text-center">Business Email</h4>
+                        <a href="mailto:sales@mtronhaul.com" class="text-lg font-bold hover:text-brand-red transition text-center text-center">sales@mtronhaul.com</a>
                     </div>
                 </div>
 
-                <div class="bg-slate-900 rounded-[2.5rem] p-8 md:p-10 shadow-2xl">
-                    <form id="inquiry-form" class="space-y-4">
+                <div class="bg-slate-900 rounded-[2.5rem] p-8 md:p-10 shadow-2xl text-center">
+                    <form id="inquiry-form" class="space-y-4 text-center">
                         <input type="hidden" name="_honeypot" style="display:none" tabindex="-1" autocomplete="off" />
                         <div class="grid grid-cols-2 gap-4">
-                            <input type="text" name="name" placeholder="Name" required class="form-input bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white outline-none transition text-sm">
-                            <input type="email" name="email" placeholder="Email" required class="form-input bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white outline-none transition text-sm">
+                            <input type="text" name="name" placeholder="Name" required class="form-input bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white text-sm outline-none transition">
+                            <input type="email" name="email" placeholder="Email" required class="form-input bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white text-sm outline-none transition">
                         </div>
-                        <input type="text" name="company" placeholder="Company" required class="form-input bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white outline-none transition text-sm w-full">
-                        <select name="type" required class="form-input bg-slate-800 border border-white/10 rounded-xl px-4 py-3 text-slate-400 outline-none transition text-sm w-full">
-                            <option value="" disabled selected>Inquiry Type</option>
-                            <option value="OEM">OEM Collaboration</option>
-                            <option value="Specs Request">Detailed Specs Request</option>
-                        </select>
-                        <textarea name="message" placeholder="Technical Requirements" required class="form-input bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white outline-none transition text-sm w-full h-24"></textarea>
-                        <button type="submit" id="submit-btn" class="w-full bg-brand-red text-white py-4 rounded-full font-black uppercase text-xs tracking-[0.2em] hover:bg-white hover:text-brand-red transition-all">Send Inquiry</button>
+                        <input type="text" name="company" placeholder="Company" required class="form-input bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white text-sm w-full outline-none transition">
+                        <textarea name="message" placeholder="Technical Requirements" required class="form-input bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white text-sm w-full h-24 outline-none transition"></textarea>
+                        <button type="submit" id="submit-btn" class="w-full bg-brand-red text-white py-4 rounded-full font-black uppercase text-xs tracking-[0.2em] hover:bg-white hover:text-brand-red transition-all shadow-xl">
+                            Send Inquiry
+                        </button>
                     </form>
                 </div>
             </div>
@@ -178,42 +196,41 @@
     </section>
 
     <footer class="py-20 bg-white border-t text-center">
-        <div class="container mx-auto px-6 flex justify-center">
-            <img src="footer-brand.svg" alt="MTRONHAUL®" class="h-12 md:h-16 w-auto object-contain transition-all hover:scale-110">
+        <div class="container mx-auto px-6 flex justify-center text-center">
+            <img src="footer-brand.svg" alt="M-Tron Tech®" class="h-12 md:h-16 w-auto object-contain transition-transform duration-500 hover:scale-110">
         </div>
     </footer>
 
     <script>
-        function toggleMenu() {
-            const menu = document.getElementById('mobile-menu');
-            menu.classList.toggle('active');
-        }
+        function toggleMenu() { document.getElementById('mobile-menu').classList.toggle('active'); }
 
-        // 单位换算
+        // 单位同步换算逻辑
         function updateAllUnits(system) {
             const kgToLbs = 2.20462;
             const nmToLbFt = 0.73756;
             const weightVals = document.querySelectorAll('.weight-val');
+            const weightLabels = document.querySelectorAll('.weight-label');
             const torqueVals = document.querySelectorAll('.torque-val');
+            const torqueUnits = document.querySelectorAll('.torque-unit');
             const btnKg = document.getElementById('btn-kg');
             const btnLbs = document.getElementById('btn-lbs');
 
             if (system === 'metric') {
                 btnKg.classList.add('active'); btnLbs.classList.remove('active');
                 weightVals.forEach(v => v.textContent = Number(v.getAttribute('data-metric')).toLocaleString());
+                weightLabels.forEach(l => l.textContent = 'kg');
                 torqueVals.forEach(v => v.textContent = Number(v.getAttribute('data-metric')).toLocaleString());
-                document.querySelector('.weight-label').textContent = 'kg';
-                document.querySelector('.torque-unit').textContent = 'Nm';
+                torqueUnits.forEach(u => u.textContent = 'Nm');
             } else {
                 btnLbs.classList.add('active'); btnKg.classList.remove('active');
                 weightVals.forEach(v => v.textContent = Math.round(v.getAttribute('data-metric') * kgToLbs).toLocaleString());
+                weightLabels.forEach(l => l.textContent = 'lbs');
                 torqueVals.forEach(v => v.textContent = Math.round(v.getAttribute('data-metric') * nmToLbFt).toLocaleString());
-                document.querySelector('.weight-label').textContent = 'lbs';
-                document.querySelector('.torque-unit').textContent = 'lb-ft';
+                torqueUnits.forEach(u => u.textContent = 'lb-ft');
             }
         }
 
-        // 异步提交
+        // 异步表单提交逻辑 (Formspark ID: M6WQxT5rn)
         const form = document.getElementById('inquiry-form');
         const overlay = document.getElementById('success-overlay');
         const submitBtn = document.getElementById('submit-btn');
@@ -222,7 +239,6 @@
             e.preventDefault();
             submitBtn.disabled = true;
             submitBtn.textContent = 'Sending...';
-
             const formData = new FormData(form);
             const data = Object.fromEntries(formData.entries());
 
@@ -236,13 +252,13 @@
                     overlay.style.display = 'flex';
                     setTimeout(function() { window.location.href = "index.html"; }, 3000);
                 } else {
-                    alert("Failed. Please try again.");
+                    alert("Submission failed. Please try again.");
                     submitBtn.disabled = false;
                     submitBtn.textContent = 'Send Inquiry';
                 }
             })
             .catch(function() {
-                alert("Error occurred.");
+                alert("An error occurred.");
                 submitBtn.disabled = false;
                 submitBtn.textContent = 'Send Inquiry';
             });
