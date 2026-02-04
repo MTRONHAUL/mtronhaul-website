@@ -15,27 +15,29 @@
     <link rel="icon" href="favicon.ico" sizes="any">
 
     <meta name="description" content="Detailed technical specifications for M-Tron Tech T-Pro Series. 1800Nm torque, 4500kg payload capacity, and integrated EMB braking system.">
-    <meta name="keywords" content="RV Chassis Specs, Electric Trailer Torque, EMB Brakes, Caravan Suspension, M-Tron Tech Datasheet">
-    <meta name="author" content="M-Tron Technology">
-
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://mtronhaul.com/specs.html">
     <meta property="og:title" content="M-Tron Tech | T-Pro Technical Datasheet">
-    <meta property="og:description" content="Explore the engineering behind the T-Pro Series: 1800Nm torque, 4500kg GVWR.">
-    <meta property="og:image" content="product-story.webp">
+    <meta property="og:image" content="layout.webp">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Oswald:wght@400;500;700&display=swap" rel="stylesheet">
 
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     
     <style>
+        :root { --font-heading: 'Oswald', sans-serif; --font-body: 'Inter', sans-serif; }
+        body { font-family: var(--font-body); }
+        h1, h2, h3, h4, h5, h6, .nav-link { font-family: var(--font-heading); }
+
         html { scroll-behavior: smooth; }
         .text-brand-red { color: rgb(215, 0, 15); }
         .bg-brand-red { background-color: rgb(215, 0, 15); }
         .border-brand-red { border-color: rgb(215, 0, 15); }
 
-        /* 导航链接样式 */
+        /* 导航链接 */
         .nav-link { 
-            font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; 
+            font-size: 0.85rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.1em; 
             transition: all 0.3s ease; color: #64748b; position: relative; padding-bottom: 4px;
         }
         .nav-link:hover { color: rgb(215, 0, 15) !important; }
@@ -46,52 +48,36 @@
         #mobile-menu { transition: transform 0.3s ease-in-out; transform: translateY(-100%); }
         #mobile-menu.active { transform: translateY(0); }
 
-        /* 成功提示遮罩层 */
-        #success-overlay {
-            display: none;
-            position: fixed;
-            inset: 0;
-            background: rgba(15, 23, 42, 0.95);
-            z-index: 300;
-            justify-content: center;
-            align-items: center;
-            backdrop-filter: blur(10px);
-        }
+        #success-overlay { display: none; position: fixed; inset: 0; background: rgba(15, 23, 42, 0.95); z-index: 300; justify-content: center; align-items: center; backdrop-filter: blur(15px); }
 
         .unit-toggle-btn { transition: all 0.3s; cursor: pointer; }
         .unit-toggle-btn.active { background-color: rgb(215, 0, 15); color: white; border-color: rgb(215, 0, 15); }
-        .form-input:focus { border-color: rgb(215, 0, 15); background: rgba(255,255,255,0.1); }
+        .form-input:focus { border-color: rgb(215, 0, 15); background: rgba(255,255,255,0.1); box-shadow: 0 0 0 4px rgba(215, 0, 15, 0.1); }
 
-        /* 返回顶部按钮样式 */
-        #back-to-top {
-            opacity: 0; visibility: hidden; transition: all 0.4s ease;
-            transform: translateY(20px);
-        }
-        #back-to-top.show {
-            opacity: 1; visibility: visible; transform: translateY(0);
-        }
+        #back-to-top { opacity: 0; visibility: hidden; transition: all 0.4s ease; transform: translateY(20px); }
+        #back-to-top.show { opacity: 1; visibility: visible; transform: translateY(0); }
     </style>
 </head>
 <body class="bg-white text-slate-900 font-sans antialiased text-left">
 
     <div id="success-overlay">
-        <div class="text-center p-12 bg-white/5 rounded-[3rem] border border-white/10 shadow-2xl text-white">
-            <div class="w-20 h-20 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-6">
+        <div class="text-center p-12 bg-white/5 rounded-[2rem] border border-white/10 shadow-2xl text-white backdrop-blur-md">
+            <div class="w-20 h-20 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg shadow-green-500/30">
                 <i class="fas fa-check text-3xl text-white"></i>
             </div>
-            <h3 class="text-3xl font-black uppercase italic mb-4">Inquiry Sent!</h3>
-            <p class="text-slate-400">Thank you for your interest. <br>Redirecting to home in 3 seconds...</p>
+            <h3 class="text-4xl font-bold uppercase italic mb-4 tracking-tight">Inquiry Sent</h3>
+            <p class="text-slate-300 font-light">Thank you for your interest. <br>Redirecting to home in 3 seconds...</p>
         </div>
     </div>
 
-    <button id="back-to-top" onclick="scrollToTop()" class="fixed bottom-8 right-8 z-50 w-12 h-12 bg-brand-red text-white rounded-full shadow-2xl flex items-center justify-center hover:bg-slate-900 transition-colors duration-300">
+    <button id="back-to-top" onclick="scrollToTop()" class="fixed bottom-8 right-8 z-50 w-12 h-12 bg-brand-red text-white rounded-full shadow-lg shadow-red-600/30 flex items-center justify-center hover:bg-slate-900 transition-colors duration-300">
         <i class="fas fa-arrow-up"></i>
     </button>
 
-    <nav class="fixed w-full z-[100] bg-white/90 backdrop-blur-md border-b">
-        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+    <nav class="fixed w-full z-[100] bg-white/80 backdrop-blur-lg border-b border-slate-100">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
             <a href="index.html"><img src="logo.svg" alt="MTRONHAUL" class="h-10 w-auto object-contain"></a>
-            <div class="hidden md:flex space-x-8">
+            <div class="hidden md:flex space-x-10">
                 <a href="index.html#about" class="nav-link">Our Story</a>
                 <a href="index.html#features" class="nav-link">Innovation</a>
                 <a href="index.html#specs" class="nav-link active">Tech Specs</a>
@@ -110,7 +96,7 @@
     <header class="pt-32 pb-16 bg-slate-900 text-white text-left">
         <div class="container mx-auto px-6">
             <h1 class="text-4xl md:text-6xl font-black italic uppercase tracking-tight mb-4 text-white">Technical Datasheet</h1>
-            <p class="text-brand-red font-bold tracking-widest uppercase text-left">T-Pro Series Intelligent Chassis Platform</p>
+            <p class="text-brand-red font-bold tracking-widest uppercase text-left text-sm">T-Pro Series Intelligent Chassis Platform</p>
         </div>
     </header>
 
@@ -122,7 +108,7 @@
                     <p class="text-slate-600 mb-8 leading-relaxed text-justify">
                         A systematic architecture featuring an intelligent electric drive axle and multi-link suspension, integrating electronic parking, lithium energy storage, and core wireless control modules.
                     </p>
-                    <ul class="space-y-4 font-medium text-left">
+                    <ul class="space-y-4 font-medium text-left text-slate-700">
                         <li class="flex items-start gap-3"><i class="fas fa-check text-brand-red mt-1"></i> <span>Multi-link suspension optimized for rugged stability</span></li>
                         <li class="flex items-start gap-3"><i class="fas fa-check text-brand-red mt-1"></i> <span>Integrated Electromagnetic Braking (EMB) System</span></li>
                     </ul>
@@ -145,7 +131,7 @@
             </div>
 
             <div class="grid md:grid-cols-2 gap-12 items-center mb-12">
-                <img src="types.webp" alt="Types" class="w-full h-auto object-contain rounded-2xl shadow-xl">
+                <img src="types.webp" alt="Types" class="w-full h-auto object-contain rounded-2xl shadow-xl border border-slate-200">
                 <div class="grid grid-cols-1 gap-6 text-left">
                     <div class="bg-white p-8 rounded-3xl shadow-sm spec-card text-left">
                         <h3 class="font-black uppercase mb-4 text-slate-400 text-sm tracking-widest">Driving Torque</h3>
@@ -172,19 +158,19 @@
                 <table class="w-full text-left text-sm">
                     <thead class="text-brand-red uppercase border-b border-white/10">
                         <tr>
-                            <th class="py-4">Category</th>
-                            <th class="py-4">Components</th>
-                            <th class="py-4 text-center">Qty</th>
+                            <th class="py-4 font-bold tracking-wider">Category</th>
+                            <th class="py-4 font-bold tracking-wider">Components</th>
+                            <th class="py-4 text-center font-bold tracking-wider">Qty</th>
                         </tr>
                     </thead>
-                    <tbody class="divide-y divide-white/5">
-                        <tr><td class="py-4 font-bold">Axles</td><td>Axle Sub-Assembly</td><td class="text-center">1 Set</td></tr>
-                        <tr><td class="py-4 font-bold">Suspension</td><td>Link & Shock Absorbers</td><td class="text-center">1 Set</td></tr>
-                        <tr><td class="py-4 font-bold">Braking</td><td>EMB Brakes & Drums</td><td class="text-center">2 Set</td></tr>
-                        <tr><td class="py-4 font-bold">Power</td><td>Electric Drive unit</td><td class="text-center">1 Set</td></tr>
-                        <tr><td class="py-4 font-bold">Battery</td><td>Traction Battery pack</td><td class="text-center">1 Set</td></tr>
-                        <tr><td class="py-4 font-bold">Jacks</td><td>Electric Steering Jack (wire control)</td><td class="text-center">1 Set</td></tr>
-                        <tr><td class="py-4 font-bold">Controls</td><td>Control, Unite Remote Controller</td><td class="text-center">1 Set</td></tr>
+                    <tbody class="divide-y divide-white/5 text-slate-300">
+                        <tr><td class="py-4 font-bold text-white">Axles</td><td>Axle Sub-Assembly</td><td class="text-center">1 Set</td></tr>
+                        <tr><td class="py-4 font-bold text-white">Suspension</td><td>Link & Shock Absorbers</td><td class="text-center">1 Set</td></tr>
+                        <tr><td class="py-4 font-bold text-white">Braking</td><td>EMB Brakes & Drums</td><td class="text-center">2 Set</td></tr>
+                        <tr><td class="py-4 font-bold text-white">Power</td><td>Electric Drive unit</td><td class="text-center">1 Set</td></tr>
+                        <tr><td class="py-4 font-bold text-white">Battery</td><td>Traction Battery pack</td><td class="text-center">1 Set</td></tr>
+                        <tr><td class="py-4 font-bold text-white">Jacks</td><td>Electric Steering Jack (wire control)</td><td class="text-center">1 Set</td></tr>
+                        <tr><td class="py-4 font-bold text-white">Controls</td><td>Control, Unite Remote Controller</td><td class="text-center">1 Set</td></tr>
                     </tbody>
                 </table>
             </div>
@@ -197,10 +183,24 @@
             <h3 class="text-3xl md:text-5xl font-black mb-12 uppercase italic leading-tight text-center text-slate-900">Request Technical Support</h3>
             
             <div class="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto items-start">
+                
                 <div class="space-y-6">
                     <div class="p-8 bg-white border border-slate-200 rounded-3xl shadow-sm text-center">
-                        <h4 class="font-black mb-2 uppercase text-brand-red text-xs tracking-widest">Business Email</h4>
-                        <a href="mailto:support@mtronhaul.com" class="text-lg font-bold hover:text-brand-red transition">support@mtronhaul.com</a>
+                        <h4 class="font-bold mb-6 uppercase text-brand-red text-xs tracking-widest">Business Contact</h4>
+                        
+                        <div class="flex flex-col items-center justify-center gap-3 mb-6">
+                            <div class="w-10 h-10 rounded-full bg-slate-50 flex items-center justify-center text-brand-red">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <a href="mailto:sales@mtronhaul.com" class="text-lg font-bold hover:text-brand-red transition text-slate-800">sales@mtronhaul.com</a>
+                        </div>
+
+                        <div class="flex flex-col items-center justify-center gap-3">
+                            <div class="w-10 h-10 rounded-full bg-slate-50 flex items-center justify-center text-brand-red">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <a href="tel:+85244140591" class="text-lg font-bold hover:text-brand-red transition text-slate-800">+852 4414 0591</a>
+                        </div>
                     </div>
                 </div>
 
@@ -213,7 +213,7 @@
                         </div>
                         <input type="text" name="company" placeholder="Company" required class="form-input bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white text-sm w-full outline-none transition">
                         
-                        <select name="message_type" required class="form-input bg-slate-800 border border-white/10 rounded-xl px-4 py-3 text-slate-400 outline-none transition text-sm w-full appearance-none">
+                        <select name="message_type" required class="form-input bg-slate-800 border border-white/10 rounded-xl px-4 py-3 text-slate-400 outline-none transition text-sm w-full appearance-none cursor-pointer">
                             <option value="" disabled selected>Select Inquiry Category *</option>
                             <option value="Sales Inquiry">Sales Inquiry</option>
                             <option value="Technical Support">Technical Support</option>
@@ -234,19 +234,20 @@
 
     <footer class="py-12 bg-white border-t text-center">
         <div class="container mx-auto px-6">
-            <img src="footer-brand.svg" alt="M-Tron Tech" class="h-12 w-auto object-contain mx-auto mb-8 hover:scale-110 transition-transform">
+            <img src="footer-brand.svg" alt="M-Tron Tech" class="h-12 w-auto object-contain mx-auto mb-8 hover:scale-110 transition-transform cursor-pointer">
             
             <div class="flex justify-center space-x-8 mb-8">
-                <a href="https://linkedin.com/company/m-tron-tech" target="_blank" class="text-slate-400 hover:text-brand-red transition"><i class="fab fa-linkedin text-2xl"></i></a>
-                <a href="mailto:sales@mtronhaul.com" class="text-slate-400 hover:text-brand-red transition"><i class="fas fa-envelope text-2xl"></i></a>
+                <a href="https://linkedin.com/company/m-tron-tech" target="_blank" class="text-slate-400 hover:text-brand-red transition transform hover:-translate-y-1"><i class="fab fa-linkedin text-2xl"></i></a>
+                <a href="mailto:sales@mtronhaul.com" class="text-slate-400 hover:text-brand-red transition transform hover:-translate-y-1"><i class="fas fa-envelope text-2xl"></i></a>
+                <a href="tel:+85244140591" class="text-slate-400 hover:text-brand-red transition transform hover:-translate-y-1"><i class="fas fa-phone text-2xl"></i></a>
             </div>
 
-            <div class="text-xs text-slate-400 font-medium">
+            <div class="text-xs text-slate-400 font-medium tracking-wide">
                 &copy; 2026 M-Tron Technology. All rights reserved. <br class="md:hidden">
                 <span class="hidden md:inline mx-2">|</span>
-                <a href="#" class="hover:text-slate-600">Privacy Policy</a>
+                <a href="#" class="hover:text-slate-600 transition">Privacy Policy</a>
                 <span class="mx-2">|</span>
-                <a href="#" class="hover:text-slate-600">Terms of Service</a>
+                <a href="#" class="hover:text-slate-600 transition">Terms</a>
             </div>
         </div>
     </footer>
@@ -280,7 +281,7 @@
             }
         }
 
-        // 🚀 Back to Top Logic
+        // Back to Top Logic
         const backToTopBtn = document.getElementById('back-to-top');
         window.addEventListener('scroll', () => {
             if (window.scrollY > 300) backToTopBtn.classList.add('show');
@@ -288,7 +289,7 @@
         });
         function scrollToTop() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
 
-        // 异步表单提交逻辑
+        // AJAX Form Submission
         const form = document.getElementById('inquiry-form');
         const overlay = document.getElementById('success-overlay');
         const submitBtn = document.getElementById('submit-btn');
