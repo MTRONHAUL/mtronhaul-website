@@ -57,7 +57,7 @@
             box-shadow: 0 20px 40px -5px rgba(0, 0, 0, 0.2);
         }
 
-        /* 裁剪路径，修复 Windows Chrome 直角问题 */
+        /* 裁剪路径 (Windows Chrome 圆角修复) */
         .clip-rounded {
             clip-path: inset(0 round 2rem); 
             -webkit-clip-path: inset(0 round 2rem);
@@ -65,7 +65,6 @@
 
         @keyframes heroFadeIn { 0% { opacity: 0; filter: brightness(0); } 100% { opacity: 1; filter: brightness(0.7); } }
         @keyframes kenburns { 0% { transform: scale(1); } 100% { transform: scale(1.1); } }
-        /* 调整动画，结束时保持 brightness(0.7) 确保文字可见 */
         .animate-hero-refined { animation: heroFadeIn 3s ease-out forwards, kenburns 25s ease-in-out infinite alternate; }
 
         #mobile-menu { transition: transform 0.3s ease-in-out; transform: translateY(-100%); }
@@ -280,10 +279,24 @@
             
             <div class="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto items-start">
                 <div class="space-y-8">
-                    <div class="p-10 bg-white/5 border border-white/10 rounded-[2.5rem] hover:border-brand-red transition-all hover-lift backdrop-blur-sm">
-                        <h4 class="font-bold mb-4 uppercase text-white text-sm tracking-[0.2em]">Business Inquiry</h4>
-                        <a href="mailto:sales@mtronhaul.com" class="text-2xl font-bold hover:text-brand-red transition font-heading tracking-wide">sales@mtronhaul.com</a>
+                    <div class="p-10 bg-white/5 border border-white/10 rounded-[2.5rem] hover:border-brand-red transition-all hover-lift backdrop-blur-sm group">
+                        <h4 class="font-bold mb-6 uppercase text-white text-sm tracking-[0.2em]">Business Inquiry</h4>
+                        
+                        <div class="flex items-center justify-center gap-4 mb-6">
+                            <div class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-brand-red group-hover:bg-brand-red group-hover:text-white transition-colors">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <a href="mailto:sales@mtronhaul.com" class="text-xl md:text-2xl font-bold hover:text-brand-red transition font-heading tracking-wide">sales@mtronhaul.com</a>
+                        </div>
+
+                        <div class="flex items-center justify-center gap-4">
+                            <div class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-brand-red group-hover:bg-brand-red group-hover:text-white transition-colors">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <a href="tel:+85244140591" class="text-xl md:text-2xl font-bold hover:text-brand-red transition font-heading tracking-wide">+852 4414 0591</a>
+                        </div>
                     </div>
+
                     <div class="p-10 bg-white/5 border border-white/10 rounded-[2.5rem] hover:border-brand-red transition-all hover-lift backdrop-blur-sm">
                         <h4 class="font-bold mb-4 uppercase text-white text-sm tracking-[0.2em]">Technical Support</h4>
                         <a href="mailto:support@mtronhaul.com" class="text-2xl font-bold hover:text-brand-red transition font-heading tracking-wide">support@mtronhaul.com</a>
@@ -321,6 +334,7 @@
             <div class="flex justify-center space-x-8 mb-8">
                 <a href="https://linkedin.com/company/m-tron-tech" target="_blank" class="text-slate-400 hover:text-brand-red transition transform hover:-translate-y-1"><i class="fab fa-linkedin text-2xl"></i></a>
                 <a href="mailto:sales@mtronhaul.com" class="text-slate-400 hover:text-brand-red transition transform hover:-translate-y-1"><i class="fas fa-envelope text-2xl"></i></a>
+                <a href="tel:+85244140591" class="text-slate-400 hover:text-brand-red transition transform hover:-translate-y-1"><i class="fas fa-phone text-2xl"></i></a>
             </div>
             <div class="text-xs text-slate-400 font-medium tracking-wide">
                 &copy; 2026 M-Tron Technology. All rights reserved. <br class="md:hidden">
