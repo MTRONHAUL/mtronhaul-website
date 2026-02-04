@@ -14,7 +14,7 @@
     <title>M-Tron Tech | Specifications</title>
     <link rel="icon" href="favicon.ico" sizes="any">
 
-    <meta name="description" content="Detailed technical specifications for M-Tron Tech T-Pro Series. 1800Nm torque, 4500kg payload capacity, and integrated EMB braking system.">
+    <meta name="description" content="Detailed technical specifications for M-Tron Tech T-Pro Series. 1800Nm torque, reliability testing, and global certifications.">
     <meta property="og:title" content="M-Tron Tech | T-Pro Technical Datasheet">
     <meta property="og:image" content="layout.webp">
 
@@ -35,7 +35,7 @@
         .bg-brand-red { background-color: rgb(215, 0, 15); }
         .border-brand-red { border-color: rgb(215, 0, 15); }
 
-        /* 导航链接 */
+        /* Navigation */
         .nav-link { 
             font-size: 0.85rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.1em; 
             transition: all 0.3s ease; color: #64748b; position: relative; padding-bottom: 4px;
@@ -50,12 +50,19 @@
 
         #success-overlay { display: none; position: fixed; inset: 0; background: rgba(15, 23, 42, 0.95); z-index: 300; justify-content: center; align-items: center; backdrop-filter: blur(15px); }
 
+        /* Lightbox Overlay */
+        #lightbox { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.95); z-index: 200; cursor: zoom-out; justify-content: center; align-items: center; }
+
         .unit-toggle-btn { transition: all 0.3s; cursor: pointer; }
         .unit-toggle-btn.active { background-color: rgb(215, 0, 15); color: white; border-color: rgb(215, 0, 15); }
         .form-input:focus { border-color: rgb(215, 0, 15); background: rgba(255,255,255,0.1); box-shadow: 0 0 0 4px rgba(215, 0, 15, 0.1); }
 
         #back-to-top { opacity: 0; visibility: hidden; transition: all 0.4s ease; transform: translateY(20px); }
         #back-to-top.show { opacity: 1; visibility: visible; transform: translateY(0); }
+
+        /* Certification Hover Effect */
+        .cert-img:hover { transform: scale(1.05); border-color: rgb(215, 0, 15); }
+        .cert-img { transition: all 0.3s ease; border: 1px solid #e2e8f0; }
     </style>
 </head>
 <body class="bg-white text-slate-900 font-sans antialiased text-left">
@@ -68,6 +75,10 @@
             <h3 class="text-4xl font-bold uppercase italic mb-4 tracking-tight">Inquiry Sent</h3>
             <p class="text-slate-300 font-light">Thank you for your interest. <br>Redirecting to home in 3 seconds...</p>
         </div>
+    </div>
+
+    <div id="lightbox" onclick="closeLightbox()">
+        <img id="lightbox-img" src="" class="max-w-[90%] max-h-[90%] shadow-2xl rounded-lg border border-white/10 object-contain">
     </div>
 
     <button id="back-to-top" onclick="scrollToTop()" class="fixed bottom-8 right-8 z-50 w-12 h-12 bg-brand-red text-white rounded-full shadow-lg shadow-red-600/30 flex items-center justify-center hover:bg-slate-900 transition-colors duration-300">
@@ -177,6 +188,59 @@
         </div>
     </section>
 
+    <section class="py-24 bg-white border-b text-left">
+        <div class="container mx-auto px-6">
+            <h2 class="text-2xl font-black mb-12 uppercase italic text-brand-red">05. Reliability & Certification</h2>
+            
+            <div class="grid lg:grid-cols-2 gap-16">
+                <div>
+                    <h3 class="text-xl font-bold uppercase mb-6 tracking-widest text-slate-900">Product Test</h3>
+                    <div class="space-y-8">
+                        <div class="group relative overflow-hidden rounded-2xl shadow-lg border border-slate-100 aspect-video bg-slate-100">
+                            <img src="test-bench.webp" alt="Bench Testing" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-6">
+                                <p class="text-white font-medium">Critical components validated through bench (rig) testing</p>
+                            </div>
+                        </div>
+
+                        <div class="group relative overflow-hidden rounded-2xl shadow-lg border border-slate-100 aspect-video bg-slate-100">
+                            <img src="test-road.webp" alt="Road Testing" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-6">
+                                <p class="text-white font-medium">Full vehicle validation through road testing</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-xl font-bold uppercase mb-6 tracking-widest text-slate-900">Global Certification</h3>
+                    <p class="text-slate-600 mb-8 leading-relaxed">
+                        Braking system, power battery, and electronic control components certified for mandatory inspection and export compliance.
+                    </p>
+                    
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="bg-white p-2 rounded-lg shadow-sm border border-slate-100 hover:border-brand-red transition-all cursor-zoom-in" onclick="openLightbox('cert-1.webp')">
+                            <img src="cert-1.webp" alt="Compliance Certificate" class="w-full h-auto object-contain rounded">
+                            <p class="text-[10px] text-center mt-2 text-slate-400 font-bold uppercase">Compliance</p>
+                        </div>
+                        <div class="bg-white p-2 rounded-lg shadow-sm border border-slate-100 hover:border-brand-red transition-all cursor-zoom-in" onclick="openLightbox('cert-2.webp')">
+                            <img src="cert-2.webp" alt="CE Certificate" class="w-full h-auto object-contain rounded">
+                            <p class="text-[10px] text-center mt-2 text-slate-400 font-bold uppercase">CE Certificate</p>
+                        </div>
+                        <div class="bg-white p-2 rounded-lg shadow-sm border border-slate-100 hover:border-brand-red transition-all cursor-zoom-in" onclick="openLightbox('cert-3.webp')">
+                            <img src="cert-3.webp" alt="Test Report" class="w-full h-auto object-contain rounded">
+                            <p class="text-[10px] text-center mt-2 text-slate-400 font-bold uppercase">Test Report</p>
+                        </div>
+                        <div class="bg-white p-2 rounded-lg shadow-sm border border-slate-100 hover:border-brand-red transition-all cursor-zoom-in" onclick="openLightbox('cert-4.webp')">
+                            <img src="cert-4.webp" alt="Safe Transport Certificate" class="w-full h-auto object-contain rounded">
+                            <p class="text-[10px] text-center mt-2 text-slate-400 font-bold uppercase">Safe Transport</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section id="partner" class="py-32 bg-slate-50 border-t text-left">
         <div class="container mx-auto px-6">
             <h2 class="text-brand-red text-xs font-black uppercase tracking-[0.6em] mb-6 text-center">Inquiry</h2>
@@ -255,7 +319,7 @@
     <script>
         function toggleMenu() { document.getElementById('mobile-menu').classList.toggle('active'); }
 
-        // 单位同步换算逻辑
+        // Unit Switcher
         function updateAllUnits(system) {
             const kgToLbs = 2.20462;
             const nmToLbFt = 0.73756;
@@ -281,7 +345,7 @@
             }
         }
 
-        // Back to Top Logic
+        // Back to Top
         const backToTopBtn = document.getElementById('back-to-top');
         window.addEventListener('scroll', () => {
             if (window.scrollY > 300) backToTopBtn.classList.add('show');
@@ -289,7 +353,7 @@
         });
         function scrollToTop() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
 
-        // AJAX Form Submission
+        // AJAX Form
         const form = document.getElementById('inquiry-form');
         const overlay = document.getElementById('success-overlay');
         const submitBtn = document.getElementById('submit-btn');
@@ -322,6 +386,19 @@
                 submitBtn.textContent = 'Send Inquiry';
             });
         });
+
+        // Lightbox Functions (Crucial for Certs)
+        function openLightbox(img) { 
+            const lb = document.getElementById('lightbox'); 
+            const lbi = document.getElementById('lightbox-img'); 
+            lbi.src = img; 
+            lb.style.display = 'flex'; 
+            document.body.style.overflow = 'hidden'; 
+        }
+        function closeLightbox() { 
+            document.getElementById('lightbox').style.display = 'none'; 
+            document.body.style.overflow = 'auto'; 
+        }
     </script>
 </body>
 </html>
