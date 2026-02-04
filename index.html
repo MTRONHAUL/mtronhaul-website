@@ -167,22 +167,58 @@
     <section id="features" class="py-32 bg-white text-center">
         <div class="container mx-auto px-6 mb-32">
             <h2 class="text-brand-red text-sm font-bold uppercase tracking-[0.6em] mb-4">The Challenge</h2>
-            <h3 class="text-4xl md:text-5xl font-bold uppercase italic mb-16 text-slate-900">Towing Pain Points</h3>
+            <h3 class="text-4xl md:text-5xl font-bold uppercase italic mb-16 text-slate-900">Industry Challenges</h3>
+            
             <div class="grid md:grid-cols-3 gap-12 text-center">
-                <div class="text-center group p-8 rounded-3xl hover:bg-slate-50 transition-colors duration-300">
-                    <div class="w-20 h-20 bg-red-50 rounded-full flex items-center justify-center mx-auto mb-6 shadow-sm group-hover:bg-brand-red transition-all duration-500"><i class="fas fa-arrows-alt text-3xl text-brand-red group-hover:text-white"></i></div>
-                    <h4 class="font-bold uppercase mb-3 text-sm tracking-widest text-slate-900">Maneuvering Anxiety</h4>
-                    <p class="text-slate-500 text-sm leading-relaxed font-light">Intense reversing challenges and difficulty positioning heavy trailers.</p>
+                <div class="text-center group p-8 rounded-3xl hover:bg-slate-50 transition-colors duration-300 flex flex-col items-center">
+                    <div class="w-20 h-20 bg-red-50 rounded-full flex items-center justify-center mx-auto mb-6 shadow-sm group-hover:bg-brand-red transition-all duration-500">
+                        <i class="fas fa-arrows-alt text-3xl text-brand-red group-hover:text-white"></i>
+                    </div>
+                    <h4 class="font-bold uppercase mb-5 text-sm tracking-widest text-slate-900">Parking & Moving Anxiety</h4>
+                    <ul class="text-slate-500 text-sm leading-relaxed font-light text-left space-y-3 w-full max-w-[280px]">
+                        <li class="flex items-start gap-3">
+                            <span class="text-brand-red mt-0.5">•</span>
+                            <span>Complex reversing and tight-space maneuvering</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-brand-red mt-0.5">•</span>
+                            <span>Limited mobility without a towing vehicle</span>
+                        </li>
+                    </ul>
                 </div>
-                <div class="text-center group p-8 rounded-3xl hover:bg-slate-50 transition-colors duration-300">
-                    <div class="w-20 h-20 bg-red-50 rounded-full flex items-center justify-center mx-auto mb-6 shadow-sm group-hover:bg-brand-red transition-all duration-500"><i class="fas fa-battery-empty text-3xl text-brand-red group-hover:text-white"></i></div>
-                    <h4 class="font-bold uppercase mb-3 text-sm tracking-widest text-slate-900">Energy Limitation</h4>
-                    <p class="text-slate-500 text-sm leading-relaxed font-light">Power strain on towing vehicles and limited off-grid power supply.</p>
+
+                <div class="text-center group p-8 rounded-3xl hover:bg-slate-50 transition-colors duration-300 flex flex-col items-center">
+                    <div class="w-20 h-20 bg-red-50 rounded-full flex items-center justify-center mx-auto mb-6 shadow-sm group-hover:bg-brand-red transition-all duration-500">
+                        <i class="fas fa-battery-empty text-3xl text-brand-red group-hover:text-white"></i>
+                    </div>
+                    <h4 class="font-bold uppercase mb-5 text-sm tracking-widest text-slate-900">Power & Energy Constraints</h4>
+                    <ul class="text-slate-500 text-sm leading-relaxed font-light text-left space-y-3 w-full max-w-[280px]">
+                        <li class="flex items-start gap-3">
+                            <span class="text-brand-red mt-0.5">•</span>
+                            <span>Increased power demand on the tow vehicle during hill climbs</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-brand-red mt-0.5">•</span>
+                            <span>Limited onboard energy supply for RV equipment</span>
+                        </li>
+                    </ul>
                 </div>
-                <div class="text-center group p-8 rounded-3xl hover:bg-slate-50 transition-colors duration-300">
-                    <div class="w-20 h-20 bg-red-50 rounded-full flex items-center justify-center mx-auto mb-6 shadow-sm group-hover:bg-brand-red transition-all duration-500"><i class="fas fa-triangle-exclamation text-3xl text-brand-red group-hover:text-white"></i></div>
-                    <h4 class="font-bold uppercase mb-3 text-sm tracking-widest text-slate-900">Insufficient Active Safety</h4>
-                    <p class="text-slate-500 text-sm leading-relaxed font-light">Swaying on roads and braking lag on high-speed downhill runs.</p>
+
+                <div class="text-center group p-8 rounded-3xl hover:bg-slate-50 transition-colors duration-300 flex flex-col items-center">
+                    <div class="w-20 h-20 bg-red-50 rounded-full flex items-center justify-center mx-auto mb-6 shadow-sm group-hover:bg-brand-red transition-all duration-500">
+                        <i class="fas fa-triangle-exclamation text-3xl text-brand-red group-hover:text-white"></i>
+                    </div>
+                    <h4 class="font-bold uppercase mb-5 text-sm tracking-widest text-slate-900">Safety Limitations</h4>
+                    <ul class="text-slate-500 text-sm leading-relaxed font-light text-left space-y-3 w-full max-w-[280px]">
+                        <li class="flex items-start gap-3">
+                            <span class="text-brand-red mt-0.5">•</span>
+                            <span>Trailer sway and reduced stability on both paved and off-road terrain</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-brand-red mt-0.5">•</span>
+                            <span>Delayed braking response on downhill slopes or at higher speeds</span>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -373,7 +409,7 @@
             fetch("https://submit-form.com/M6WQxT5rn", {
                 method: "POST", headers: { "Content-Type": "application/json", Accept: "application/json" }, body: JSON.stringify(data),
             }).then(res => {
-                if (res.ok) { overlay.style.display = 'flex'; setTimeout(() => { window.location.href = "https://mtronhaul.com"; }, 3000); } 
+                if (res.ok) { overlay.style.display = 'flex'; setTimeout(() => { window.location.href = "index.html"; }, 3000); } 
                 else { alert("Error."); btn.disabled = false; btn.textContent = 'Send Inquiry'; }
             }).catch(() => { btn.disabled = false; btn.textContent = 'Send Inquiry'; });
         });
